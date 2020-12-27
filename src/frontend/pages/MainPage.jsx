@@ -8,7 +8,7 @@ function MainPage({ clickActiveItemsFunc }) {
   };
   return (
     <div className="wrapperMainPage ">
-      <TopSliderWrapper activeItemClick={clickActiveItem} />
+      <TopSliderWrapper />
       <AboutSection activeItemClick={clickActiveItem} />
       <MenuSection />
       <GoogleMap />

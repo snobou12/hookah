@@ -27,7 +27,7 @@ header {
   float: left;
   height: 80px;
 }
-.logo a {
+.logo li {
   display: block;
   margin-left: 15px;
   margin-top: 10px;

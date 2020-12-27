@@ -9,7 +9,7 @@ function Header({ clickActiveItemsFunc, activeItemProp }) {
     { name: 'О НАС', link: 'aboutUs', id: 0 },
     { name: 'МЕНЮ', link: 'menu', id: 1 },
     { name: 'НОВОСТИ', link: 'news', id: 2 },
-    { name: 'ЗАБРОНИРОВАТЬ', link: 'reserve', id: 3 },
+    { name: 'ГАЛЕРЕЯ', link: 'galery', id: 3 },
   ];
 
   const clickActiveItem = (index) => {
@@ -19,11 +19,11 @@ function Header({ clickActiveItemsFunc, activeItemProp }) {
   return (
     <header>
       <div className="logo">
-        <Link to="/">
-          <a onClick={() => clickActiveItem(null)} href="/#">
+        <li onClick={() => clickActiveItem(null)}>
+          <Link to="/">
             <img src={logo} alt="" />
-          </a>
-        </Link>
+          </Link>
+        </li>
       </div>
 
       <div className="top-menu">

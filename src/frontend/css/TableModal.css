@@ -1,0 +1,78 @@
+#btnClose {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  animation: 1s linear 0s normal none running rot;
+  -webkit-animation: 1s linear 0s normal none running rot;
+}
+#transition-modal-title {
+  padding-top: 30px;
+  text-align: center;
+  font-family: 'Roboto Slab', serif;
+}
+
+@keyframes rot {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes rot {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.blockAll {
+  text-align: center;
+}
+
+.blockAll {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto auto;
+  grid-auto-columns: auto;
+
+  background-position: center;
+}
+
+[class^='item'] {
+  min-height: 2.5em;
+  font-size: 33px;
+  line-height: 2.5em;
+  color: #fff;
+  font-family: 'Rubik';
+}
+#checkBox_Confirm {
+  padding-left: 10px;
+}
+
+.btn2 {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+  text-decoration: none;
+  color: purple;
+  background: transparent;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 5px 45px;
+  margin-bottom: 15px;
+
+  cursor: pointer;
+  -webkit-transition: all 200ms ease-out;
+  -moz-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
+  transition: all 200ms ease-out;
+  border: 1px solid purple;
+}
+.btn2:hover {
+  background: purple;
+  color: #090000;
+  border-color: purple;
+}

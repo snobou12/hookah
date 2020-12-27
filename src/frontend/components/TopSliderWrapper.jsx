@@ -3,11 +3,11 @@ import classNames from 'classnames';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { minusCountSlider, plusCountSlider, setSlider } from '../redux/actions/topSlider';
+import { TableModal } from './';
 
 import '../css/TopSliderWrapper.css';
-import { Link } from 'react-router-dom';
 
-function TopSliderWrapper({ activeItemClick }) {
+function TopSliderWrapper() {
   const dispatch = useDispatch();
   const activeImage = useSelector(({ topSlider }) => topSlider.activeItem);
 
@@ -17,10 +17,6 @@ function TopSliderWrapper({ activeItemClick }) {
     } else {
       dispatch(setSlider(0));
     }
-  };
-
-  const clickActiveItem = (index) => {
-    activeItemClick(index);
   };
 
   const clickMinus = (index) => {
@@ -52,11 +48,9 @@ function TopSliderWrapper({ activeItemClick }) {
                   <div className="text">
                     <span className="relative"></span>
                   </div>
-                  <Link to="/reserve">
-                    <a onClick={() => clickActiveItem(3)} className="btn">
-                      Забронировать столик
-                    </a>
-                  </Link>
+
+                  <TableModal />
+
                   <nav onClick={() => clickPlus(1)} id="next-btn">
                     <a className="next-icon"></a>
                   </nav>

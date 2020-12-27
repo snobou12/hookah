@@ -8,10 +8,10 @@ import instagramLogo from '../../assets/image/instagramIcon.png';
 
 function Footer({ clickActiveItemsFunc }) {
   const liItems = [
-    { name: 'О НАС', link: 'aboutUs', id: 0 },
-    { name: 'МЕНЮ', link: 'menu', id: 1 },
+    { name: 'О нас', link: 'aboutUs', id: 0 },
+    { name: 'Меню', link: 'menu', id: 1 },
     { name: 'Новости', link: 'news', id: 2 },
-    { name: 'ЗАБРОНИРОВАТЬ', link: 'reserve', id: 3 },
+    { name: 'Галерея', link: 'galery', id: 3 },
   ];
 
   const clickActiveItem = (index) => {
@@ -24,11 +24,9 @@ function Footer({ clickActiveItemsFunc }) {
         <h2 id="cursiveTextMenu">Основные разделы</h2>
         <div className="footer-links">
           <ul className="menuFooter">
-            <Link to="/">
-              <li onClick={() => clickActiveItem(null)}>
-                <a href="/#">Главная</a>
-              </li>
-            </Link>
+            <li onClick={() => clickActiveItem(null)}>
+              <Link to="/">Главная</Link>
+            </li>
             {liItems.map((obj) => (
               <li onClick={() => clickActiveItem(obj.id)} key={`${obj.name}:${obj.id}`}>
                 <Link key={obj.id} to={`/${obj.link}`}>
@@ -42,32 +40,26 @@ function Footer({ clickActiveItemsFunc }) {
 
       <div className="footer-center">
         <div>
-          <i className="fa fa-map-marker"></i>
+          <h2 id="cursiveTextMenu">Контакты</h2>
 
           <p>
-            <h2 id="cursiveTextContacts">Контакты</h2>
             <span> ул. Промышленная, дом 6, ЦФТ "Нарвский</span> <span>Санкт-Петербург</span>
           </p>
         </div>
 
-        <div>
-          <i className="fa fa-phone"></i>
-          <a id="phoneClass" href="tel:+79119266010">
-            +7 (911) 926-60-10
-          </a>
-        </div>
+        <a id="phoneClass" href="tel:+79119266010">
+          +7 (911) 926-60-10
+        </a>
 
-        <div>
-          <i className="fa fa-envelope"></i>
-          <p>
-            <a href="mailto:support@company.com">test@test.com</a>
-          </p>
-        </div>
+        <i className="fa fa-envelope"></i>
+        <p>
+          <a href="mailto:support@company.com">test@test.com</a>
+        </p>
       </div>
 
       <div className="footer-right">
+        <h2 id="cursiveText">Кальянная</h2>
         <p className="footer-company-about">
-          <h2 id="cursiveText">Кальянная</h2>
           Hookan Launge это lounge bar и ресторан. У нас вы сможете насладиться вкуснейшими
           ароматами дымного кальяна в кругу своих друзей. Мы создали все условия для отличного
           отдыха.

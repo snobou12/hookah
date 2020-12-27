@@ -5,3 +5,4 @@ export { default as TopSliderWrapper } from './TopSliderWrapper';
 export { default as App } from './app/App';
 export { default as MenuSection } from './MenuSection';
 export { default as GoogleMap } from './GoogleMap';
+export { default as TableModal } from './TableModal';

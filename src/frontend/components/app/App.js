@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 import { setMenuItem } from '../../redux/actions/headerMenu';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { AboutUsPage, MainPage, MenuPage, ReservePage, News } from '../../pages';
+import { AboutUsPage, MainPage, MenuPage, GaleryPage, NewsPage } from '../../pages';
 import { Footer, Header } from '../';
 import '../../css/App.css';
 
@@ -39,10 +39,10 @@ function App() {
         </Route>
 
         <Route path="/news" exact>
-          <News />
+          <NewsPage />
         </Route>
-        <Route path="/reserve" exact>
-          <ReservePage />
+        <Route path="/galery" exact>
+          <GaleryPage />
         </Route>
       </div>
       <Footer clickActiveItemsFunc={clickActiveItem} />
