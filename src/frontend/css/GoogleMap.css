@@ -1,0 +1,9 @@
+#map {
+  width: 100%;
+  height: 400px;
+  text-align: center;
+}
+
+#map .textMap {
+  color: red;
+}

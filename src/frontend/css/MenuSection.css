@@ -1,0 +1,43 @@
+.wrapperMenuSection > div {
+  padding: 1em;
+  background-repeat: repeat-x;
+}
+
+.wrapperMenuSection > div.grid-item-c {
+  padding: 0.5em;
+  font-size: 20px;
+}
+
+.wrapperAboutMenu {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto auto;
+  grid-auto-columns: auto;
+  background-image: url(../../assets/image/aboutBackground2.png);
+  background-color: #1f0324;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+[class^='grid-item'] {
+  min-height: 2.5em;
+  font-size: 33px;
+  line-height: 2.5em;
+  color: #fff;
+  font-family: 'Rubik';
+}
+
+.grid-item-aMenu {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  text-align: center;
+}
+
+.grid-item-bMenu {
+  text-align: center;
+}
+.grid-item-cMenu {
+  text-align: center;
+}

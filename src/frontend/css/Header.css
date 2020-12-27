@@ -1,0 +1,154 @@
+/* * 
+body {
+  background-image: url('../../assets/image/snow.jpg');
+}
+#block-body {
+  width: 1035px;
+  margin: 5px auto;
+  height: auto;
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background-image: url('../../assets/image/snow.jpg');
+  z-index: 300;
+}
+
+.logo {
+  width: 200px;
+  float: left;
+  height: 80px;
+}
+.logo a {
+  display: block;
+  margin-left: 15px;
+  margin-top: 10px;
+  font-family: 'Exo2-Bold', sans-serif;
+  font-size: 28px;
+  color: #b2aeb2;
+  text-decoration: none;
+  cursor: pointer;
+}
+.use {
+  color: #aa064b;
+}
+.web {
+  color: #429595;
+}
+.logo p {
+  margin-left: 20px;
+  margin-top: 2px;
+  margin-bottom: 5px;
+  font-family: 'Exo2-Medium', sans-serif;
+  font-size: 13px;
+  color: white;
+}
+.top-menu {
+  width: 1000px;
+  height: 80px;
+  float: left;
+  padding-top: 5px;
+}
+.top-menu ul li {
+  list-style: none;
+  float: left;
+  text-align: center;
+  padding-left: 20px;
+}
+.top-menu ul li a {
+  display: block;
+  width: 171px;
+  text-decoration: none;
+  font-family: 'Exo2-Medium', sans-serif;
+  font-size: 17px;
+  color: white;
+  height: 55px;
+  padding-top: 25px;
+  cursor: pointer;
+}
+/* .top-menu ul li a:hover {
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  background: #00ade4;
+} */
+.block-top-info {
+  width: 400 px;
+  float: right;
+  padding-right: 50px;
+  height: 80px;
+}
+.block-top-info p {
+  text-align: center;
+  margin-bottom: -10px;
+  padding-top: 5px;
+}
+.block-top-info a {
+  text-decoration: none;
+  color: white;
+  font-family: 'Exo2-Medium', sans-serif;
+  font-size: 14px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+header .block-top-info .numberClass {
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.block-top-info a:hover {
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  color: red;
+}
+
+#classAdress {
+  line-height: 0.1ch;
+}
+
+.top-menu ul li a {
+  text-decoration: none;
+  font-size: 1em;
+  position: relative;
+  font-family: 'Roboto Slab', serif;
+  color: white;
+  transition: all 0.6s;
+}
+
+.top-menu ul li a:before {
+  content: '';
+  width: 0;
+  height: 0.1em;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  background: red;
+  transition: all 0.3s;
+}
+
+.top-menu ul li a:hover:before {
+  width: 100%;
+  left: 0;
+  background: red;
+}
+
+.top-menu ul li a:hover {
+  color: #aa064b;
+}
+
+.top-menu .active a {
+  color: red;
+}
