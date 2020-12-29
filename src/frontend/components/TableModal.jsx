@@ -234,7 +234,7 @@ function TableModal({ kind, kindInfo }) {
               id="btnClose"
               onClick={handleClose}
               src={closeIconModal}
-              alt=""  
+              alt=""
             />
             <h2 id="transition-modal-title">{kindInfo}</h2>
             <form className={classes.root} noValidate>
@@ -303,7 +303,7 @@ function TableModal({ kind, kindInfo }) {
               </div>
               <div id="checkBox_Confirm">
                 <div id="checkBox">
-                  <GreenCheckbox onClick={checkC  hanger} checked={check} />
+                  <GreenCheckbox onClick={checkChanger} checked={check} />
                   Согласен на обработку персональных данных *
                 </div>
                 <button onClick={confirmClick} className="btn2">
