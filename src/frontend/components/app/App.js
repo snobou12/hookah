@@ -5,7 +5,7 @@ import { setMenuItem } from '../../redux/actions/headerMenu';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { AboutUsPage, MainPage, MenuPage, GaleryPage, NewsPage } from '../../pages';
-import { Footer, Header } from '../';
+import { Footer, Header, YandexMap } from '../';
 import '../../css/App.css';
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
 
   return (
     <div className="main-wrapper">
-      <Header activeItemProp={activeItem} clickActiveItemsFunc={clickActiveItem} />
+      <Header activeItemProp={activeItem} />
       <div className="contentPage">
         <Route path="/" exact>
           <MainPage clickActiveItemsFunc={clickActiveItem} />
@@ -41,10 +41,8 @@ function App() {
         <Route path="/news" exact>
           <NewsPage />
         </Route>
-        <Route path="/galery" exact>
-          <GaleryPage />
-        </Route>
       </div>
+      <YandexMap />
       <Footer clickActiveItemsFunc={clickActiveItem} />
     </div>
   );

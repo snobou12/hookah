@@ -49,8 +49,11 @@ function TopSliderWrapper() {
                     <span className="relative"></span>
                   </div>
 
-                  <TableModal />
-
+                  <TableModal kindInfo={'Бронирование столика'} kind={'ЗАБРОНИРОВАТЬ СТОЛ'} />
+                  <TableModal
+                    kindInfo={'Бронирование мероприятия'}
+                    kind={'ЗАБРОНИРОВАТЬ МЕРОПРИЯТИЕ'}
+                  />
                   <nav onClick={() => clickPlus(1)} id="next-btn">
                     <a className="next-icon"></a>
                   </nav>

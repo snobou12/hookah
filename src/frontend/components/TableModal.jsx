@@ -11,6 +11,9 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 
+import { useDispatch } from 'react-redux';
+import { setInfoTable, setInfoEvent } from '../redux/actions/tableReserve';
+
 import { withStyles } from '@material-ui/core/styles';
 
 import TextField from '@material-ui/core/TextField';
@@ -32,6 +35,8 @@ let yyyy = today.getFullYear();
 today = dd + '/' + mm + '/' + yyyy;
 let today2 = dd2 + '/' + mm + '/' + yyyy;
 let today3 = dd3 + '/' + mm + '/' + yyyy;
+
+let re = new RegExp('^.*[^A-zА-яЁё].*$');
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -98,7 +103,9 @@ const CssTextField = withStyles({
   },
 })(TextField);
 
-function TableModal() {
+function TableModal({ kind, kindInfo }) {
+  const dispatch = useDispatch();
+
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [data, setData] = React.useState('');
@@ -106,6 +113,10 @@ function TableModal() {
   const [phone, setPhone] = React.useState('');
   const [name, setName] = React.useState('');
   const [check, setCheck] = React.useState(false);
+  const [checkName, setCheckName] = React.useState(false);
+  const [labelName, setLabelName] = React.useState('Ваше имя');
+  const [checkPhone, setCheckPhone] = React.useState(false);
+  const [labelPhone, setLabelPhone] = React.useState('Ваш телефон');
 
   const handleOpen = () => {
     setOpen(true);
@@ -113,10 +124,24 @@ function TableModal() {
 
   const handleClose = () => {
     setOpen(false);
-    setData('');
+    setData('0');
     setPhone('');
     setName('');
-    setTime('');
+    setLabelPhone('Ваш телефон');
+    setLabelName('Ваше имя');
+    setTime('17');
+    setCheck(false);
+  };
+
+  const delAllInfo = (evt) => {
+    evt.preventDefault();
+    setPhone('');
+    setLabelPhone('Ваш телефон');
+
+    setName('');
+    setLabelName('Ваше имя');
+
+    setCheck(false);
   };
 
   const handleChangeDate = (event) => {
@@ -129,22 +154,55 @@ function TableModal() {
 
   const handleChangePhone = (event) => {
     setPhone(event.target.value);
+    if (phone.length < 11) {
+      setLabelPhone('Неверный номер');
+      setCheckPhone(false);
+    } else {
+      setLabelPhone('Ваш телефон');
+      setCheckPhone(true);
+    }
   };
 
   const handleChangeName = (event) => {
     setName(event.target.value);
+    if (re.test(event.target.value)) {
+      setLabelName('Имя только из букв');
+      setCheckName(false);
+    } else {
+      setLabelName('Ваше имя');
+      setCheckName(true);
+    }
   };
 
   const checkChanger = () => {
     setCheck(!check);
   };
   const confirmClick = (event) => {
-    console.log(check);
-    if (data === '' || time === '' || phone === '' || name === '' || !check) {
+    if (
+      data === '' ||
+      time === '' ||
+      phone === '' ||
+      name === '' ||
+      !check ||
+      !checkName ||
+      !checkPhone
+    ) {
       alert('Введите все данные');
       event.preventDefault();
     } else {
-      //Сервер
+      event.preventDefault();
+      const info = {
+        nameInfo: name,
+        numInfo: phone,
+        dataInfo: data,
+        timeInfo: time,
+        typeInfo: kindInfo,
+      };
+      if (kind === 'ЗАБРОНИРОВАТЬ СТОЛ') {
+        dispatch(setInfoTable(info));
+      } else {
+        dispatch(setInfoEvent(info));
+      }
     }
   };
 
@@ -152,7 +210,7 @@ function TableModal() {
     <div>
       <a className="btn" onClick={handleOpen}>
         {' '}
-        Забронировать стол{' '}
+        {kind}{' '}
       </a>
       <Modal
         aria-labelledby="transition-modal-title"
@@ -176,9 +234,9 @@ function TableModal() {
               id="btnClose"
               onClick={handleClose}
               src={closeIconModal}
-              alt=""
+              alt=""  
             />
-            <h2 id="transition-modal-title">Бронирование столика</h2>
+            <h2 id="transition-modal-title">{kindInfo}</h2>
             <form className={classes.root} noValidate>
               <div className="blockAll">
                 <div className="item">
@@ -186,7 +244,7 @@ function TableModal() {
                     required
                     className={classes.margin}
                     id="custom-css-standard-input"
-                    label="Ваше имя"
+                    label={labelName}
                     onChange={handleChangeName}
                     value={name}
                   />
@@ -195,7 +253,7 @@ function TableModal() {
                   <CssTextField
                     required
                     className={classes.margin}
-                    label="Ваш телефон"
+                    label={labelPhone}
                     id="custom-css-standard-input"
                     value={isNaN(phone) ? '' : phone}
                     onChange={handleChangePhone}
@@ -245,14 +303,17 @@ function TableModal() {
               </div>
               <div id="checkBox_Confirm">
                 <div id="checkBox">
-                  <GreenCheckbox onClick={checkChanger} checked={check} name="checkedG" />
+                  <GreenCheckbox onClick={checkC  hanger} checked={check} />
                   Согласен на обработку персональных данных *
                 </div>
-
                 <button onClick={confirmClick} className="btn2">
                   Отправить
                 </button>
+                <button onClick={delAllInfo} className="btn2">
+                  Очиститить данные
+                </button>
               </div>
+              <div className="priceInfo">Все цены в разделе меню *</div>
             </form>
           </div>
         </Fade>

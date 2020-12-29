@@ -6,7 +6,7 @@
   -webkit-animation: 1s linear 0s normal none running rot;
 }
 #transition-modal-title {
-  padding-top: 30px;
+  padding-top: 25px;
   text-align: center;
   font-family: 'Roboto Slab', serif;
 }
@@ -54,7 +54,8 @@
 
 .btn2 {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
+  margin-left: 10px;
+  margin-top: 10px;
   text-decoration: none;
   color: purple;
   background: transparent;
@@ -75,4 +76,9 @@
   background: purple;
   color: #090000;
   border-color: purple;
+}
+
+.priceInfo {
+  text-align: left;
+  color: grey;
 }

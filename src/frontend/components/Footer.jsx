@@ -6,17 +6,12 @@ import vkLogo from '../../assets/image/vkIcon.png';
 import yandexLogo from '../../assets/image/yandexLogo.png';
 import instagramLogo from '../../assets/image/instagramIcon.png';
 
-function Footer({ clickActiveItemsFunc }) {
+function Footer() {
   const liItems = [
     { name: 'О нас', link: 'aboutUs', id: 0 },
     { name: 'Меню', link: 'menu', id: 1 },
     { name: 'Новости', link: 'news', id: 2 },
-    { name: 'Галерея', link: 'galery', id: 3 },
   ];
-
-  const clickActiveItem = (index) => {
-    clickActiveItemsFunc(index);
-  };
 
   return (
     <footer className="footer-distributed">
@@ -24,11 +19,11 @@ function Footer({ clickActiveItemsFunc }) {
         <h2 id="cursiveTextMenu">Основные разделы</h2>
         <div className="footer-links">
           <ul className="menuFooter">
-            <li onClick={() => clickActiveItem(null)}>
+            <li>
               <Link to="/">Главная</Link>
             </li>
             {liItems.map((obj) => (
-              <li onClick={() => clickActiveItem(obj.id)} key={`${obj.name}:${obj.id}`}>
+              <li key={`${obj.name}:${obj.id}`}>
                 <Link key={obj.id} to={`/${obj.link}`}>
                   {obj.name}
                 </Link>

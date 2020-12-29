@@ -116,13 +116,3 @@ hr.short {
   -moz-transition: all 0.5s ease;
   color: #f02c7b;
 }
-
-hr.short {
-  width: 100px;
-  border-top: 2px solid #f02c7b;
-
-  position: absolute;
-  left: 50%;
-
-  margin: 0 0 0 -50px;
-}

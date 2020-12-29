@@ -7,10 +7,7 @@ import aboutSectionImg3 from '../../assets/image/aboutSectionImg3.jpg';
 
 import 'react-fancybox/lib/fancybox.css';
 
-function AboutSection({ activeItemClick }) {
-  const clickActiveItem = (index) => {
-    activeItemClick(index);
-  };
+function AboutSection() {
   return (
     <div className="wrapper">
       <div className="modalImage"></div>
@@ -44,9 +41,7 @@ function AboutSection({ activeItemClick }) {
           </div>
           <div className="btnDetail">
             <Link to="/aboutUs">
-              <button onClick={() => clickActiveItem(0)} className="btn1">
-                Подробнее
-              </button>
+              <button className="btn1">Подробнее</button>
             </Link>
           </div>
         </div>

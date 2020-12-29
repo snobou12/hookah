@@ -3,23 +3,24 @@ import { Link } from 'react-router-dom';
 import '../css/Header.css';
 import logo from '../../assets/image/logo.png';
 import { withRouter } from 'react-router-dom';
+import { setMenuItem } from '../redux/actions/headerMenu';
+import { useDispatch } from 'react-redux';
 
-function Header({ clickActiveItemsFunc, activeItemProp }) {
+function Header({ activeItemProp }) {
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    dispatch(setMenuItem(null));
+  }, []);
   const liItems = [
     { name: 'О НАС', link: 'aboutUs', id: 0 },
     { name: 'МЕНЮ', link: 'menu', id: 1 },
     { name: 'НОВОСТИ', link: 'news', id: 2 },
-    { name: 'ГАЛЕРЕЯ', link: 'galery', id: 3 },
   ];
-
-  const clickActiveItem = (index) => {
-    clickActiveItemsFunc(index);
-  };
 
   return (
     <header>
       <div className="logo">
-        <li onClick={() => clickActiveItem(null)}>
+        <li>
           <Link to="/">
             <img src={logo} alt="" />
           </Link>
@@ -29,10 +30,7 @@ function Header({ clickActiveItemsFunc, activeItemProp }) {
       <div className="top-menu">
         <ul>
           {liItems.map((obj) => (
-            <li
-              className={activeItemProp == obj.id ? 'active' : ''}
-              onClick={() => clickActiveItem(obj.id)}
-              key={`${obj.name}:${obj.id}`}>
+            <li className={activeItemProp == obj.id ? 'active' : ''} key={`${obj.name}:${obj.id}`}>
               <Link key={obj.id} to={`/${obj.link}`}>
                 {obj.name}{' '}
               </Link>

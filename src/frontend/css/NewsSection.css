@@ -1,0 +1,161 @@
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 100px;
+  padding-top: 50px;
+  background-position: top right;
+}
+.containerNews {
+  background-color: #230329;
+
+  background-image: url(../../assets/image/dark-leather.png);
+  font-size: 33px;
+  color: white;
+  font-family: 'Rubik';
+}
+.hrContent {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.itemNew {
+  height: 400px;
+
+  background-color: 1f0324;
+  width: 30%;
+  margin: 0 0 20px;
+}
+.itemNew img {
+  height: 350px;
+  width: 100%;
+}
+.itemNew:nth-child(3n-1) {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+button {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+
+  font-size: 15px;
+  font-family: 'Rubik';
+}
+.btnBlock {
+  text-align: center;
+}
+button.learn-more {
+  width: 12rem;
+  height: auto;
+}
+button.learn-more .circle {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: relative;
+  margin: 0;
+  width: 3rem;
+  height: 3rem;
+  background: #450147;
+  border-radius: 1.625rem;
+}
+button.learn-more .circle .icon {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: #fff;
+}
+button.learn-more .circle .icon.arrow {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  left: 0.625rem;
+  width: 1.125rem;
+  height: 0.125rem;
+  background: none;
+}
+button.learn-more .circle .icon.arrow::before {
+  position: absolute;
+  content: '';
+  top: -0.25rem;
+  right: 0.0625rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-top: 0.125rem solid #fff;
+  border-right: 0.125rem solid #fff;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+button.learn-more .button-text {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  left: 10px;
+  right: 0;
+  bottom: 0;
+  padding: 0.75rem 0;
+  margin: 0 0 0 1.85rem;
+  color: #8d8d8d;
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: center;
+  text-transform: uppercase;
+}
+button:hover .circle {
+  width: 100%;
+}
+button:hover .circle .icon.arrow {
+  background: #fff;
+  -webkit-transform: translate(1rem, 0);
+  transform: translate(1rem, 0);
+}
+button:hover .button-text {
+  color: #fff;
+}
+
+.holder {
+  position: relative;
+}
+.block {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #230127;
+  background-image: url(../../assets/image/dark-leather.png);
+  background-position: center;
+  padding: 10px;
+  display: none;
+  font-size: 20px;
+  font-family: 'Rubik';
+  text-align: center;
+  color: white;
+  line-height: 40px;
+}
+
+.holder:hover .block {
+  display: block;
+}
+.fade {
+  -webkit-animation: fade 5s;
+  animation: fade 5s;
+  -moz-animation: fade 5s;
+  -o-animation: fade 5s;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

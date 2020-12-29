@@ -1,17 +1,19 @@
 import React from 'react';
+import { setMenuItem } from '../redux/actions/headerMenu';
+import { useDispatch, useSelector } from 'react-redux';
+import { TopSliderWrapper, AboutSection, MenuSection, NewsSection } from '../components';
 
-import { TopSliderWrapper, AboutSection, MenuSection, GoogleMap } from '../components';
-
-function MainPage({ clickActiveItemsFunc }) {
-  const clickActiveItem = (index) => {
-    clickActiveItemsFunc(index);
-  };
+function MainPage() {
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    dispatch(setMenuItem(null));
+  }, []);
   return (
     <div className="wrapperMainPage ">
       <TopSliderWrapper />
-      <AboutSection activeItemClick={clickActiveItem} />
+      <AboutSection />
+      <NewsSection />
       <MenuSection />
-      <GoogleMap />
     </div>
   );
 }
