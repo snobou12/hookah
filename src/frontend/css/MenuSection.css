@@ -1,15 +1,29 @@
-.wrapperMenuSection > div {
-  padding: 1em;
-  background-repeat: repeat-x;
-}
-.wrapperMenuSection > div {
-  background-color: #1b061f;
-
+.menu-section-wrapper {
+  background-color: #210027;
+  background-image: url(../../assets/image/aboutBackground2.png);
   background-repeat: no-repeat;
   background-position: center;
 }
-.hrContentGalery {
-  text-align: center;
-  color: white;
-  font-size: 33px;
+
+@media screen and (max-width: 670px) {
+  .menu-section-wrapper img {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 465px) {
+  .menu-section-wrapper img {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 358px) {
+  .menu-section-wrapper img {
+    width: 200px;
+  }
+}
+@media screen and (max-width: 336px) {
+  .menu-section-wrapper img {
+    width: 50px;
+  }
 }

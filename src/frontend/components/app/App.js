@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AboutUsPage, MainPage, MenuPage, GaleryPage, NewsPage } from '../../pages';
 import { Footer, Header, YandexMap } from '../';
 import '../../css/App.css';
+import TopSliderWrapper from '../TopSliderWrapper';
+import AboutSection from '../AboutSection';
 
 function App() {
   const dispatch = useDispatch();
@@ -19,16 +21,15 @@ function App() {
       left: 0,
       behavior: 'smooth',
     });
-    dispatch(setMenuItem(index));
-    console.log('click');
   };
 
   return (
     <div className="main-wrapper">
-      <Header activeItemProp={activeItem} />
+      <Header clickSmooth={clickActiveItem} activeItemProp={activeItem} />
+
       <div className="contentPage">
         <Route path="/" exact>
-          <MainPage clickActiveItemsFunc={clickActiveItem} />
+          <MainPage />
         </Route>
         <Route path="/aboutUs" exact>
           <AboutUsPage />
@@ -43,7 +44,7 @@ function App() {
         </Route>
       </div>
       <YandexMap />
-      <Footer clickActiveItemsFunc={clickActiveItem} />
+      <Footer clickSmooth={clickActiveItem} />
     </div>
   );
 }

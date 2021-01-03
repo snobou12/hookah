@@ -12,8 +12,8 @@ function MainPage() {
     <div className="wrapperMainPage ">
       <TopSliderWrapper />
       <AboutSection />
-      <NewsSection />
       <MenuSection />
+      <NewsSection />
     </div>
   );
 }

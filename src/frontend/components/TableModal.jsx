@@ -2,7 +2,7 @@ import React from 'react';
 
 import closeIconModal from '../../assets/image/closeDoteModal.png';
 import backGImage from '../../assets/image/dark-leather.png';
-
+import { Link } from 'react-router-dom';
 import { purple } from '@material-ui/core/colors';
 
 import Checkbox from '@material-ui/core/Checkbox';
@@ -53,6 +53,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(0, 0, 0),
     width: '530px',
     height: '380px',
+    ['@media (max-width:767px)']: { height: '480px' },
   },
   imgClose: {
     float: 'right',
@@ -153,7 +154,10 @@ function TableModal({ kind, kindInfo }) {
   };
 
   const handleChangePhone = (event) => {
-    setPhone(event.target.value);
+    if (!isNaN(event.target.value) && event.target.value.length < 11) {
+      setPhone(event.target.value);
+    }
+
     if (phone.length < 11) {
       setLabelPhone('Неверный номер');
       setCheckPhone(false);
@@ -208,7 +212,7 @@ function TableModal({ kind, kindInfo }) {
 
   return (
     <div>
-      <a className="btn" onClick={handleOpen}>
+      <a className="btnMy" onClick={handleOpen}>
         {' '}
         {kind}{' '}
       </a>
@@ -236,7 +240,7 @@ function TableModal({ kind, kindInfo }) {
               src={closeIconModal}
               alt=""
             />
-            <h2 id="transition-modal-title">{kindInfo}</h2>
+            <h2 id="transition-modal-title">Забронировать {kindInfo}</h2>
             <form className={classes.root} noValidate>
               <div className="blockAll">
                 <div className="item">
@@ -255,12 +259,8 @@ function TableModal({ kind, kindInfo }) {
                     className={classes.margin}
                     label={labelPhone}
                     id="custom-css-standard-input"
-                    value={isNaN(phone) ? '' : phone}
+                    value={phone}
                     onChange={handleChangePhone}
-                    onInput={(e) => {
-                      e.target.value =
-                        '+' + Math.max(0, parseInt(e.target.value)).toString().slice(0, 11);
-                    }}
                   />
                 </div>
                 <div className="item">
@@ -313,7 +313,9 @@ function TableModal({ kind, kindInfo }) {
                   Очиститить данные
                 </button>
               </div>
-              <div className="priceInfo">Все цены в разделе меню *</div>
+              <Link to="/menu">
+                <div className="priceInfo">Все цены в разделе меню *</div>
+              </Link>
             </form>
           </div>
         </Fade>

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/pageCss/AboutUsPage.css';
+
 import { setMenuItem } from '../redux/actions/headerMenu';
 import { useDispatch } from 'react-redux';
 function AboutUsPage() {

@@ -82,3 +82,45 @@
   text-align: left;
   color: grey;
 }
+
+.priceInfo:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.btnMy {
+  display: inline-block;
+  text-decoration: none;
+  color: #ffffff;
+  background: transparent;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 16px 35px;
+  margin-bottom: 5px;
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: all 200ms ease-out;
+  -moz-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
+  transition: all 200ms ease-out;
+  border: 1px solid #ffffff;
+}
+.btnMy:hover {
+  background: #ffffff;
+  color: #090000;
+  border-color: #ffffff;
+}
+.btnMy.block {
+  display: block;
+  width: 100%;
+}
+
+/* next prev dots*/
+
+@media screen and (max-width: 767px) {
+  .makeStyles-paper-51 {
+    height: 480px;
+  }
+}
