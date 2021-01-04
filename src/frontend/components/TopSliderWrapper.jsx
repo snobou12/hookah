@@ -14,22 +14,34 @@ function TopSliderWrapper() {
         <Carousel.Item>
           <img className="d-block w-100 " src={sliderImg1} alt="" />
           <Carousel.Caption>
-            <TableModal kind="ЗАБРОНИРОВАТЬ СТОЛ" kindInfo="столик" />
-            <TableModal kind="ЗАБРОНИРОВАТЬ МЕРОПРИЯТИЕ" kindInfo="мероприятие" />
+            <div className="tableModals">
+              <div className="tableModal">
+                <TableModal />
+              </div>
+              <div className="tableModal">{/* <EventModal /> */}</div>
+            </div>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img className="d-block w-100" src={sliderImg2} alt="" />
           <Carousel.Caption>
-            <TableModal kind="ЗАБРОНИРОВАТЬ СТОЛ" kindInfo="столик" />
-            <TableModal kind="ЗАБРОНИРОВАТЬ МЕРОПРИЯТИЕ" kindInfo="мероприятие" />
+            <div className="tableModals">
+              <div className="tableModal">
+                <TableModal />
+              </div>
+              <div className="tableModal">{/* <EventModal /> */}</div>
+            </div>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img className="d-block w-100" src={sliderImg3} alt="" />
           <Carousel.Caption>
-            <TableModal kind="ЗАБРОНИРОВАТЬ СТОЛ" kindInfo="столик" />
-            <TableModal kind="ЗАБРОНИРОВАТЬ МЕРОПРИЯТИЕ" kindInfo="мероприятие" />
+            <div className="tableModals">
+              <div className="tableModal">
+                <TableModal />
+              </div>
+              <div className="tableModal">{/* <EventModal /> */}</div>
+            </div>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>

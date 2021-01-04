@@ -10,8 +10,8 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-
-import { useDispatch } from 'react-redux';
+import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
 import { setInfoTable, setInfoEvent } from '../redux/actions/tableReserve';
 
 import { withStyles } from '@material-ui/core/styles';
@@ -25,16 +25,6 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
 import '../css/TableModal.css';
-let today = new Date();
-
-let dd = String(today.getDate()).padStart(2, '0');
-let dd2 = Number(dd) + 1;
-let dd3 = Number(dd) + 2;
-let mm = String(today.getMonth() + 1).padStart(2, '0');
-let yyyy = today.getFullYear();
-today = dd + '/' + mm + '/' + yyyy;
-let today2 = dd2 + '/' + mm + '/' + yyyy;
-let today3 = dd3 + '/' + mm + '/' + yyyy;
 
 let re = new RegExp('^.*[^A-zА-яЁё].*$');
 
@@ -46,13 +36,14 @@ const useStyles = makeStyles((theme) => ({
     color: 'black',
   },
   paper: {
+    borderRadius: '10px',
     backgroundImage: `url(${backGImage})`,
     backgroundColor: 'white',
     border: '2px solid #000',
     boxShadow: theme.shadows[0],
     padding: theme.spacing(0, 0, 0),
     width: '530px',
-    height: '380px',
+    height: '680px',
     ['@media (max-width:767px)']: { height: '480px' },
   },
   imgClose: {
@@ -104,15 +95,20 @@ const CssTextField = withStyles({
   },
 })(TextField);
 
-function TableModal({ kind, kindInfo }) {
+function TableModal() {
   const dispatch = useDispatch();
 
+  const arrData = useSelector(({ nowData }) => nowData.data);
+  const arrTime = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00', '00:00'];
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  const [data, setData] = React.useState('');
-  const [time, setTime] = React.useState('');
-  const [phone, setPhone] = React.useState('');
+  const [oopsOpen, setOopsOpen] = React.useState(false);
   const [name, setName] = React.useState('');
+  const [phone, setPhone] = React.useState('');
+  const [data, setData] = React.useState('0');
+  const [time, setTime] = React.useState('17');
+  const [comment, setComment] = React.useState('');
+  const [count, setCount] = React.useState('');
   const [check, setCheck] = React.useState(false);
   const [checkName, setCheckName] = React.useState(false);
   const [labelName, setLabelName] = React.useState('Ваше имя');
@@ -125,28 +121,20 @@ function TableModal({ kind, kindInfo }) {
 
   const handleClose = () => {
     setOpen(false);
-    setData('0');
-    setPhone('');
-    setName('');
-    setLabelPhone('Ваш телефон');
-    setLabelName('Ваше имя');
-    setTime('17');
-    setCheck(false);
   };
-
-  const delAllInfo = (evt) => {
-    evt.preventDefault();
-    setPhone('');
-    setLabelPhone('Ваш телефон');
-
-    setName('');
-    setLabelName('Ваше имя');
-
-    setCheck(false);
+  const handleCloseOops = () => {
+    setOopsOpen(false);
   };
 
   const handleChangeDate = (event) => {
     setData(event.target.value);
+  };
+
+  const handleChangeComment = (event) => {
+    setComment(event.target.value);
+  };
+  const handleChangeCount = (event) => {
+    setCount(event.target.value);
   };
 
   const handleChangeTime = (event) => {
@@ -187,35 +175,70 @@ function TableModal({ kind, kindInfo }) {
       time === '' ||
       phone === '' ||
       name === '' ||
+      count === '' ||
       !check ||
-      !checkName ||
-      !checkPhone
+      !checkName
+      //  ||
+      // !checkPhone
     ) {
       alert('Введите все данные');
       event.preventDefault();
     } else {
       event.preventDefault();
-      const info = {
+      let info = JSON.stringify({
         nameInfo: name,
         numInfo: phone,
         dataInfo: data,
         timeInfo: time,
-        typeInfo: kindInfo,
-      };
-      if (kind === 'ЗАБРОНИРОВАТЬ СТОЛ') {
-        dispatch(setInfoTable(info));
-      } else {
-        dispatch(setInfoEvent(info));
-      }
+        countInfo: count,
+        commentInfo: comment,
+      });
+
+      axios
+        .post('http://localhost:8080/api/create', info, {
+          headers: { 'Content-Type': 'application/json' },
+        })
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
   };
 
   return (
     <div>
       <a className="btnMy" onClick={handleOpen}>
-        {' '}
-        {kind}{' '}
+        ЗАБРОНИРОВАТЬ СТОЛ
       </a>
+
+      <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        className={classes.modal}
+        open={oopsOpen}
+        onClose={handleCloseOops}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}>
+        <Fade in={oopsOpen}>
+          <div className={classes.paper}>
+            {/* <img
+              className={classes.imgClose}
+              id="btnClose"
+              onClick={handleCloseOops}
+              src={closeIconModal}
+              alt=""
+            /> */}
+            <h2 id="tableNotAvailable">Столов больше нет</h2>
+            <div id="tableNotAvailableText">Заходите позже!</div>
+          </div>
+        </Fade>
+      </Modal>
+
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -233,14 +256,14 @@ function TableModal({ kind, kindInfo }) {
               {' '}
               <img id="btnClose" onClick={handleClose} src={closeIconModal} alt="" />{' '}
             </Button> */}{' '}
-            <img
+            {/* <img
               className={classes.imgClose}
               id="btnClose"
               onClick={handleClose}
               src={closeIconModal}
               alt=""
-            />
-            <h2 id="transition-modal-title">Забронировать {kindInfo}</h2>
+            /> */}
+            <h2 id="transition-modal-title">Забронировать столик</h2>
             <form className={classes.root} noValidate>
               <div className="blockAll">
                 <div className="item">
@@ -272,9 +295,8 @@ function TableModal({ kind, kindInfo }) {
                       id="demo-simple-select"
                       value={data}
                       onChange={handleChangeDate}>
-                      <MenuItem value={0}> {today}</MenuItem>
-                      <MenuItem value={1}>{today2}</MenuItem>
-                      <MenuItem value={2}>{today3}</MenuItem>
+                      {arrData &&
+                        arrData.map((value, index) => <MenuItem value={index}>{value}</MenuItem>)}
                     </Select>
                   </FormControl>
                 </div>
@@ -287,18 +309,32 @@ function TableModal({ kind, kindInfo }) {
                       id="demo-simple-select"
                       value={time}
                       onChange={handleChangeTime}>
-                      <MenuItem value={0}>00:00</MenuItem>
-                      <MenuItem value={1}>01:00</MenuItem>
-                      <MenuItem value={2}>02:00</MenuItem>
-                      <MenuItem value={17}>17:00</MenuItem>
-                      <MenuItem value={18}>18:00</MenuItem>
-                      <MenuItem value={19}>19:00</MenuItem>
-                      <MenuItem value={20}>20:00</MenuItem>
-                      <MenuItem value={21}>21:00</MenuItem>
-                      <MenuItem value={22}>22:00</MenuItem>
-                      <MenuItem value={23}>23:00</MenuItem>
+                      {arrTime &&
+                        arrTime.map((value, index) => (
+                          <MenuItem value={index + 17}>{value}</MenuItem>
+                        ))}
                     </Select>
                   </FormControl>
+                </div>
+                <div className="item">
+                  <CssTextField
+                    required
+                    className={classes.margin}
+                    id="custom-css-standard-input"
+                    label="Человек"
+                    onChange={handleChangeCount}
+                    value={count}
+                  />
+                </div>
+                <div className="item">
+                  <CssTextField
+                    required
+                    className={classes.margin}
+                    id="custom-css-standard-input"
+                    label="Пожелания"
+                    onChange={handleChangeComment}
+                    value={comment}
+                  />
                 </div>
               </div>
               <div id="checkBox_Confirm">
@@ -306,16 +342,15 @@ function TableModal({ kind, kindInfo }) {
                   <GreenCheckbox onClick={checkChanger} checked={check} />
                   Согласен на обработку персональных данных *
                 </div>
+              </div>
+              <div className="btn_priceInfo">
                 <button onClick={confirmClick} className="btn2">
                   Отправить
                 </button>
-                <button onClick={delAllInfo} className="btn2">
-                  Очиститить данные
-                </button>
+                <Link to="/menu">
+                  <div className="priceInfo">Все цены в разделе меню *</div>
+                </Link>
               </div>
-              <Link to="/menu">
-                <div className="priceInfo">Все цены в разделе меню *</div>
-              </Link>
             </form>
           </div>
         </Fade>

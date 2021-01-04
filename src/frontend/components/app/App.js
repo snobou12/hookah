@@ -1,27 +1,36 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import { setMenuItem } from '../../redux/actions/headerMenu';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { setNowData } from '../../redux/actions/nowData';
 
-import { AboutUsPage, MainPage, MenuPage, GaleryPage, NewsPage } from '../../pages';
+import { AboutUsPage, MainPage, MenuPage, NewsPage } from '../../pages';
 import { Footer, Header, YandexMap } from '../';
 import '../../css/App.css';
-import TopSliderWrapper from '../TopSliderWrapper';
-import AboutSection from '../AboutSection';
 
 function App() {
   const dispatch = useDispatch();
-
   const activeItem = useSelector(({ headerMenu }) => headerMenu.activeItem);
 
-  const clickActiveItem = (index) => {
+  const clickActiveItem = () => {
     window.scrollTo({
       top: 0,
       left: 0,
       behavior: 'smooth',
     });
   };
+  React.useEffect(() => {
+    const arrDate = [];
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, '0');
+    let ddNumber = Number(dd);
+    let mm = String(today.getMonth() + 1).padStart(2, '0');
+    let yyyy = today.getFullYear();
+    for (let i = 0; i < 7; i++) {
+      arrDate.push((today = ddNumber + i + '/' + mm + '/' + yyyy));
+    }
+    dispatch(setNowData(arrDate));
+  }, []);
 
   return (
     <div className="main-wrapper">
