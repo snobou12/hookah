@@ -1,5 +1,5 @@
 const initialState = {
-  data: ['1231'],
+  data: [],
 };
 
 const nowData = (state = initialState, action) => {

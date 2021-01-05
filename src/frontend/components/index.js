@@ -7,3 +7,4 @@ export { default as MenuSection } from './MenuSection';
 export { default as YandexMap } from './YandexMap';
 export { default as TableModal } from './TableModal';
 export { default as NewsSection } from './NewsSection';
+export { default as TrBlock } from './TrBlock';

@@ -1,5 +1,6 @@
 const initialState = {
   items: [],
+  isAuth: false,
 };
 
 const serverMethods = (state = initialState, action) => {
@@ -8,6 +9,11 @@ const serverMethods = (state = initialState, action) => {
       return {
         ...state,
         items: action.payload,
+      };
+    case 'SET_AUTH':
+      return {
+        ...state,
+        isAuth: action.payload,
       };
     default:
       return state;

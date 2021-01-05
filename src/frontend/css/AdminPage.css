@@ -77,3 +77,27 @@
 .formBtn2 {
   text-align: center;
 }
+
+.form-registration-none {
+  display: none;
+}
+
+.adminContent-none {
+  display: none;
+}
+
+.adminContent {
+  background-color: #fff;
+}
+
+.tHeader th {
+  text-align: center;
+}
+
+.tContent tr td {
+  text-align: center;
+}
+
+.adminTools .tools {
+  float: right;
+}
