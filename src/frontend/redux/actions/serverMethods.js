@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-export const PostInfo = (data) => (dispatch) => {
+export const postInfo = (data) => () => {
   axios
-    .post('http://localhost:8080/api/create', data, {
+    .post('http://localhost:8080/api/create ', data, {
       headers: { 'Content-Type': 'application/json' },
     })
     .then((response) => {
@@ -10,6 +10,17 @@ export const PostInfo = (data) => (dispatch) => {
     })
     .catch((error) => {
       console.log(error);
+    });
+};
+
+export const fetchInfoAdmin = () => (dispatch) => {
+  axios
+    .get('http://localhost:8080/api/infoTable')
+    .then(({ data }) => {
+      console.log(data);
+    })
+    .catch((err) => {
+      console.log(err);
     });
 };
 

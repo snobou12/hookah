@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { setNowData } from '../../redux/actions/nowData';
 
-import { AboutUsPage, MainPage, MenuPage, NewsPage } from '../../pages';
+import { AboutUsPage, MainPage, MenuPage, NewsPage, AdminPage } from '../../pages';
 import { Footer, Header, YandexMap } from '../';
 import '../../css/App.css';
 
@@ -50,6 +50,10 @@ function App() {
 
         <Route path="/news" exact>
           <NewsPage />
+        </Route>
+
+        <Route path="/admin" exact>
+          <AdminPage />
         </Route>
       </div>
       <YandexMap />

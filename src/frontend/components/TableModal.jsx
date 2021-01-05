@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { purple } from '@material-ui/core/colors';
 
 import Checkbox from '@material-ui/core/Checkbox';
-
+import { postInfo } from '../redux/actions/serverMethods';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
@@ -38,7 +38,8 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     borderRadius: '10px',
     backgroundImage: `url(${backGImage})`,
-    backgroundColor: 'white',
+    backgroundPosition: 'center',
+    backgroundColor: ' white;',
     border: '2px solid #000',
     boxShadow: theme.shadows[0],
     padding: theme.spacing(0, 0, 0),
@@ -194,16 +195,7 @@ function TableModal() {
         commentInfo: comment,
       });
 
-      axios
-        .post('http://localhost:8080/api/create', info, {
-          headers: { 'Content-Type': 'application/json' },
-        })
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      dispatch(postInfo(info));
     }
   };
 
@@ -270,7 +262,7 @@ function TableModal() {
                   <CssTextField
                     required
                     className={classes.margin}
-                    id="custom-css-standard-input"
+                    id="1custom-css-standard-input"
                     label={labelName}
                     onChange={handleChangeName}
                     value={name}
