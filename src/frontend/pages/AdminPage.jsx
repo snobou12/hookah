@@ -64,10 +64,10 @@ function AdminPage() {
 
   React.useEffect(() => {
     if (localStorage.getItem('auth') === 'true') {
-      dispatch(fetchInfoAdmin());
       dispatch(setAuth(true));
+      dispatch(fetchInfoAdmin());
     }
-  });
+  }, []);
   return (
     <div className="wrapperAdminPage">
       <div className={!authCheck ? 'form-registration' : 'form-registration-none'}>

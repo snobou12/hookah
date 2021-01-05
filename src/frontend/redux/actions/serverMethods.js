@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const postInfo = (data) => () => {
   axios
-    .post('http://localhost:8080/api/create ', data, {
+    .post('http://localhost:8080/api/table/create', data, {
       headers: { 'Content-Type': 'application/json' },
     })
     .then((response) => {
@@ -15,7 +15,7 @@ export const postInfo = (data) => () => {
 
 export const fetchInfoAdmin = () => (dispatch) => {
   axios
-    .get('http://localhost:8080/api/infoTable')
+    .get('http://localhost:8080/api/table/info')
     .then(({ data }) => {
       dispatch(setAllInfoFromServer(data));
     })
@@ -31,7 +31,7 @@ export const setAllInfoFromServer = (items) => ({
 
 export const deleteIdItem = (id) => () => {
   axios
-    .delete(`http://localhost:8080/api/delete/${id} `, {
+    .delete('http://localhost:8080/api/table/delete/' + id, {
       headers: { 'Content-Type': 'application/json' },
     })
     .then((response) => {

@@ -4,9 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteIdItem } from '../redux/actions/serverMethods';
 function TrBlock({ id, name, phone, data, clock, count, comment }) {
   const dispatch = useDispatch();
-
-  const delIdItem = (id) => {
-    dispatch(deleteIdItem(id));
+  const delIdItem = (ids) => {
+    dispatch(deleteIdItem(ids));
   };
   return (
     <>
@@ -22,7 +21,7 @@ function TrBlock({ id, name, phone, data, clock, count, comment }) {
           <button>edit </button>
         </td>
         <td>
-          <button onClick={delIdItem}>X </button>
+          <button onClick={() => delIdItem(id)}>X </button>
         </td>
 
         <td> испр</td>

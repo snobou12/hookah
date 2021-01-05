@@ -186,6 +186,7 @@ function TableModal() {
       event.preventDefault();
     } else {
       event.preventDefault();
+      // const randomId = Math.floor(Math.random());
       let info = JSON.stringify({
         nameInfo: name,
         numInfo: phone,
@@ -193,6 +194,13 @@ function TableModal() {
         timeInfo: time,
         countInfo: count,
         commentInfo: comment,
+        // name: name,
+        // id: 1,
+        // phone: phone,
+        // data: data,
+        // clock: time,
+        // count: count,
+        // comment: comment,
       });
 
       dispatch(postInfo(info));
