@@ -41,6 +41,20 @@ export const deleteIdItem = (id) => () => {
       console.log(error);
     });
 };
+
+export const editorIdItem = (id, item) => () => {
+  axios
+    .put('http://localhost:8080/api/table/update/' + id, item, {
+      headers: { 'Content-Type': 'application/json' },
+    })
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
 export const setAuth = (bool) => ({
   type: 'SET_AUTH',
   payload: bool,

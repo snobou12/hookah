@@ -123,10 +123,6 @@ function AdminPage() {
           <Button onClick={logOutClick} variant="dark">
             Выход из системы
           </Button>
-          <div className="tools">
-            <Button variant="dark">Сохранить изменения</Button>
-            <Button variant="dark">Отмена</Button>
-          </div>
         </div>
       </div>
     </div>
