@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const postInfoTable = (data) => () => {
   axios
-    .post('http://localhost:3001/tables', data, {
+    .post('http://localhost:8080/api/table/create', data, {
       headers: { 'Content-Type': 'application/json' },
     })
     .then((response) => {
@@ -15,7 +15,7 @@ export const postInfoTable = (data) => () => {
 
 export const postInfoEvent = (data) => () => {
   axios
-    .post('http://localhost:3001/events', data, {
+    .post('http://localhost:8080/api/event/create', data, {
       headers: { 'Content-Type': 'application/json' },
     })
     .then((response) => {
@@ -28,7 +28,7 @@ export const postInfoEvent = (data) => () => {
 
 export const fetchInfoTablesAdmin = () => (dispatch) => {
   axios
-    .get('http://localhost:3001/tables')
+    .get('http://localhost:8080/api/table/info')
     .then(({ data }) => {
       dispatch(setAllInfoFromServer(data));
     })
@@ -39,7 +39,7 @@ export const fetchInfoTablesAdmin = () => (dispatch) => {
 
 export const fetchInfoEventsAdmin = () => (dispatch) => {
   axios
-    .get('http://localhost:3001/events')
+    .get('http://localhost:8080/api/event/info')
     .then(({ data }) => {
       dispatch(setEventsInfoFromServer(data));
     })
@@ -60,7 +60,7 @@ export const setEventsInfoFromServer = (items) => ({
 
 export const deleteIdTableItems = (id) => () => {
   axios
-    .delete('http://localhost:3001/tables/' + id, {
+    .delete('http://localhost:8080/api/table/delete/' + id, {
       headers: { 'Content-Type': 'application/json' },
     })
     .then((response) => {
@@ -73,7 +73,7 @@ export const deleteIdTableItems = (id) => () => {
 
 export const deleteIdEventItems = (id) => () => {
   axios
-    .delete('http://localhost:3001/events/' + id, {
+    .delete('http://localhost:8080/api/event/delete/' + id, {
       headers: { 'Content-Type': 'application/json' },
     })
     .then((response) => {
@@ -86,7 +86,7 @@ export const deleteIdEventItems = (id) => () => {
 
 export const editorIdTableItem = (id, item) => () => {
   axios
-    .put('http://localhost:3001/tables/' + id, item, {
+    .put('http://localhost:8080/api/table/update/' + id, item, {
       headers: { 'Content-Type': 'application/json' },
     })
     .then((response) => {
@@ -99,7 +99,7 @@ export const editorIdTableItem = (id, item) => () => {
 
 export const editorIdEventItems = (id, item) => () => {
   axios
-    .put('http://localhost:3001/events/' + id, item, {
+    .put('http://localhost:8080/api/event/update/' + id, item, {
       headers: { 'Content-Type': 'application/json' },
     })
     .then((response) => {

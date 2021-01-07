@@ -189,19 +189,19 @@ function TableModal() {
       event.preventDefault();
 
       let info = JSON.stringify({
-        // nameInfo: name,
-        // numInfo: phone,
-        // dataInfo: data,
-        // timeInfo: time,
-        // countInfo: count,
-        // commentInfo: comment,
-        name: name,
-        id: `f${(~~(Math.random() * 1e8)).toString(16)}`,
-        phone: phone,
-        data: data,
-        clock: time,
-        count: count,
-        comment: comment,
+        nameInfo: name,
+        numInfo: phone,
+        dataInfo: data,
+        timeInfo: time,
+        countInfo: count,
+        commentInfo: comment,
+        // name: name,
+        // id: `f${(~~(Math.random() * 1e8)).toString(16)}`,
+        // phone: phone,
+        // data: data,
+        // clock: time,
+        // count: count,
+        // comment: comment,
       });
 
       dispatch(postInfoTable(info));

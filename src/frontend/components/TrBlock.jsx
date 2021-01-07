@@ -98,19 +98,19 @@ function TrBlock({ id, name, phone, data, clock, count, comment }) {
 
   const editIdItem = (ids) => {
     let info = JSON.stringify({
-      // nameInfo: nameUser,
-      // numInfo: phoneUser,
-      // dataInfo: dataUser,
-      // timeInfo: clockUser,
-      // countInfo: countUser,
-      // commentInfo: commentUser,
+      nameInfo: nameUser,
+      numInfo: phoneUser,
+      dataInfo: dataUser,
+      timeInfo: clockUser,
+      countInfo: countUser,
+      commentInfo: commentUser,
 
-      name: nameUser,
-      phone: phoneUser,
-      data: dataUser,
-      clock: clockUser,
-      count: countUser,
-      comment: commentUser,
+      // name: nameUser,
+      // phone: phoneUser,
+      // data: dataUser,
+      // clock: clockUser,
+      // count: countUser,
+      // comment: commentUser,
     });
 
     dispatch(editorIdTableItem(ids, info));

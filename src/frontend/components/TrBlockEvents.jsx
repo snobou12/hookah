@@ -86,17 +86,14 @@ function TrBlockEvents({ id, name, phone, email, comment }) {
 
   const editIdItem = (ids) => {
     let info = JSON.stringify({
-      // nameInfo: nameUser,
-      // numInfo: phoneUser,
-      // dataInfo: dataUser,
-      // timeInfo: clockUser,
-      // countInfo: countUser,
-      // commentInfo: commentUser,
-
-      name: nameUser,
-      phone: phoneUser,
-      email: emailUser,
-      comment: commentUser,
+      nameInfo: nameUser,
+      numInfo: phoneUser,
+      emailInfo: emailUser,
+      commentInfo: commentUser,
+      // name: nameUser,
+      // phone: phoneUser,
+      // email: emailUser,
+      // comment: commentUser,
     });
 
     dispatch(editorIdEventItems(ids, info));

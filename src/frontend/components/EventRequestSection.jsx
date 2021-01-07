@@ -34,16 +34,16 @@ function EventRequestSection() {
   const eventRequest = () => {
     if (nameUser !== '' && phoneUser !== '' && emailUser !== '' && commentUser !== '') {
       let info = JSON.stringify({
-        // nameInfo: nameUser,
-        // phoneInfo: phoneUser,
-        // emailInfo: emailUser,
-        // commentInfo: commentUser,
+        nameInfo: nameUser,
+        phoneInfo: phoneUser,
+        emailInfo: emailUser,
+        commentInfo: commentUser,
 
-        id: `f${(~~(Math.random() * 1e8)).toString(16)}`,
-        name: nameUser,
-        phone: phoneUser,
-        email: emailUser,
-        comment: commentUser,
+        // id: `f${(~~(Math.random() * 1e8)).toString(16)}`,
+        // name: nameUser,
+        // phone: phoneUser,
+        // email: emailUser,
+        // comment: commentUser,
       });
       dispatch(postInfoEvent(info));
     } else {
