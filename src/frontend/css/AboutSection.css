@@ -8,7 +8,7 @@
 }
 .textTopAbout {
   color: white;
-  font-family: 'Arimo', sans-serif;
+  font-family: 'Lobster';
   font-weight: 500;
   letter-spacing: 1px;
   font-size: 50px;
@@ -28,12 +28,34 @@
 hr.short {
   width: 3%;
 
-  border-top: 2px solid #f02c7b;
+  border-top: 3px solid #f02c7b;
 
   position: absolute;
-  left: 49%;
+  left: 48.8%;
 }
 
-.blockWidth-50 {
-  padding-right: 100px;
+.aboutSectionImg {
+  border-radius: 50px;
+}
+
+.itemAboutSection1 {
+  text-align: right;
+}
+.itemAboutSection2 {
+  text-align: right;
+}
+
+@media screen and (max-width: 1398px) {
+  .itemAboutSection1 {
+    text-align: center;
+  }
+  .itemAboutSection2 {
+    text-align: center;
+  }
+  .itemAboutSection3 {
+    text-align: center;
+  }
+  .itemAboutSection4 {
+    text-align: center;
+  }
 }

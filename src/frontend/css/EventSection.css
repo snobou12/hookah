@@ -1,0 +1,25 @@
+.event-section-wrapper {
+  background-color: white;
+  background-position: center;
+  background-image: url(../../assets/image/dark-leather.png);
+}
+
+.topTextEvent {
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: 'Helvetica Neue';
+}
+.topTextItem {
+  font-weight: unset;
+  font-size: 1.5rem;
+}
+
+.redTopTextItem {
+  color: red;
+}
+
+@media screen and (max-width: 992px) {
+  .topTextEvent {
+    font-size: 1rem;
+  }
+}

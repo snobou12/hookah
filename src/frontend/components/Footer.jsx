@@ -1,11 +1,13 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Card, Col, Container, Row, Button } from 'react-bootstrap';
-import vkLogo from '../../assets/image/vkLogo.png';
-import yandexLogo from '../../assets/image/yandexLogo.png';
-import instagramLogo from '../../assets/image/instagramLogo.png';
+import { Col, Container, Row } from 'react-bootstrap';
+
 import '../css/Footer.css';
+
+import { FaYandex } from 'react-icons/fa';
+import { AiFillInstagram } from 'react-icons/ai';
+import { FaVk } from 'react-icons/fa';
 function Footer({ clickSmooth }) {
   const liItems = [
     { name: 'О нас', link: 'aboutUs', id: 0 },
@@ -48,19 +50,28 @@ function Footer({ clickSmooth }) {
               отдыха.
             </div>
             <div className="pt-3">
-              <a href="#">
+              <a href="https://vk.com/cosaloungebar" rel="noreferrer" target="_blank">
                 <i>
-                  <img src={vkLogo} />
+                  <FaVk className="text-light" style={{ height: '30px', width: '30px' }} />
                 </i>
               </a>
-              <a href="#">
+              <a
+                href="https://www.instagram.com/cosanostra.narvskiy/"
+                rel="noreferrer"
+                target="_blank">
                 <i>
-                  <img src={instagramLogo} />
+                  <AiFillInstagram
+                    className="text-light"
+                    style={{ height: '30px', width: '30px' }}
+                  />
                 </i>
               </a>
-              <a href="#">
+              <a
+                href="https://yandex.ru/maps/2/saint-petersburg/?from=api-maps&ll=30.392614%2C59.912601&mode=routes&origin=jsapi_2_1_74&rtext=~59.898774%2C30.272929&rtt=auto&ruri=~ymapsbm1%3A%2F%2Fgeo%3Fll%3D30.273%252C59.899%26spn%3D0.001%252C0.001%26text%3D%25D0%25A0%25D0%25BE%25D1%2581%25D1%2581%25D0%25B8%25D1%258F%252C%2520%25D0%25A1%25D0%25B0%25D0%25BD%25D0%25BA%25D1%2582-%25D0%259F%25D0%25B5%25D1%2582%25D0%25B5%25D1%2580%25D0%25B1%25D1%2583%25D1%2580%25D0%25B3%252C%2520%25D0%259F%25D1%2580%25D0%25BE%25D0%25BC%25D1%258B%25D1%2588%25D0%25BB%25D0%25B5%25D0%25BD%25D0%25BD%25D0%25B0%25D1%258F%2520%25D1%2583%25D0%25BB%25D0%25B8%25D1%2586%25D0%25B0%252C%25206&z=13"
+                rel="noreferrer"
+                target="_blank">
                 <i>
-                  <img src={yandexLogo} />
+                  <FaYandex className="text-white" style={{ height: '25px', width: '25px' }} />
                 </i>
               </a>
             </div>
@@ -70,5 +81,9 @@ function Footer({ clickSmooth }) {
     </div>
   );
 }
+
+Footer.propTypes = {
+  clickSmooth: PropTypes.func.isRequired,
+};
 
 export default Footer;

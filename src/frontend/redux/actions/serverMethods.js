@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-export const postInfo = (data) => () => {
+export const postInfoTable = (data) => () => {
   axios
-    .post('http://localhost:8080/api/table/create', data, {
+    .post('http://localhost:3001/tables', data, {
       headers: { 'Content-Type': 'application/json' },
     })
     .then((response) => {
@@ -13,9 +13,22 @@ export const postInfo = (data) => () => {
     });
 };
 
-export const fetchInfoAdmin = () => (dispatch) => {
+export const postInfoEvent = (data) => () => {
   axios
-    .get('http://localhost:8080/api/table/info')
+    .post('http://localhost:3001/events', data, {
+      headers: { 'Content-Type': 'application/json' },
+    })
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+export const fetchInfoTablesAdmin = () => (dispatch) => {
+  axios
+    .get('http://localhost:3001/tables')
     .then(({ data }) => {
       dispatch(setAllInfoFromServer(data));
     })
@@ -24,14 +37,30 @@ export const fetchInfoAdmin = () => (dispatch) => {
     });
 };
 
+export const fetchInfoEventsAdmin = () => (dispatch) => {
+  axios
+    .get('http://localhost:3001/events')
+    .then(({ data }) => {
+      dispatch(setEventsInfoFromServer(data));
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
 export const setAllInfoFromServer = (items) => ({
-  type: 'SET_ALL_INFO',
+  type: 'SET_TABLES_INFO',
   payload: items,
 });
 
-export const deleteIdItem = (id) => () => {
+export const setEventsInfoFromServer = (items) => ({
+  type: 'SET_EVENTS_INFO',
+  payload: items,
+});
+
+export const deleteIdTableItems = (id) => () => {
   axios
-    .delete('http://localhost:8080/api/table/delete/' + id, {
+    .delete('http://localhost:3001/tables/' + id, {
       headers: { 'Content-Type': 'application/json' },
     })
     .then((response) => {
@@ -42,9 +71,35 @@ export const deleteIdItem = (id) => () => {
     });
 };
 
-export const editorIdItem = (id, item) => () => {
+export const deleteIdEventItems = (id) => () => {
   axios
-    .put('http://localhost:8080/api/table/update/' + id, item, {
+    .delete('http://localhost:3001/events/' + id, {
+      headers: { 'Content-Type': 'application/json' },
+    })
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+export const editorIdTableItem = (id, item) => () => {
+  axios
+    .put('http://localhost:3001/tables/' + id, item, {
+      headers: { 'Content-Type': 'application/json' },
+    })
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+export const editorIdEventItems = (id, item) => () => {
+  axios
+    .put('http://localhost:3001/events/' + id, item, {
       headers: { 'Content-Type': 'application/json' },
     })
     .then((response) => {

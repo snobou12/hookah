@@ -5,6 +5,24 @@
   background-position: center;
 }
 
+.imgMenuSection1 {
+  text-align: right;
+}
+
+.imgMenuSection2 {
+  text-align: left;
+}
+
+@media screen and (max-width: 835px) {
+  .imgMenuSection1 {
+    text-align: center;
+  }
+
+  .imgMenuSection2 {
+    text-align: center;
+  }
+}
+
 @media screen and (max-width: 670px) {
   .menu-section-wrapper img {
     width: 400px;

@@ -6,13 +6,12 @@ import { Link } from 'react-router-dom';
 import { purple } from '@material-ui/core/colors';
 
 import Checkbox from '@material-ui/core/Checkbox';
-import { postInfo } from '../redux/actions/serverMethods';
+import { postInfoTable } from '../redux/actions/serverMethods';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-import axios from 'axios';
+
 import { useDispatch, useSelector } from 'react-redux';
-import { setInfoTable, setInfoEvent } from '../redux/actions/tableReserve';
 
 import { withStyles } from '@material-ui/core/styles';
 
@@ -44,8 +43,8 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: theme.shadows[0],
     padding: theme.spacing(0, 0, 0),
     width: '530px',
-    height: '680px',
-    ['@media (max-width:767px)']: { height: '480px' },
+    height: '480px',
+    ['@media (max-width:767px)']: { width: '375px', height: '500px' },
   },
   imgClose: {
     float: 'right',
@@ -135,7 +134,9 @@ function TableModal() {
     setComment(event.target.value);
   };
   const handleChangeCount = (event) => {
-    setCount(event.target.value);
+    if (!isNaN(event.target.value) && event.target.value < 10) {
+      setCount(event.target.value);
+    }
   };
 
   const handleChangeTime = (event) => {
@@ -186,24 +187,24 @@ function TableModal() {
       event.preventDefault();
     } else {
       event.preventDefault();
-      // const randomId = Math.floor(Math.random());
+
       let info = JSON.stringify({
-        nameInfo: name,
-        numInfo: phone,
-        dataInfo: data,
-        timeInfo: time,
-        countInfo: count,
-        commentInfo: comment,
-        // name: name,
-        // id: 1,
-        // phone: phone,
-        // data: data,
-        // clock: time,
-        // count: count,
-        // comment: comment,
+        // nameInfo: name,
+        // numInfo: phone,
+        // dataInfo: data,
+        // timeInfo: time,
+        // countInfo: count,
+        // commentInfo: comment,
+        name: name,
+        id: `f${(~~(Math.random() * 1e8)).toString(16)}`,
+        phone: phone,
+        data: data,
+        clock: time,
+        count: count,
+        comment: comment,
       });
 
-      dispatch(postInfo(info));
+      dispatch(postInfoTable(info));
     }
   };
 
@@ -296,7 +297,11 @@ function TableModal() {
                       value={data}
                       onChange={handleChangeDate}>
                       {arrData &&
-                        arrData.map((value, index) => <MenuItem value={index}>{value}</MenuItem>)}
+                        arrData.map((value, index) => (
+                          <MenuItem key={index} value={value}>
+                            {value}
+                          </MenuItem>
+                        ))}
                     </Select>
                   </FormControl>
                 </div>
@@ -311,7 +316,9 @@ function TableModal() {
                       onChange={handleChangeTime}>
                       {arrTime &&
                         arrTime.map((value, index) => (
-                          <MenuItem value={index + 17}>{value}</MenuItem>
+                          <MenuItem key={index} value={value}>
+                            {value}
+                          </MenuItem>
                         ))}
                     </Select>
                   </FormControl>
@@ -321,7 +328,7 @@ function TableModal() {
                     required
                     className={classes.margin}
                     id="custom-css-standard-input"
-                    label="Человек"
+                    label="Человек(1-9)"
                     onChange={handleChangeCount}
                     value={count}
                   />

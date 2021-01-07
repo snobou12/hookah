@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import { makeStyles } from '@material-ui/core/styles';
-import { deleteIdTableItems, editorIdTableItem } from '../redux/actions/serverMethods';
-import Button from 'react-bootstrap/Button';
+import { deleteIdEventItems, editorIdEventItems } from '../redux/actions/serverMethods';
 import Fade from '@material-ui/core/Fade';
+import Button from 'react-bootstrap/Button';
 import '../css/TrBlock.css';
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
   },
 }));
-function TrBlock({ id, name, phone, data, clock, count, comment }) {
+function TrBlockEvents({ id, name, phone, email, comment }) {
   const [nameUser, setNameUser] = React.useState(name);
   const handleChangeNameUser = (event) => {
     setNameUser(event.target.value);
@@ -55,19 +55,9 @@ function TrBlock({ id, name, phone, data, clock, count, comment }) {
     setPhoneUser(event.target.value);
   };
 
-  const [dataUser, setDataUser] = React.useState(data);
-  const handleChangeDataUser = (event) => {
-    setDataUser(event.target.value);
-  };
-
-  const [clockUser, setClockUser] = React.useState(clock);
-  const handleChangeClockUser = (event) => {
-    setClockUser(event.target.value);
-  };
-
-  const [countUser, setCountUser] = React.useState(count);
-  const handleChangeCountUser = (event) => {
-    setCountUser(event.target.value);
+  const [emailUser, setEmailUser] = React.useState(email);
+  const handleChangeEmailUser = (event) => {
+    setEmailUser(event.target.value);
   };
 
   const [commentUser, setCommentUser] = React.useState(comment);
@@ -80,9 +70,7 @@ function TrBlock({ id, name, phone, data, clock, count, comment }) {
   const handleClose = () => {
     setNameUser(name);
     setPhoneUser(phone);
-    setDataUser(data);
-    setClockUser(clock);
-    setCountUser(count);
+    setEmailUser(email);
     setCommentUser(comment);
     setOpen(false);
   };
@@ -92,7 +80,7 @@ function TrBlock({ id, name, phone, data, clock, count, comment }) {
   const dispatch = useDispatch();
 
   const delIdItem = (ids) => {
-    dispatch(deleteIdTableItems(ids));
+    dispatch(deleteIdEventItems(ids));
     window.location.reload();
   };
 
@@ -107,13 +95,11 @@ function TrBlock({ id, name, phone, data, clock, count, comment }) {
 
       name: nameUser,
       phone: phoneUser,
-      data: dataUser,
-      clock: clockUser,
-      count: countUser,
+      email: emailUser,
       comment: commentUser,
     });
 
-    dispatch(editorIdTableItem(ids, info));
+    dispatch(editorIdEventItems(ids, info));
   };
   return (
     <>
@@ -158,37 +144,16 @@ function TrBlock({ id, name, phone, data, clock, count, comment }) {
                 </div>
                 <div className="redactor_item">
                   <label>
-                    Дата:
+                    E-мейл
                     <input
-                      value={dataUser}
-                      onChange={handleChangeDataUser}
+                      value={emailUser}
+                      onChange={handleChangeEmailUser}
                       type="text"
                       name="name"
                     />
                   </label>
                 </div>
-                <div className="redactor_item">
-                  <label>
-                    Время:
-                    <input
-                      value={clockUser}
-                      onChange={handleChangeClockUser}
-                      type="text"
-                      name="name"
-                    />
-                  </label>
-                </div>
-                <div className="redactor_item">
-                  <label>
-                    Кол.чел:
-                    <input
-                      value={countUser}
-                      onChange={handleChangeCountUser}
-                      type="text"
-                      name="name"
-                    />
-                  </label>
-                </div>
+
                 <div className="redactor_item">
                   <label>
                     Коммент:
@@ -218,10 +183,7 @@ function TrBlock({ id, name, phone, data, clock, count, comment }) {
         <td>{id}</td>
         <td>{name}</td>
         <td>{phone}</td>
-        <td>{data} </td>
-
-        <td>{clock}</td>
-        <td>{count}</td>
+        <td>{email}</td>
         <td>{comment}</td>
         <td>
           <Button onClick={handleOpen} variant="dark">
@@ -238,13 +200,12 @@ function TrBlock({ id, name, phone, data, clock, count, comment }) {
     </>
   );
 }
-TrBlock.propTypes = {
+
+TrBlockEvents.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string,
   phone: PropTypes.string,
-  data: PropTypes.string,
-  clock: PropTypes.string,
-  count: PropTypes.string,
+  email: PropTypes.string,
   comment: PropTypes.string,
 };
-export default TrBlock;
+export default TrBlockEvents;

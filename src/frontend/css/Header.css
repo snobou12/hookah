@@ -48,6 +48,16 @@
   color: rgb(255, 0, 0);
 }
 
+.navbarBackGroundTop {
+  background-image: url('../../assets/image/headerDefault.jpg');
+
+  background-position: bottom;
+  background-size: 100%;
+}
+
+.navbarBackGroundDefault {
+  background-image: url('../../assets/image/snow.jpg');
+}
 @media screen and (max-width: 992px) {
   .ulHeader li {
     font-size: 15px;

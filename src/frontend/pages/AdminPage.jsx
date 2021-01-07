@@ -1,12 +1,19 @@
 import React from 'react';
 import '../css/AdminPage.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { setAuth, fetchInfoAdmin } from '../redux/actions/serverMethods';
+import {
+  setAuth,
+  fetchInfoTablesAdmin,
+  fetchInfoEventsAdmin,
+} from '../redux/actions/serverMethods';
+
+import { setNowData } from '../redux/actions/nowData';
 import TextField from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';
 import { Table } from 'react-bootstrap';
-import { TrBlock } from '../components';
+import { TrBlock, TrBlockEvents } from '../components';
 import { Button } from 'react-bootstrap';
+import { setMenuItem } from '../redux/actions/headerMenu';
 
 const CssTextField = withStyles({
   root: {
@@ -31,7 +38,8 @@ const CssTextField = withStyles({
 })(TextField);
 
 function AdminPage() {
-  const items = useSelector(({ serverMethods }) => serverMethods.items);
+  const itemsTable = useSelector(({ serverMethods }) => serverMethods.itemsTables);
+  const itemsEvents = useSelector(({ serverMethods }) => serverMethods.itemsEvents);
   const dispatch = useDispatch();
   const authCheck = useSelector(({ serverMethods }) => serverMethods.isAuth);
   const [login, setLogin] = React.useState('');
@@ -63,9 +71,21 @@ function AdminPage() {
   };
 
   React.useEffect(() => {
+    dispatch(setMenuItem(3));
+    const arrDate = [];
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, '0');
+    let ddNumber = Number(dd);
+    let mm = String(today.getMonth() + 1).padStart(2, '0');
+    let yyyy = today.getFullYear();
+    for (let i = 0; i < 7; i++) {
+      arrDate.push((today = ddNumber + i + '/' + mm + '/' + yyyy));
+    }
+    dispatch(setNowData(arrDate));
     if (localStorage.getItem('auth') === 'true') {
       dispatch(setAuth(true));
-      dispatch(fetchInfoAdmin());
+      dispatch(fetchInfoTablesAdmin());
+      dispatch(fetchInfoEventsAdmin());
     }
   }, []);
   return (
@@ -98,7 +118,11 @@ function AdminPage() {
           </button>
         </div>
       </div>
+
       <div className={authCheck ? 'adminContent' : 'adminContent-none'}>
+        <div className="text-center">
+          <h1 className="topTextInfo">Данные по клиентам</h1>
+        </div>
         <Table striped bordered hover size="sm">
           <thead>
             <tr className="tHeader">
@@ -115,15 +139,55 @@ function AdminPage() {
             </tr>
           </thead>
           <tbody className="tContent">
-            {items.length != 0 ? items.map((obj) => <TrBlock key={obj.id} {...obj} />) : <> </>}
+            {itemsTable.length != 0 ? (
+              itemsTable.map((obj) => <TrBlock key={obj.id} {...obj} />)
+            ) : (
+              <> </>
+            )}
           </tbody>
         </Table>
-        {items.length === 0 ? <div className="text-center bold">Пока никого нет</div> : <> </>}
+        {itemsTable.length === 0 ? <div className="text-center bold">Пока никого нет</div> : <> </>}
         <div className="adminTools">
-          <Button onClick={logOutClick} variant="dark">
-            Выход из системы
-          </Button>
+          <Button variant="dark">Добавить клиента</Button>
         </div>
+      </div>
+
+      <div className={authCheck ? 'adminContent' : 'adminContent-none'}>
+        <div className="text-center">
+          <h1 className="topTextInfo">Данные по мероприятиям</h1>
+        </div>
+        <Table striped bordered hover size="sm">
+          <thead>
+            <tr className="tHeader">
+              <th width="1%">id</th>
+              <th width="8%">Имя</th>
+              <th width="5%">Телефон</th>
+              <th width="12%">Емейл</th>
+              <th width="20%">Комментарий</th>
+              <th width="24%">Редактировать</th>
+              <th width="24%">Удалить</th>
+              <th width="6%">Done</th>
+            </tr>
+          </thead>
+          <tbody className="tContent">
+            {itemsEvents.length != 0 ? (
+              itemsEvents.map((obj) => <TrBlockEvents key={obj.id} {...obj} />)
+            ) : (
+              <> </>
+            )}
+          </tbody>
+        </Table>
+        {itemsEvents.length === 0 ? (
+          <div className="text-center bold">Пока никого нет</div>
+        ) : (
+          <> </>
+        )}
+        <div className="adminTools">
+          <Button variant="dark">Добавить клиента</Button>
+        </div>
+        <Button onClick={logOutClick} variant="dark">
+          Выход из системы
+        </Button>
       </div>
     </div>
   );

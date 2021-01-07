@@ -1,0 +1,15 @@
+.event-request-section-wrapper {
+  background-color: #300530;
+  background-image: url('../../assets/image/dark-leather.png');
+  background-position: center;
+}
+
+.topTextRequest {
+  color: white;
+  font-family: 'Lobster';
+  font-size: 50px;
+}
+
+.btnRequest {
+  font-family: 'Lobster';
+}

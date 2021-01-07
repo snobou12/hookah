@@ -3,6 +3,7 @@
   background-color: #290230;
 
   background-image: url(../../assets/image/dark-leather.png);
+  background-position: top center;
 }
 .form-registration {
   background: #f1f1f1;
@@ -100,4 +101,16 @@
 
 .adminTools .tools {
   float: right;
+}
+
+.separatorAdminPage {
+  background-color: rgb(0, 0, 0);
+  background-image: none;
+  height: 100px;
+}
+
+.topTextInfo {
+  background-color: #290230;
+  color: white;
+  font-family: Roboto;
 }

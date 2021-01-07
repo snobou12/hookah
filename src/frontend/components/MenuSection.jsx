@@ -1,7 +1,7 @@
 import React from 'react';
-import { Container, Row, Col, CardImg } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import menuSectionPng1 from '../../assets/image/menuSection1.jpg';
-import menuSectionPng2 from '../../assets/image/menuSection2.jpg';
+
 import '../css/MenuSection.css';
 
 // import Gallery from 'react-photo-gallery';
@@ -20,7 +20,7 @@ function MenuSection() {
         <Row className="pt-5 ">
           <Col>
             <Row className="justify-content-md-center">
-              <Col className="text-center">
+              <Col className="imgMenuSection1">
                 <img width="600px" src={menuSectionPng1} alt="" />
               </Col>
               <Col className="text-center">
@@ -46,7 +46,7 @@ function MenuSection() {
                   Куча разных вкусов табака от "Кактуса с ромашкой" до "Секса на даче"
                 </div>
               </Col>
-              <Col className="text-center">
+              <Col className="imgMenuSection2">
                 <img width="600px" src={menuSectionPng1} alt="" />
               </Col>
             </Row>

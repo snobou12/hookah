@@ -1,15 +1,23 @@
 const initialState = {
-  items: [],
+  itemsTables: [],
+  itemsEvents: [],
   isAuth: false,
 };
 
 const serverMethods = (state = initialState, action) => {
   switch (action.type) {
-    case 'SET_ALL_INFO':
+    case 'SET_TABLES_INFO':
       return {
         ...state,
-        items: action.payload,
+        itemsTables: action.payload,
       };
+
+    case 'SET_EVENTS_INFO':
+      return {
+        ...state,
+        itemsEvents: action.payload,
+      };
+
     case 'SET_AUTH':
       return {
         ...state,
