@@ -7,7 +7,6 @@ import {
   fetchInfoEventsAdmin,
 } from '../redux/actions/serverMethods';
 
-import { setNowData } from '../redux/actions/nowData';
 import TextField from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';
 import { Table } from 'react-bootstrap';
@@ -72,16 +71,7 @@ function AdminPage() {
 
   React.useEffect(() => {
     dispatch(setMenuItem(3));
-    const arrDate = [];
-    let today = new Date();
-    let dd = String(today.getDate()).padStart(2, '0');
-    let ddNumber = Number(dd);
-    let mm = String(today.getMonth() + 1).padStart(2, '0');
-    let yyyy = today.getFullYear();
-    for (let i = 0; i < 7; i++) {
-      arrDate.push((today = ddNumber + i + '/' + mm + '/' + yyyy));
-    }
-    dispatch(setNowData(arrDate));
+
     if (localStorage.getItem('auth') === 'true') {
       dispatch(setAuth(true));
       dispatch(fetchInfoTablesAdmin());
