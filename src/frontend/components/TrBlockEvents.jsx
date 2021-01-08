@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
   },
 }));
-function TrBlockEvents({ id, name, phone, email, comment }) {
+function TrBlockEvents({ id, name, phone, email, description }) {
   const [nameUser, setNameUser] = React.useState(name);
   const handleChangeNameUser = (event) => {
     setNameUser(event.target.value);
@@ -60,9 +60,9 @@ function TrBlockEvents({ id, name, phone, email, comment }) {
     setEmailUser(event.target.value);
   };
 
-  const [commentUser, setCommentUser] = React.useState(comment);
-  const handleChangeCommentUser = (event) => {
-    setCommentUser(event.target.value);
+  const [descriptionUser, setDescriptionUser] = React.useState(description);
+  const handleChangeDescriptionUser = (event) => {
+    setDescriptionUser(event.target.value);
   };
 
   const classes = useStyles();
@@ -71,7 +71,7 @@ function TrBlockEvents({ id, name, phone, email, comment }) {
     setNameUser(name);
     setPhoneUser(phone);
     setEmailUser(email);
-    setCommentUser(comment);
+    setDescriptionUser(description);
     setOpen(false);
   };
   const handleOpen = () => {
@@ -86,14 +86,10 @@ function TrBlockEvents({ id, name, phone, email, comment }) {
 
   const editIdItem = (ids) => {
     let info = JSON.stringify({
-      nameInfo: nameUser,
-      numInfo: phoneUser,
-      emailInfo: emailUser,
-      commentInfo: commentUser,
-      // name: nameUser,
-      // phone: phoneUser,
-      // email: emailUser,
-      // comment: commentUser,
+      name: nameUser,
+      phone: phoneUser,
+      email: emailUser,
+      description: descriptionUser,
     });
 
     dispatch(editorIdEventItems(ids, info));
@@ -155,8 +151,8 @@ function TrBlockEvents({ id, name, phone, email, comment }) {
                   <label>
                     Коммент:
                     <input
-                      value={commentUser}
-                      onChange={handleChangeCommentUser}
+                      value={descriptionUser}
+                      onChange={handleChangeDescriptionUser}
                       type="text"
                       name="name"
                     />
@@ -181,7 +177,7 @@ function TrBlockEvents({ id, name, phone, email, comment }) {
         <td>{name}</td>
         <td>{phone}</td>
         <td>{email}</td>
-        <td>{comment}</td>
+        <td>{description}</td>
         <td>
           <Button onClick={handleOpen} variant="dark">
             Изменить

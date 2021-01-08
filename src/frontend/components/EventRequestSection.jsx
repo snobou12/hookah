@@ -13,7 +13,7 @@ function EventRequestSection() {
   const [nameUser, setNameUser] = React.useState('');
   const [phoneUser, setPhoneUser] = React.useState('');
   const [emailUser, setEmailUser] = React.useState('');
-  const [commentUser, setCommentUser] = React.useState('');
+  const [descriptionUser, setDescriptionUser] = React.useState('');
 
   const handleChangeNameUser = (event) => {
     setNameUser(event.target.value);
@@ -27,17 +27,17 @@ function EventRequestSection() {
     setEmailUser(event.target.value);
   };
 
-  const handleChangeCommentUser = (event) => {
-    setCommentUser(event.target.value);
+  const handleChangeDescriptionUser = (event) => {
+    setDescriptionUser(event.target.value);
   };
 
   const eventRequest = () => {
-    if (nameUser !== '' && phoneUser !== '' && emailUser !== '' && commentUser !== '') {
+    if (nameUser !== '' && phoneUser !== '' && emailUser !== '' && descriptionUser !== '') {
       let info = JSON.stringify({
-        nameInfo: nameUser,
-        phoneInfo: phoneUser,
-        emailInfo: emailUser,
-        commentInfo: commentUser,
+        name: nameUser,
+        phone: phoneUser,
+        email: emailUser,
+        description: descriptionUser,
 
         // id: `f${(~~(Math.random() * 1e8)).toString(16)}`,
         // name: nameUser,
@@ -95,8 +95,8 @@ function EventRequestSection() {
 
             <Form.Group controlId="exampleForm.ControlInput1">
               <Form.Control
-                value={commentUser}
-                onChange={handleChangeCommentUser}
+                value={descriptionUser}
+                onChange={handleChangeDescriptionUser}
                 style={{ width: '330px' }}
                 type="text"
                 placeholder="Расскажите о мероприятии"

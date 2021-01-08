@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
   },
 }));
-function TrBlock({ id, name, phone, data, clock, count, comment }) {
+function TrBlock({ id, name, phone, data, time, count, description }) {
   const [nameUser, setNameUser] = React.useState(name);
   const handleChangeNameUser = (event) => {
     setNameUser(event.target.value);
@@ -60,9 +60,9 @@ function TrBlock({ id, name, phone, data, clock, count, comment }) {
     setDataUser(event.target.value);
   };
 
-  const [clockUser, setClockUser] = React.useState(clock);
-  const handleChangeClockUser = (event) => {
-    setClockUser(event.target.value);
+  const [timeUser, setTimeUser] = React.useState(time);
+  const handleChangeTimeUser = (event) => {
+    setTimeUser(event.target.value);
   };
 
   const [countUser, setCountUser] = React.useState(count);
@@ -70,9 +70,9 @@ function TrBlock({ id, name, phone, data, clock, count, comment }) {
     setCountUser(event.target.value);
   };
 
-  const [commentUser, setCommentUser] = React.useState(comment);
-  const handleChangeCommentUser = (event) => {
-    setCommentUser(event.target.value);
+  const [descriptionUser, setDescriptionUser] = React.useState(description);
+  const handleChangeDescriptionUser = (event) => {
+    setDescriptionUser(event.target.value);
   };
 
   const classes = useStyles();
@@ -81,9 +81,9 @@ function TrBlock({ id, name, phone, data, clock, count, comment }) {
     setNameUser(name);
     setPhoneUser(phone);
     setDataUser(data);
-    setClockUser(clock);
+    setTimeUser(time);
     setCountUser(count);
-    setCommentUser(comment);
+    setDescriptionUser(description);
     setOpen(false);
   };
   const handleOpen = () => {
@@ -98,12 +98,12 @@ function TrBlock({ id, name, phone, data, clock, count, comment }) {
 
   const editIdItem = (ids) => {
     let info = JSON.stringify({
-      nameInfo: nameUser,
-      numInfo: phoneUser,
-      dataInfo: dataUser,
-      timeInfo: clockUser,
-      countInfo: countUser,
-      commentInfo: commentUser,
+      name: nameUser,
+      phone: phoneUser,
+      data: dataUser,
+      time: timeUser,
+      count: countUser,
+      description: descriptionUser,
 
       // name: nameUser,
       // phone: phoneUser,
@@ -171,8 +171,8 @@ function TrBlock({ id, name, phone, data, clock, count, comment }) {
                   <label>
                     Время:
                     <input
-                      value={clockUser}
-                      onChange={handleChangeClockUser}
+                      value={timeUser}
+                      onChange={handleChangeTimeUser}
                       type="text"
                       name="name"
                     />
@@ -193,8 +193,8 @@ function TrBlock({ id, name, phone, data, clock, count, comment }) {
                   <label>
                     Коммент:
                     <input
-                      value={commentUser}
-                      onChange={handleChangeCommentUser}
+                      value={descriptionUser}
+                      onChange={handleChangeDescriptionUser}
                       type="text"
                       name="name"
                     />
@@ -220,9 +220,9 @@ function TrBlock({ id, name, phone, data, clock, count, comment }) {
         <td>{phone}</td>
         <td>{data} </td>
 
-        <td>{clock}</td>
+        <td>{time}</td>
         <td>{count}</td>
-        <td>{comment}</td>
+        <td>{description}</td>
         <td>
           <Button onClick={handleOpen} variant="dark">
             Изменить

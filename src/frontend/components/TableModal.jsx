@@ -107,7 +107,7 @@ function TableModal() {
   const [phone, setPhone] = React.useState('');
   const [data, setData] = React.useState('0');
   const [time, setTime] = React.useState('17');
-  const [comment, setComment] = React.useState('');
+  const [description, setDescription] = React.useState('');
   const [count, setCount] = React.useState('');
   const [check, setCheck] = React.useState(false);
   const [checkName, setCheckName] = React.useState(false);
@@ -130,8 +130,8 @@ function TableModal() {
     setData(event.target.value);
   };
 
-  const handleChangeComment = (event) => {
-    setComment(event.target.value);
+  const handleChangeDescription = (event) => {
+    setDescription(event.target.value);
   };
   const handleChangeCount = (event) => {
     if (!isNaN(event.target.value) && event.target.value < 10) {
@@ -189,19 +189,12 @@ function TableModal() {
       event.preventDefault();
 
       let info = JSON.stringify({
-        nameInfo: name,
-        numInfo: phone,
-        dataInfo: data,
-        timeInfo: time,
-        countInfo: count,
-        commentInfo: comment,
-        // name: name,
-        // id: `f${(~~(Math.random() * 1e8)).toString(16)}`,
-        // phone: phone,
-        // data: data,
-        // clock: time,
-        // count: count,
-        // comment: comment,
+        name,
+        phone,
+        description,
+        count,
+        data,
+        time,
       });
 
       dispatch(postInfoTable(info));
@@ -339,8 +332,8 @@ function TableModal() {
                     className={classes.margin}
                     id="custom-css-standard-input"
                     label="Пожелания"
-                    onChange={handleChangeComment}
-                    value={comment}
+                    onChange={handleChangeDescription}
+                    value={description}
                   />
                 </div>
               </div>
