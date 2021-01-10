@@ -44,34 +44,9 @@ function AboutSection() {
                 </a>
               </Col>
             </Row>
-
-            <Row className="justify-content-md-center">
-              <Col className="itemAboutSection3">
-                <a data-fancybox="gallery" href={aboutSectionImg3}>
-                  <img
-                    alt="aboutImg"
-                    className="aboutSectionImg mt-5"
-                    width="320px"
-                    height="500px"
-                    src={aboutSectionImg3}
-                  />
-                </a>
-              </Col>
-              <Col className="itemAboutSection4">
-                <a data-fancybox="gallery" href={aboutSectionImg3}>
-                  <img
-                    alt="aboutImg"
-                    className="aboutSectionImg mt-5"
-                    width="320px"
-                    height="500px"
-                    src={aboutSectionImg3}
-                  />
-                </a>
-              </Col>
-            </Row>
           </Col>
           <Col sm={6}>
-            <div className="textDownAbout mt-5 text-justify">
+            <div className="textDownAbout mt-5 ">
               <div>
                 Уютное пространство для отличного отдыха — это наша кальянная в Санкт-Петербурге.
                 Приятная и дружелюбная атмосфера поможет отключиться от будничной суеты и провести

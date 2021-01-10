@@ -26,6 +26,19 @@ export const postInfoEvent = (data) => () => {
     });
 };
 
+export const postInfoComp = (data) => () => {
+  axios
+    .post('http://localhost:8080/api/competition/create', data, {
+      headers: { 'Content-Type': 'application/json' },
+    })
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
 export const fetchInfoTablesAdmin = () => (dispatch) => {
   axios
     .get('http://localhost:8080/api/table/info')
@@ -48,6 +61,17 @@ export const fetchInfoEventsAdmin = () => (dispatch) => {
     });
 };
 
+export const fetchInfoCompAdmin = () => (dispatch) => {
+  axios
+    .get('http://localhost:8080/api/competition/info')
+    .then(({ data }) => {
+      dispatch(setCompInfoFromServer(data));
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
 export const setAllInfoFromServer = (items) => ({
   type: 'SET_TABLES_INFO',
   payload: items,
@@ -55,6 +79,11 @@ export const setAllInfoFromServer = (items) => ({
 
 export const setEventsInfoFromServer = (items) => ({
   type: 'SET_EVENTS_INFO',
+  payload: items,
+});
+
+export const setCompInfoFromServer = (items) => ({
+  type: 'SET_COMP_INFO',
   payload: items,
 });
 
@@ -84,6 +113,19 @@ export const deleteIdEventItems = (id) => () => {
     });
 };
 
+export const deleteIdCompItems = (id) => () => {
+  axios
+    .delete('http://localhost:8080/api/competition/delete/' + id, {
+      headers: { 'Content-Type': 'application/json' },
+    })
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
 export const editorIdTableItem = (id, item) => () => {
   axios
     .put('http://localhost:8080/api/table/update/' + id, item, {
@@ -100,6 +142,19 @@ export const editorIdTableItem = (id, item) => () => {
 export const editorIdEventItems = (id, item) => () => {
   axios
     .put('http://localhost:8080/api/event/update/' + id, item, {
+      headers: { 'Content-Type': 'application/json' },
+    })
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+export const editorIdCompItems = (id, item) => () => {
+  axios
+    .put('http://localhost:8080/api/competition/update/' + id, item, {
       headers: { 'Content-Type': 'application/json' },
     })
     .then((response) => {

@@ -45,7 +45,7 @@ function Footer({ clickSmooth }) {
           <Col className="social text-center" sm="4">
             <h2 className=" headlineText text-center ">Кальянная</h2>
             <div className="hookanFooterText text-center">
-              Hookan Launge это lounge bar и ресторан. У нас вы сможете насладиться вкуснейшими
+              Hookan Lounge это lounge bar и ресторан. У нас вы сможете насладиться вкуснейшими
               ароматами дымного кальяна в кругу своих друзей. Мы создали все условия для отличного
               отдыха.
             </div>

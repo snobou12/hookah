@@ -3,7 +3,7 @@ import nowDataReducer from './nowData';
 import tableReserveReducer from './tableReserve';
 import serverMethodsReducer from './serverMethods';
 import refEventReducer from './refEvent';
-import { combineReducers } from 'redux'; // combineRedusers-соединение редюсеров всех
+import { combineReducers } from 'redux';
 
 const rootReducer = combineReducers({
   headerMenu: headerMenuReducer,

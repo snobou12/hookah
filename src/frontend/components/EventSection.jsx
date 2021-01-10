@@ -4,10 +4,10 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { IoIosCall } from 'react-icons/io';
 
 import { BsPeopleFill, BsGeoAlt, BsCalendarFill } from 'react-icons/bs';
-import Button from 'react-bootstrap/Button';
+
 import '../css/EventSection.css';
 
-function EventSection({ smoothToEventSelectorProp }) {
+function EventSection() {
   return (
     <div className="event-section-wrapper">
       <Container className="pt-5 pb-5">
@@ -24,7 +24,15 @@ function EventSection({ smoothToEventSelectorProp }) {
 
             <h3 className="topTextItem text-center ">Расположение</h3>
 
-            <div>Историческое место — 5 углов Панорамный вид на самый центр города</div>
+            <div>
+              {' '}
+              <span className="k">
+                {' '}
+                ул. Промышленная, дом 6,
+                <br /> ЦФТ "Нарвский
+              </span>{' '}
+              <span>, Санкт-Петербург</span>
+            </div>
           </Col>
           <Col className="social text-center" sm="3">
             <div className="pb-3 pt-5">
@@ -58,20 +66,11 @@ function EventSection({ smoothToEventSelectorProp }) {
             <div className="text-danger">
               Оставьте запрос — мы поможем устроить ваше мероприятие
             </div>
-            <div className="pt-3">
-              <Button onClick={smoothToEventSelectorProp} variant="danger">
-                Оставить запрос
-              </Button>
-            </div>
           </Col>
         </Row>
       </Container>
     </div>
   );
 }
-
-EventSection.propTypes = {
-  smoothToEventSelectorProp: PropTypes.func,
-};
 
 export default EventSection;

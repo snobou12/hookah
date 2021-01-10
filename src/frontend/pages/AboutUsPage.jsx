@@ -1,15 +1,20 @@
 import React from 'react';
 
-import { setMenuItem } from '../redux/actions/headerMenu';
+import { setHeaderItem } from '../redux/actions/headerMenu';
+import { GalerySliderWrapper } from '../components';
 
 import { useDispatch } from 'react-redux';
 import { TopImg } from '../components';
 function AboutUsPage() {
   const dispatch = useDispatch();
   React.useEffect(() => {
-    dispatch(setMenuItem(0));
+    dispatch(setHeaderItem(0));
   }, []);
-  return <div className="wrapperAboutUs">news</div>;
+  return (
+    <div className="wrapperAboutUs">
+      <GalerySliderWrapper />
+    </div>
+  );
 }
 
 export default AboutUsPage;

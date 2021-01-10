@@ -2,7 +2,7 @@
 
 .about-section-wrapper {
   background-color: #230329;
-
+  min-height: 100vh;
   background-image: url(../../assets/image/dark-leather.png);
   background-repeat: no-repeat;
 }
@@ -33,29 +33,23 @@ hr.short {
   position: absolute;
   left: 48.8%;
 }
+.textDownAbout {
+  text-align: justify;
+}
 
 .aboutSectionImg {
   border-radius: 50px;
 }
 
 .itemAboutSection1 {
-  text-align: right;
+  text-align: center;
 }
 .itemAboutSection2 {
-  text-align: right;
+  text-align: center;
 }
 
-@media screen and (max-width: 1398px) {
-  .itemAboutSection1 {
-    text-align: center;
-  }
-  .itemAboutSection2 {
-    text-align: center;
-  }
-  .itemAboutSection3 {
-    text-align: center;
-  }
-  .itemAboutSection4 {
+@media screen and (max-width: 575px) {
+  .textDownAbout {
     text-align: center;
   }
 }

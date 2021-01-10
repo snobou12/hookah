@@ -3,15 +3,23 @@ import { Route } from 'react-router-dom';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { setNowData } from '../../redux/actions/nowData';
-import { AboutUsPage, MainPage, MenuPage, NewsPage, AdminPage } from '../../pages';
-import { Footer, Header, YandexMap } from '../';
+import {
+  AboutUsPage,
+  MainPage,
+  MenuPageHookan,
+  NewsPage,
+  AdminPage,
+  MenuPageDrinks,
+  MenuPageTea,
+} from '../../pages';
+import { Footer, Header } from '../';
 
 import '../../css/App.css';
 import ScrollToTop from '../ScrollToTop';
 
 function App() {
   const dispatch = useDispatch();
-  const activeItem = useSelector(({ headerMenu }) => headerMenu.activeItem);
+  const activeItemHeader = useSelector(({ headerMenu }) => headerMenu.activeItemHeader);
 
   const clickActiveItem = () => {
     window.scrollTo({
@@ -35,7 +43,7 @@ function App() {
 
   return (
     <div className="main-wrapper">
-      <Header clickSmooth={clickActiveItem} activeItemProp={activeItem} />
+      <Header clickSmooth={clickActiveItem} activeItemProp={activeItemHeader} />
 
       <div className="contentPage">
         <Route path="/" exact>
@@ -45,8 +53,14 @@ function App() {
           <AboutUsPage />
         </Route>
 
-        <Route path="/menu" exact>
-          <MenuPage />
+        <Route path="/menu/hookan" exact>
+          <MenuPageHookan />
+        </Route>
+        <Route path="/menu/drinks" exact>
+          <MenuPageDrinks />
+        </Route>
+        <Route path="/menu/tea" exact>
+          <MenuPageTea />
         </Route>
 
         <Route path="/news" exact>
@@ -56,7 +70,7 @@ function App() {
           <AdminPage />
         </Route>
       </div>
-      <YandexMap />
+
       <Footer clickSmooth={clickActiveItem} />
       <ScrollToTop />
     </div>

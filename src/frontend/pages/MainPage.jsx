@@ -1,16 +1,16 @@
 import React from 'react';
-import { setMenuItem } from '../redux/actions/headerMenu';
+import { setHeaderItem } from '../redux/actions/headerMenu';
 import { setRefEvent } from '../redux/actions/refEvent';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
-  GalerySliderWrapper,
   AboutSection,
   MenuSection,
   NewsSection,
   EventSection,
   EventRequestSection,
   TopImg,
+  YandexMap,
 } from '../components';
 
 function MainPage() {
@@ -25,7 +25,7 @@ function MainPage() {
   const myRef = React.useRef();
 
   React.useEffect(() => {
-    dispatch(setMenuItem(null));
+    dispatch(setHeaderItem(null));
     dispatch(setRefEvent(myRef));
   }, []);
 
@@ -34,15 +34,15 @@ function MainPage() {
       <TopImg smoothToEventSelectorProp={smoothToEventSelector} />
       <AboutSection />
 
-      <EventSection smoothToEventSelectorProp={smoothToEventSelector} />
-
       <MenuSection />
 
       <NewsSection />
-      <GalerySliderWrapper />
       <div ref={myRef}>
         <EventRequestSection />
+
+        <EventSection smoothToEventSelectorProp={smoothToEventSelector} />
       </div>
+      <YandexMap />
     </div>
   );
 }

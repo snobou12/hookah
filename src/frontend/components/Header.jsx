@@ -13,7 +13,7 @@ function Header({ activeItemProp, clickSmooth }) {
 
   const liItems = [
     { name: 'О НАС', link: 'aboutUs', id: 0 },
-    { name: 'МЕНЮ', link: 'menu', id: 1 },
+    { name: 'МЕНЮ', link: 'menu/hookan', id: 1 },
     { name: 'НОВОСТИ', link: 'news', id: 2 },
   ];
   const listenScrollEvent = () => {

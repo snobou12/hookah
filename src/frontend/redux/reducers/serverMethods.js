@@ -1,6 +1,7 @@
 const initialState = {
   itemsTables: [],
   itemsEvents: [],
+  itemsComp: [],
   isAuth: false,
 };
 
@@ -16,6 +17,12 @@ const serverMethods = (state = initialState, action) => {
       return {
         ...state,
         itemsEvents: action.payload,
+      };
+
+    case 'SET_COMP_INFO':
+      return {
+        ...state,
+        itemsComp: action.payload,
       };
 
     case 'SET_AUTH':

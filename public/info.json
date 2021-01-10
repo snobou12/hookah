@@ -1,4 +1,58 @@
 {
-  "tables": [],
-  "events": []
+  "tables": [
+    {
+      "name": "ыфввыфыфв",
+      "phone": "123123",
+      "description": "213123",
+      "count": "1",
+      "data": "8/01/2021",
+      "time": "18:00",
+      "id": 2
+    },
+    {
+      "name": "sadsad",
+      "phone": "123",
+      "description": "123123",
+      "count": "1",
+      "data": "9/01/2021",
+      "time": "18:00",
+      "id": 3
+    }
+  ],
+  "events": [
+    {
+      "name": "aaaaaaaaaa",
+      "phone": "123123",
+      "email": "123123",
+      "description": "123312",
+      "id": 1
+    },
+    {
+      "name": "asdsad",
+      "phone": "asda",
+      "email": "dsasd",
+      "description": "dasadsads",
+      "id": 2
+    }
+  ],
+  "comp": [
+    {
+      "name": "1test12312",
+      "phone": "asdasd",
+      "points": "2123",
+      "id": 1
+    },
+    {
+      "name": "sadasd",
+      "phone": "123123",
+      "points": "adsasd",
+      "id": 2
+    },
+    {
+      "name": "asdasdads",
+      "phone": "123132",
+      "points": "asdasd",
+      "id": 3
+    }
+  ]
 }

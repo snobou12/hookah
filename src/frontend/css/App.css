@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+@import url(https://fonts.googleapis.com/css?family=Arimo:400,400italic|Playfair+Display+SC:400,700&subset=latin,cyrillic);
 body {
   margin: 0;
   padding: 0;
@@ -21,9 +22,4 @@ body {
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background: #f02c7b;
-}
-
-::placeholder {
-  font-size: 1em;
-  font-family: 'Comfortaa';
 }

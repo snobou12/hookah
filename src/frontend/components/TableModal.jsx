@@ -10,7 +10,7 @@ import { postInfoTable } from '../redux/actions/serverMethods';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-
+import { ModalConfirm } from '../components';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { withStyles } from '@material-ui/core/styles';
@@ -45,6 +45,44 @@ const useStyles = makeStyles((theme) => ({
     width: '530px',
     height: '480px',
     ['@media (max-width:767px)']: { width: '375px', height: '500px' },
+  },
+  imgClose: {
+    // position: 'fixed',
+    // right: '35%',
+    // top: '22%',
+    // bac
+  },
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+
+  formControl: {
+    width: 193,
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2),
+  },
+}));
+
+const useStylesConfirmModal = makeStyles((theme) => ({
+  modal: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: 'black',
+  },
+  paper: {
+    borderRadius: '10px',
+    backgroundImage: `url(${backGImage})`,
+    backgroundPosition: 'center',
+    backgroundColor: ' white;',
+    border: '2px solid #000',
+    boxShadow: theme.shadows[0],
+    padding: theme.spacing(0, 0, 0),
+    width: '500px',
+    height: '90px',
+    ['@media (max-width:767px)']: { width: '375px', height: '130px' },
   },
   imgClose: {
     float: 'right',
@@ -101,12 +139,14 @@ function TableModal() {
   const arrData = useSelector(({ nowData }) => nowData.data);
   const arrTime = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00', '00:00'];
   const classes = useStyles();
+  const classesConfirmModal = useStylesConfirmModal();
   const [open, setOpen] = React.useState(false);
   const [oopsOpen, setOopsOpen] = React.useState(false);
+
   const [name, setName] = React.useState('');
   const [phone, setPhone] = React.useState('');
-  const [data, setData] = React.useState('0');
-  const [time, setTime] = React.useState('17');
+  const [data, setData] = React.useState('');
+  const [time, setTime] = React.useState('');
   const [description, setDescription] = React.useState('');
   const [count, setCount] = React.useState('');
   const [check, setCheck] = React.useState(false);
@@ -114,6 +154,16 @@ function TableModal() {
   const [labelName, setLabelName] = React.useState('Ваше имя');
   const [checkPhone, setCheckPhone] = React.useState(false);
   const [labelPhone, setLabelPhone] = React.useState('Ваш телефон');
+
+  const [openConfirmModal, setopenConfirmModal] = React.useState(false);
+
+  const handleOpenConfirmModal = () => {
+    setopenConfirmModal(true);
+  };
+
+  const handleCloseConfirmModal = () => {
+    setopenConfirmModal(false);
+  };
 
   const handleOpen = () => {
     setOpen(true);
@@ -187,7 +237,6 @@ function TableModal() {
       event.preventDefault();
     } else {
       event.preventDefault();
-
       let info = JSON.stringify({
         name,
         phone,
@@ -196,8 +245,12 @@ function TableModal() {
         data,
         time,
       });
+      handleOpenConfirmModal();
+      setInterval(() => {
+        dispatch(postInfoTable(info));
+      }, 3000);
 
-      dispatch(postInfoTable(info));
+      // window.location.reload();
     }
   };
 
@@ -344,10 +397,31 @@ function TableModal() {
                 </div>
               </div>
               <div className="btn_priceInfo">
-                <button onClick={confirmClick} className="btn2">
-                  Отправить
-                </button>
-                <Link to="/menu">
+                <div>
+                  <button onClick={confirmClick} className="btn2">
+                    Отправить
+                  </button>
+                  <Modal
+                    aria-labelledby="transition-modal-title"
+                    aria-describedby="transition-modal-description"
+                    className={classesConfirmModal.modal}
+                    open={openConfirmModal}
+                    onClose={handleCloseConfirmModal}
+                    closeAfterTransition
+                    BackdropComponent={Backdrop}
+                    BackdropProps={{
+                      timeout: 500,
+                    }}>
+                    <Fade in={openConfirmModal}>
+                      <div className={classesConfirmModal.paper}>
+                        <h2 className="modalConfirmTopText">Ваш столик забронирован!</h2>
+                        <p className="modalConfirmDownText">В скором времени мы с вами свяжемся</p>
+                      </div>
+                    </Fade>
+                  </Modal>
+                </div>
+
+                <Link to="/menu/hookan">
                   <div className="priceInfo">Все цены в разделе меню *</div>
                 </Link>
               </div>

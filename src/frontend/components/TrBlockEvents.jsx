@@ -93,6 +93,7 @@ function TrBlockEvents({ id, name, phone, email, description }) {
     });
 
     dispatch(editorIdEventItems(ids, info));
+    window.location.reload();
   };
   return (
     <>

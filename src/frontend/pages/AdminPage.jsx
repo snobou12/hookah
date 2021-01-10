@@ -5,14 +5,15 @@ import {
   setAuth,
   fetchInfoTablesAdmin,
   fetchInfoEventsAdmin,
+  fetchInfoCompAdmin,
 } from '../redux/actions/serverMethods';
 
 import TextField from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';
 import { Table } from 'react-bootstrap';
-import { TrBlock, TrBlockEvents } from '../components';
+import { TrBlock, TrBlockEvents, TrBlockComp } from '../components';
 import { Button } from 'react-bootstrap';
-import { setMenuItem } from '../redux/actions/headerMenu';
+import { setHeaderItem } from '../redux/actions/headerMenu';
 
 const CssTextField = withStyles({
   root: {
@@ -39,6 +40,7 @@ const CssTextField = withStyles({
 function AdminPage() {
   const itemsTable = useSelector(({ serverMethods }) => serverMethods.itemsTables);
   const itemsEvents = useSelector(({ serverMethods }) => serverMethods.itemsEvents);
+  const itemsComp = useSelector(({ serverMethods }) => serverMethods.itemsComp);
   const dispatch = useDispatch();
   const authCheck = useSelector(({ serverMethods }) => serverMethods.isAuth);
   const [login, setLogin] = React.useState('');
@@ -70,12 +72,13 @@ function AdminPage() {
   };
 
   React.useEffect(() => {
-    dispatch(setMenuItem(3));
+    dispatch(setHeaderItem(3));
 
     if (localStorage.getItem('auth') === 'true') {
       dispatch(setAuth(true));
       dispatch(fetchInfoTablesAdmin());
       dispatch(fetchInfoEventsAdmin());
+      dispatch(fetchInfoCompAdmin());
     }
   }, []);
   return (
@@ -123,9 +126,8 @@ function AdminPage() {
               <th width="4%">Время</th>
               <th width="3%">Кол.чел</th>
               <th width="20%">Комментарий</th>
-              <th width="24%">Редактировать</th>
-              <th width="24%">Удалить</th>
-              <th width="6%">Done</th>
+              <th width="27%">Редактировать</th>
+              <th width="27%">Удалить</th>
             </tr>
           </thead>
           <tbody className="tContent">
@@ -150,13 +152,12 @@ function AdminPage() {
           <thead>
             <tr className="tHeader">
               <th width="1%">id</th>
-              <th width="8%">Имя</th>
-              <th width="5%">Телефон</th>
-              <th width="12%">Емейл</th>
-              <th width="20%">Комментарий</th>
-              <th width="24%">Редактировать</th>
-              <th width="24%">Удалить</th>
-              <th width="6%">Done</th>
+              <th width="15%">Имя</th>
+              <th width="15%">Телефон</th>
+              <th width="21%">Емейл</th>
+              <th width="28%">Комментарий</th>
+              <th width="10%">Редактировать</th>
+              <th width="10%">Удалить</th>
             </tr>
           </thead>
           <tbody className="tContent">
@@ -175,6 +176,32 @@ function AdminPage() {
         <div className="adminTools">
           <Button variant="dark">Добавить клиента</Button>
         </div>
+      </div>
+      <div className={authCheck ? 'adminContent' : 'adminContent-none'}>
+        <div className="text-center">
+          <h1 className="topTextInfo">Данные по конкурсу</h1>
+        </div>
+        <Table striped bordered hover size="sm">
+          <thead>
+            <tr className="tHeader">
+              <th width="4%">id</th>
+              <th width="20%">Имя</th>
+              <th width="20%">Телефон</th>
+              <th width="26%">Очки</th>
+              <th width="15%">Редактировать</th>
+              <th width="15%">Удалить</th>
+            </tr>
+          </thead>
+          <tbody className="tContent">
+            {itemsComp.length != 0 ? (
+              itemsComp.map((obj) => <TrBlockComp key={obj.id} {...obj} />)
+            ) : (
+              <> </>
+            )}
+          </tbody>
+        </Table>
+        {itemsComp.length === 0 ? <div className="text-center bold">Пока никого нет</div> : <> </>}
+        <div className="adminTools"></div>
         <Button onClick={logOutClick} variant="dark">
           Выход из системы
         </Button>
