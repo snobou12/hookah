@@ -25,12 +25,8 @@ function EventSection() {
             <h3 className="topTextItem text-center ">Расположение</h3>
 
             <div>
-              {' '}
-              <span className="k">
-                {' '}
-                ул. Промышленная, дом 6,
-                <br /> ЦФТ "Нарвский
-              </span>{' '}
+              ул. Промышленная, дом 6,
+              <br /> ЦФТ "Нарвский"
               <span>, Санкт-Петербург</span>
             </div>
           </Col>
@@ -41,10 +37,7 @@ function EventSection() {
 
             <h3 className="topTextItem text-center ">Вместимость</h3>
 
-            <div>
-              Банкет – до 50 человек
-              <br /> Фуршет – до 100 человек
-            </div>
+            <div>Банкет – до 25 человек</div>
           </Col>
 
           <Col className="social text-center" sm="3">

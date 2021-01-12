@@ -12,7 +12,7 @@ import {
   MenuPageDrinks,
   MenuPageTea,
 } from '../../pages';
-import { Footer, Header } from '../';
+import { Footer, Header, YandexMap } from '../';
 
 import '../../css/App.css';
 import ScrollToTop from '../ScrollToTop';
@@ -70,6 +70,7 @@ function App() {
           <AdminPage />
         </Route>
       </div>
+      <YandexMap />
 
       <Footer clickSmooth={clickActiveItem} />
       <ScrollToTop />

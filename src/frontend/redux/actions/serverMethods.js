@@ -1,5 +1,18 @@
 import axios from 'axios';
 
+export const postAuthInfo = (info, token) => () => {
+  axios
+    .post('http://localhost:3001/tables', info, {
+      headers: { Authorization: `Basic ${token}`, 'Content-Type': 'application/json' },
+    })
+    .then((response) => {
+      setTokenFromServer(response);
+    })
+    .catch((error) => {
+      setTokenFromServer('kek');
+    });
+};
+
 export const postInfoTable = (data) => () => {
   axios
     .post('http://localhost:8080/api/table/create', data, {
@@ -84,6 +97,11 @@ export const setEventsInfoFromServer = (items) => ({
 
 export const setCompInfoFromServer = (items) => ({
   type: 'SET_COMP_INFO',
+  payload: items,
+});
+
+export const setTokenFromServer = (items) => ({
+  type: 'SET_TOKEN',
   payload: items,
 });
 

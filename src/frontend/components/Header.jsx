@@ -10,7 +10,10 @@ import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
 import '../css/Header.css';
 function Header({ activeItemProp, clickSmooth }) {
   const [backgroundImageHeader, setBackgroundImageHeader] = React.useState('defaultHeader');
-
+  const [show, setShow] = React.useState(false);
+  const toggleShowClick = () => {
+    setShow(false);
+  };
   const liItems = [
     { name: 'О НАС', link: 'aboutUs', id: 0 },
     { name: 'МЕНЮ', link: 'menu/hookan', id: 1 },
@@ -58,7 +61,7 @@ function Header({ activeItemProp, clickSmooth }) {
               />
             </Link>
           </NavbarBrand>
-          <NavbarToggle aria-controls="responsive-navbar-nav" />
+          <NavbarToggle aria-controls="responsive-navbar-nav " />
           <NavbarCollapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
               <div className="ulHeader">

@@ -197,14 +197,6 @@ function TableModal() {
     if (!isNaN(event.target.value) && event.target.value.length < 11) {
       setPhone(event.target.value);
     }
-
-    if (phone.length < 11) {
-      setLabelPhone('Неверный номер');
-      setCheckPhone(false);
-    } else {
-      setLabelPhone('Ваш телефон');
-      setCheckPhone(true);
-    }
   };
 
   const handleChangeName = (event) => {

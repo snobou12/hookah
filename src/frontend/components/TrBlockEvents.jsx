@@ -7,7 +7,7 @@ import Backdrop from '@material-ui/core/Backdrop';
 import { makeStyles } from '@material-ui/core/styles';
 import { deleteIdEventItems, editorIdEventItems } from '../redux/actions/serverMethods';
 import Fade from '@material-ui/core/Fade';
-import Button from 'react-bootstrap/Button';
+import { Button, Container, Col, Row } from 'react-bootstrap';
 import '../css/TrBlock.css';
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: theme.shadows[0],
     padding: theme.spacing(0, 0, 0),
     width: '530px',
-    height: '680px',
+    height: '380px',
     ['@media (max-width:767px)']: { height: '480px' },
   },
   imgClose: {
@@ -111,64 +111,86 @@ function TrBlockEvents({ id, name, phone, email, description }) {
           }}>
           <Fade in={open}>
             <div className={classes.paper}>
-              <h2 id="transition-modal-title">Редактирование # {id}</h2>
+              <Container fluid>
+                <h2 id="transition-modal-title">Редактирование # {id}</h2>
+                <Row>
+                  <Col className="text-center">Имя</Col>
+                </Row>
+                <Row>
+                  <Col className="text-center">
+                    {' '}
+                    <div className="redactor_item">
+                      <input
+                        value={nameUser}
+                        onChange={handleChangeNameUser}
+                        type="text"
+                        name="name"
+                      />
+                    </div>
+                  </Col>
+                </Row>
 
-              <div className="blockAll">
-                <div className="redactor_item">
-                  <label>
-                    Имя:
-                    <input
-                      value={nameUser}
-                      onChange={handleChangeNameUser}
-                      type="text"
-                      name="name"
-                    />
-                  </label>
-                </div>
-                <div className="redactor_item">
-                  <label>
-                    Телефон:
-                    <input
-                      value={phoneUser}
-                      onChange={handleChangePhoneUser}
-                      type="text"
-                      name="name"
-                    />
-                  </label>
-                </div>
-                <div className="redactor_item">
-                  <label>
-                    E-мейл
-                    <input
-                      value={emailUser}
-                      onChange={handleChangeEmailUser}
-                      type="text"
-                      name="name"
-                    />
-                  </label>
-                </div>
+                <Row>
+                  <Col className="text-center">Телефон</Col>
+                </Row>
+                <Row>
+                  <Col className="text-center">
+                    <div className="redactor_item">
+                      <input
+                        value={phoneUser}
+                        onChange={handleChangePhoneUser}
+                        type="text"
+                        name="name"
+                      />
+                    </div>
+                  </Col>
+                </Row>
 
-                <div className="redactor_item">
-                  <label>
-                    Коммент:
-                    <input
-                      value={descriptionUser}
-                      onChange={handleChangeDescriptionUser}
-                      type="text"
-                      name="name"
-                    />
-                  </label>
-                </div>
-              </div>
+                <Row>
+                  <Col className="text-center">Емеил</Col>
+                </Row>
+                <Row>
+                  <Col className="text-center">
+                    <div className="redactor_item">
+                      <input
+                        value={emailUser}
+                        onChange={handleChangeEmailUser}
+                        type="text"
+                        name="name"
+                      />
+                    </div>
+                  </Col>
+                </Row>
 
-              <div className="btn_priceInfo">
-                <button onClick={() => editIdItem(id)} className="btn2">
-                  Сохранить
-                </button>
-                <button onClick={handleClose} className="btn2">
-                  Отменить
-                </button>
-              </div>
+                <Row>
+                  <Col className="text-center">Коммент</Col>
+                </Row>
+                <Row>
+                  <Col className="text-center">
+                    <div className="redactor_item">
+                      <input
+                        value={descriptionUser}
+                        onChange={handleChangeDescriptionUser}
+                        type="text"
+                        name="name"
+                      />
+                    </div>
+                  </Col>
+                </Row>
+
+                <Row className="pt-3">
+                  <Col className="text-center ">
+                    <Button onClick={() => editIdItem(id)} variant="dark">
+                      Сохранить
+                    </Button>
+                  </Col>
+                  <Col className="text-center">
+                    <Button onClick={handleClose} variant="dark">
+                      Отменить
+                    </Button>
+                  </Col>
+                </Row>
+              </Container>
             </div>
           </Fade>
         </Modal>

@@ -10,7 +10,6 @@ import {
   EventSection,
   EventRequestSection,
   TopImg,
-  YandexMap,
 } from '../components';
 
 function MainPage() {
@@ -36,13 +35,11 @@ function MainPage() {
 
       <MenuSection />
 
-      <NewsSection />
       <div ref={myRef}>
         <EventRequestSection />
 
         <EventSection smoothToEventSelectorProp={smoothToEventSelector} />
       </div>
-      <YandexMap />
     </div>
   );
 }

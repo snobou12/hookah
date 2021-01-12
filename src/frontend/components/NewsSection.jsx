@@ -14,8 +14,8 @@ function NewsSection() {
       <Container>
         <Row>
           <Col>
-            <div className="textTopNews p-5">
-              <h2 className="textTopNews text-center mt-5">Новости</h2>
+            <div className="textTopNews pb-5">
+              <h2 className="textTopNews text-center mt-5">Последние новости</h2>
               <hr className="short text-center" />
             </div>
           </Col>
@@ -28,10 +28,15 @@ function NewsSection() {
                 style={{
                   backgroundColor: '#230329',
                   border: ' solid 5px white',
-                  borderRadius: '0 0 20px 20px',
+                  borderRadius: '20px 20px 20px 20px',
                   minWidth: '340px',
                 }}>
-                <Card.Img height="300px" variant="top" src={news1} />
+                <Card.Img
+                  style={{ borderRadius: '20px 20px 0 0' }}
+                  height="300px"
+                  variant="top"
+                  src={news1}
+                />
                 <Card.Body>
                   <Card.Title>
                     <div className="textDownNews text-center bold">Новый табак</div>
@@ -54,10 +59,15 @@ function NewsSection() {
               style={{
                 backgroundColor: '#230329',
                 border: ' solid 5px white',
-                borderRadius: '0 0 20px 20px',
+                borderRadius: '20px 20px 20px 20px',
                 minWidth: '340px',
               }}>
-              <Card.Img height="300px" variant="top" src={news2} />
+              <Card.Img
+                style={{ borderRadius: '20px 20px 0 0' }}
+                height="300px"
+                variant="top"
+                src={news2}
+              />
               <Card.Body>
                 <Card.Title>
                   <div className="textDownNews text-center bold">Новый табак</div>
@@ -82,10 +92,15 @@ function NewsSection() {
                 style={{
                   backgroundColor: '#230329',
                   border: ' solid 5px white',
-                  borderRadius: '0 0 20px 20px',
+                  borderRadius: '20px 20px 20px 20px',
                   minWidth: '340px',
                 }}>
-                <Card.Img height="300px" variant="top" src={news3} />
+                <Card.Img
+                  style={{ borderRadius: '20px 20px 0 0' }}
+                  height="300px"
+                  variant="top"
+                  src={news3}
+                />
                 <Card.Body>
                   <Card.Title>
                     <div className="textDownNews text-center bold">Новый табак</div>
@@ -108,10 +123,15 @@ function NewsSection() {
               style={{
                 backgroundColor: '#230329',
                 border: ' solid 5px white',
-                borderRadius: '0 0 20px 20px',
+                borderRadius: '20px 20px 20px 20px',
                 minWidth: '340px',
               }}>
-              <Card.Img height="300px" variant="top" src={news4} />
+              <Card.Img
+                style={{ borderRadius: '20px 20px 0 0' }}
+                height="300px"
+                variant="top"
+                src={news4}
+              />
               <Card.Body>
                 <Card.Title>
                   <div className="textDownNews text-center bold">Новый табак</div>

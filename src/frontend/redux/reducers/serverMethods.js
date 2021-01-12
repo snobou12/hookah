@@ -2,6 +2,7 @@ const initialState = {
   itemsTables: [],
   itemsEvents: [],
   itemsComp: [],
+  token: '',
   isAuth: false,
 };
 
@@ -30,6 +31,12 @@ const serverMethods = (state = initialState, action) => {
         ...state,
         isAuth: action.payload,
       };
+    case 'SET_TOKEN':
+      return {
+        ...state,
+        token: action.payload,
+      };
+
     default:
       return state;
   }

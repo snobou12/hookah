@@ -5,7 +5,7 @@ import { deleteIdCompItems, editorIdCompItems, postInfoComp } from '../redux/act
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import { makeStyles } from '@material-ui/core/styles';
-import Button from 'react-bootstrap/Button';
+import { Button, Container, Col, Row } from 'react-bootstrap';
 import Fade from '@material-ui/core/Fade';
 import '../css/TrBlockComp.css';
 
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: theme.shadows[0],
     padding: theme.spacing(0, 0, 0),
     width: '530px',
-    height: '680px',
+    height: '320px',
     ['@media (max-width:767px)']: { height: '480px' },
   },
   imgClose: {
@@ -46,24 +46,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 function TrBLockComp({ id, name, phone, points }) {
   const [open, setOpen] = React.useState(false);
-  const [openAdd, setOpenAdd] = React.useState(false);
-
-  const handleOpenAdd = () => {
-    setOpenAdd(true);
-  };
-  const handleCloseAdd = () => {
-    setOpenAdd(false);
-  };
-  const addItemToComp = () => {
-    let info = JSON.stringify({
-      name: nameUserAdd,
-      phone: phoneUserAdd,
-      points: pointsUserAdd,
-    });
-
-    dispatch(postInfoComp(info));
-    window.location.reload();
-  };
 
   const [nameUser, setNameUser] = React.useState(name);
   const handleChangeNameUser = (event) => {
@@ -80,20 +62,6 @@ function TrBLockComp({ id, name, phone, points }) {
     setPointsUser(event.target.value);
   };
   //////////////////////////////////////////////////////////////////////
-  const [nameUserAdd, setNameUserAdd] = React.useState('');
-  const handleChangeNameUserAdd = (event) => {
-    setNameUserAdd(event.target.value);
-  };
-
-  const [phoneUserAdd, setPhoneUserAdd] = React.useState('');
-  const handleChangePhoneUserAdd = (event) => {
-    setPhoneUserAdd(event.target.value);
-  };
-
-  const [pointsUserAdd, setPointsUserAdd] = React.useState('');
-  const handleChangePointsUserAdd = (event) => {
-    setPointsUserAdd(event.target.value);
-  };
 
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -137,114 +105,74 @@ function TrBLockComp({ id, name, phone, points }) {
           }}>
           <Fade in={open}>
             <div className={classes.paper}>
-              <h2 id="transition-modal-title">Редактирование # {id}</h2>
+              <Container fluid>
+                <Row>
+                  <Col className="text-center">
+                    <h2 id="transition-modal-title">Редактирование # {id}</h2>
+                  </Col>
+                </Row>
 
-              <div className="blockAll">
-                <div className="redactor_item">
-                  <label>
-                    Имя:
-                    <input
-                      value={nameUser}
-                      onChange={handleChangeNameUser}
-                      type="text"
-                      name="name"
-                    />
-                  </label>
-                </div>
-                <div className="redactor_item">
-                  <label>
-                    Телефон:
-                    <input
-                      value={phoneUser}
-                      onChange={handleChangePhoneUser}
-                      type="text"
-                      name="name"
-                    />
-                  </label>
-                </div>
-                <div className="redactor_item">
-                  <label>
-                    Очки:
-                    <input
-                      value={pointsUser}
-                      onChange={handleChangePointsUser}
-                      type="text"
-                      name="name"
-                    />
-                  </label>
-                </div>
-              </div>
+                <Row>
+                  <Col className="text-center">Имя</Col>
+                </Row>
+                <Row>
+                  <Col className="text-center">
+                    <div className="redactor_item">
+                      <input
+                        value={nameUser}
+                        onChange={handleChangeNameUser}
+                        type="text"
+                        name="name"
+                      />
+                    </div>
+                  </Col>
+                </Row>
 
-              <div className="btn_priceInfo">
-                <button onClick={() => editIdItem(id)} className="btn2">
-                  Сохранить
-                </button>
-                <button onClick={handleClose} className="btn2">
-                  Отменить
-                </button>
-              </div>
-            </div>
-          </Fade>
-        </Modal>
-        <Modal
-          aria-labelledby="transition-modal-title"
-          aria-describedby="transition-modal-description"
-          className={classes.modal}
-          open={openAdd}
-          onClose={handleClose}
-          closeAfterTransition
-          BackdropComponent={Backdrop}
-          BackdropProps={{
-            timeout: 500,
-          }}>
-          <Fade in={openAdd}>
-            <div className={classes.paper}>
-              <h2 id="transition-modal-title">Добавление клиента</h2>
+                <Row>
+                  <Col className="text-center">Телефон</Col>
+                </Row>
+                <Row>
+                  <Col className="text-center">
+                    <div className="redactor_item">
+                      <input
+                        value={phoneUser}
+                        onChange={handleChangePhoneUser}
+                        type="text"
+                        name="name"
+                      />
+                    </div>
+                  </Col>
+                </Row>
 
-              <div className="blockAll">
-                <div className="redactor_item">
-                  <label>
-                    Имя:
-                    <input
-                      value={nameUserAdd}
-                      onChange={handleChangeNameUserAdd}
-                      type="text"
-                      name="name"
-                    />
-                  </label>
-                </div>
-                <div className="redactor_item">
-                  <label>
-                    Телефон:
-                    <input
-                      value={phoneUserAdd}
-                      onChange={handleChangePhoneUserAdd}
-                      type="text"
-                      name="name"
-                    />
-                  </label>
-                </div>
-                <div className="redactor_item">
-                  <label>
-                    Очки:
-                    <input
-                      value={pointsUserAdd}
-                      onChange={handleChangePointsUserAdd}
-                      type="text"
-                      name="name"
-                    />
-                  </label>
-                </div>
-              </div>
+                <Row>
+                  <Col className="text-center">Очки</Col>
+                </Row>
+                <Row>
+                  <Col className="text-center">
+                    <div className="redactor_item">
+                      <input
+                        value={pointsUser}
+                        onChange={handleChangePointsUser}
+                        type="text"
+                        name="name"
+                      />
+                    </div>
+                  </Col>
+                </Row>
 
-              <div className="btn_priceInfo">
-                <button onClick={addItemToComp} className="btn2">
-                  Сохранить
-                </button>
-                <button onClick={handleCloseAdd} className="btn2">
-                  Отменить
-                </button>
-              </div>
+                <Row className="pt-3">
+                  <Col className="text-center">
+                    <Button onClick={() => editIdItem(id)} variant="dark">
+                      Сохранить
+                    </Button>
+                  </Col>
+                  <Col className="text-center">
+                    <Button onClick={handleClose} variant="dark">
+                      Отменить
+                    </Button>
+                  </Col>
+                </Row>
+              </Container>
             </div>
           </Fade>
         </Modal>
@@ -269,9 +197,6 @@ function TrBLockComp({ id, name, phone, points }) {
           </Button>
         </td>
       </tr>
-      <Button onClick={handleOpenAdd} variant="dark">
-        Добавить клиента
-      </Button>
     </>
   );
 }

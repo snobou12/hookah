@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import '../css/AdminPage.css';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -6,12 +7,20 @@ import {
   fetchInfoTablesAdmin,
   fetchInfoEventsAdmin,
   fetchInfoCompAdmin,
+  postAuthInfo,
 } from '../redux/actions/serverMethods';
 
 import TextField from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';
 import { Table } from 'react-bootstrap';
-import { TrBlock, TrBlockEvents, TrBlockComp } from '../components';
+import {
+  TrBlockTables,
+  TrBlockEvents,
+  TrBlockComp,
+  ButtonClientAddComp,
+  ButtonClientAddTables,
+  ButtonClientAddEvents,
+} from '../components';
 import { Button } from 'react-bootstrap';
 import { setHeaderItem } from '../redux/actions/headerMenu';
 
@@ -38,6 +47,7 @@ const CssTextField = withStyles({
 })(TextField);
 
 function AdminPage() {
+  const trueToken = useSelector(({ serverMethods }) => serverMethods.token);
   const itemsTable = useSelector(({ serverMethods }) => serverMethods.itemsTables);
   const itemsEvents = useSelector(({ serverMethods }) => serverMethods.itemsEvents);
   const itemsComp = useSelector(({ serverMethods }) => serverMethods.itemsComp);
@@ -55,15 +65,26 @@ function AdminPage() {
   };
 
   const sendClick = () => {
-    // if (login === '123' && password === '321') {
-    //   dispatch(setAuth(true));
-    //   dispatch(fetchInfoAdmin());
-    // } else {
-    //   dispatch(setAuth(false));
-    // }
+    let fullInputs = login + ':' + password;
+    let token = btoa(fullInputs);
+    let info = JSON.stringify({
+      login,
+      password,
+    });
+    // dispatch(postAuthInfo(info, token));
 
-    localStorage.setItem('auth', true);
-    window.location.reload();
+    // localStorage.setItem('token', trueToken);
+
+    axios
+      .post('http://localhost:8080/api/login', info, {
+        headers: { Authorization: `Basic ${token}`, 'Content-Type': 'application/json' },
+      })
+      .then((response) => {
+        localStorage.setItem('token', response);
+      })
+      .catch((error) => {
+        localStorage.setItem('token', 'falseToken');
+      });
   };
 
   const logOutClick = () => {
@@ -111,7 +132,6 @@ function AdminPage() {
           </button>
         </div>
       </div>
-
       <div className={authCheck ? 'adminContent' : 'adminContent-none'}>
         <div className="text-center">
           <h1 className="topTextInfo">Данные по клиентам</h1>
@@ -132,7 +152,7 @@ function AdminPage() {
           </thead>
           <tbody className="tContent">
             {itemsTable.length != 0 ? (
-              itemsTable.map((obj) => <TrBlock key={obj.id} {...obj} />)
+              itemsTable.map((obj) => <TrBlockTables key={obj.id} {...obj} />)
             ) : (
               <> </>
             )}
@@ -140,14 +160,14 @@ function AdminPage() {
         </Table>
         {itemsTable.length === 0 ? <div className="text-center bold">Пока никого нет</div> : <> </>}
         <div className="adminTools">
-          <Button variant="dark">Добавить клиента</Button>
+          <ButtonClientAddTables />
         </div>
       </div>
-
       <div className={authCheck ? 'adminContent' : 'adminContent-none'}>
         <div className="text-center">
           <h1 className="topTextInfo">Данные по мероприятиям</h1>
         </div>
+
         <Table striped bordered hover size="sm">
           <thead>
             <tr className="tHeader">
@@ -174,7 +194,7 @@ function AdminPage() {
           <> </>
         )}
         <div className="adminTools">
-          <Button variant="dark">Добавить клиента</Button>
+          <ButtonClientAddEvents />
         </div>
       </div>
       <div className={authCheck ? 'adminContent' : 'adminContent-none'}>
@@ -201,11 +221,13 @@ function AdminPage() {
           </tbody>
         </Table>
         {itemsComp.length === 0 ? <div className="text-center bold">Пока никого нет</div> : <> </>}
-        <div className="adminTools"></div>
-        <Button onClick={logOutClick} variant="dark">
-          Выход из системы
-        </Button>
-      </div>
+        <div className="adminTools">
+          <ButtonClientAddComp />
+        </div>
+      </div>{' '}
+      <Button onClick={logOutClick} variant="dark">
+        Выход из системы
+      </Button>
     </div>
   );
 }

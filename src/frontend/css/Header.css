@@ -64,13 +64,19 @@
   }
 }
 @media screen and (max-width: 767px) {
+  #responsive-navbar-nav {
+    padding-top: 12px;
+  }
   .ulHeader {
-    position: fixed;
-    right: 0;
-    padding-right: 1%;
+    background-color: #230329;
+
+    background-image: url('../../assets/image/dark-leather.png');
+    background-position: center;
   }
   .ulHeader li {
+    padding-left: 0;
     display: block;
     text-align: center;
+    border: solid 1px rgb(255, 255, 255);
   }
 }

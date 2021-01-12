@@ -36,8 +36,10 @@ function Footer({ clickSmooth }) {
           </Col>
           <Col className="text-center" sm="4">
             <h2 className="headlineText text-center ">Контакты</h2>
-            <span className="textAdress"> ул. Промышленная, дом 6, ЦФТ "Нарвский</span> <br />{' '}
-            <span>Санкт-Петербург</span>
+            <span className="textAdress">
+              {' '}
+              ул. Промышленная, дом 6, ЦФТ "Нарвский",
+            </span> <br /> <span>Санкт-Петербург</span>
             <br />
             +7 (911) 926-60-10
           </Col>
@@ -45,9 +47,8 @@ function Footer({ clickSmooth }) {
           <Col className="social text-center" sm="4">
             <h2 className=" headlineText text-center ">Кальянная</h2>
             <div className="hookanFooterText text-center">
-              Hookan Lounge это lounge bar и ресторан. У нас вы сможете насладиться вкуснейшими
-              ароматами дымного кальяна в кругу своих друзей. Мы создали все условия для отличного
-              отдыха.
+              Cosa Nostra это антикафе, у нас вы сможете насладиться вкуснейшими ароматами дымного
+              кальяна в кругу своих друзей. Мы создали все условия для отличного отдыха.
             </div>
             <div className="pt-3">
               <a href="https://vk.com/cosaloungebar" rel="noreferrer" target="_blank">
