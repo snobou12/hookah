@@ -42,7 +42,8 @@
 }
 
 .headlineText {
-  font-family: 'Roboto';
+  font-family: 'Helvetica Neue';
+  font-size: 35px;
 }
 
 .textAdress {

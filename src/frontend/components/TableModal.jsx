@@ -228,7 +228,7 @@ function TableModal() {
       alert('Введите все данные');
       event.preventDefault();
     } else {
-      // event.preventDefault();
+      event.preventDefault();
       let info = JSON.stringify({
         name,
         phone,
@@ -243,7 +243,7 @@ function TableModal() {
       //   window.location.reload();
       // }, 3000);
       dispatch(postInfoTable(info));
-      // window.location.reload();
+      window.location.reload();
     }
   };
 
