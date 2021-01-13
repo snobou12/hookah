@@ -1,75 +1,13 @@
 {
   "tables": [
     {
-      "name": "ыфввыфыфв",
-      "phone": "123123",
-      "description": "213123",
-      "count": "1",
-      "data": "8/01/2021",
-      "time": "18:00",
-      "id": 2
-    },
-    {
       "name": "sadsad",
       "phone": "123",
-      "description": "123123",
-      "count": "1",
-      "data": "9/01/2021",
+      "data": "9/201/2021",
       "time": "18:00",
+      "count": "1",
+      "description": "123123",
       "id": 3
-    },
-    {
-      "name": "132123123",
-      "phone": "asdasd",
-      "data": "dsaads",
-      "time": "dsadas",
-      "count": "dasads",
-      "description": "asdads",
-      "id": 4
-    },
-    {
-      "headers": {
-        "Authorization": "Basic MTIzOjMyMQ==",
-        "Content-Type": "application/json"
-      },
-      "id": 5
-    },
-    {
-      "headers": {
-        "Authorization": "Basic MTIzMTIzMTIzOjEyMzEyMzEyMw==",
-        "Content-Type": "application/json"
-      },
-      "id": 6
-    },
-    {
-      "login": "123123",
-      "password": "32123",
-      "id": 7
-    },
-    {
-      "login": "123",
-      "password": "312",
-      "id": 8
-    },
-    {
-      "login": "123",
-      "password": "321",
-      "id": 9
-    },
-    {
-      "login": "213123",
-      "password": "321123",
-      "id": 10
-    },
-    {
-      "login": "213123",
-      "password": "21312312",
-      "id": 11
-    },
-    {
-      "login": "asdsaddas",
-      "password": "asdsadasd",
-      "id": 12
     }
   ],
   "events": [
@@ -86,6 +24,13 @@
       "email": "dsasd",
       "description": "dasadsads",
       "id": 2
+    },
+    {
+      "name": "фывфыв",
+      "phone": "выфвфы",
+      "email": "выфвыф",
+      "description": "1",
+      "id": 3
     }
   ],
   "comp": [
@@ -94,6 +39,12 @@
       "phone": "asdasd",
       "points": "2123",
       "id": 1
+    },
+    {
+      "name": "ыфвыфв",
+      "phone": "фвыыфв",
+      "points": "вфыфыв",
+      "id": 2
     }
   ]
 }

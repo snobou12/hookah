@@ -80,7 +80,8 @@ function TrBlockEvents({ id, name, phone, email, description }) {
   const dispatch = useDispatch();
 
   const delIdItem = (ids) => {
-    dispatch(deleteIdEventItems(ids));
+    let tokenFromLocalStorage = localStorage.getItem('token');
+    dispatch(deleteIdEventItems(ids, tokenFromLocalStorage));
     window.location.reload();
   };
 
@@ -91,8 +92,8 @@ function TrBlockEvents({ id, name, phone, email, description }) {
       email: emailUser,
       description: descriptionUser,
     });
-
-    dispatch(editorIdEventItems(ids, info));
+    let tokenFromLocalStorage = localStorage.getItem('token');
+    dispatch(editorIdEventItems(ids, info, tokenFromLocalStorage));
     window.location.reload();
   };
   return (

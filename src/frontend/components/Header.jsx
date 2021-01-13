@@ -51,14 +51,7 @@ function Header({ activeItemProp, clickSmooth }) {
         <Container>
           <NavbarBrand>
             <Link to="/">
-              <img
-                onClick={() => clickSmooth()}
-                src={headerLogo}
-                height="100%"
-                width="100%"
-                className="d-inline-block align-top"
-                alt="logo"
-              />
+              <img onClick={() => clickSmooth()} src={headerLogo} className="pb-3" alt="logo" />
             </Link>
           </NavbarBrand>
           <NavbarToggle aria-controls="responsive-navbar-nav " />

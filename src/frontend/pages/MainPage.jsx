@@ -37,7 +37,6 @@ function MainPage() {
 
       <div ref={myRef}>
         <EventRequestSection />
-
         <EventSection smoothToEventSelectorProp={smoothToEventSelector} />
       </div>
     </div>

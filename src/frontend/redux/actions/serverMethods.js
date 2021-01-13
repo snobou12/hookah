@@ -1,17 +1,17 @@
 import axios from 'axios';
 
-export const postAuthInfo = (info, token) => () => {
-  axios
-    .post('http://localhost:3001/tables', info, {
-      headers: { Authorization: `Basic ${token}`, 'Content-Type': 'application/json' },
-    })
-    .then((response) => {
-      setTokenFromServer(response);
-    })
-    .catch((error) => {
-      setTokenFromServer('kek');
-    });
-};
+// export const postAuthInfo = (info, token) => () => {
+//   axios
+//     .post('http://localhost:3001/tables', info, {
+//       headers: { Authorization: `Basic ${token}`, 'Content-Type': 'application/json' },
+//     })
+//     .then((response) => {
+//       setTokenFromServer(response);
+//     })
+//     .catch((error) => {
+//       setTokenFromServer('kek');
+//     });
+// };
 
 export const postInfoTable = (data) => () => {
   axios
@@ -39,10 +39,10 @@ export const postInfoEvent = (data) => () => {
     });
 };
 
-export const postInfoComp = (data) => () => {
+export const postInfoComp = (data, token) => () => {
   axios
     .post('http://localhost:8080/api/competition/create', data, {
-      headers: { 'Content-Type': 'application/json' },
+      headers: { Authorization: `Basic ${token}`, 'Content-Type': 'application/json' },
     })
     .then((response) => {
       console.log(response);
@@ -52,9 +52,11 @@ export const postInfoComp = (data) => () => {
     });
 };
 
-export const fetchInfoTablesAdmin = () => (dispatch) => {
+export const fetchInfoTablesAdmin = (token) => (dispatch) => {
   axios
-    .get('http://localhost:8080/api/table/info')
+    .get('http://localhost:8080/api/table/info', {
+      headers: { Authorization: `Basic ${token}`, 'Content-Type': 'application/json' },
+    })
     .then(({ data }) => {
       dispatch(setAllInfoFromServer(data));
     })
@@ -63,9 +65,12 @@ export const fetchInfoTablesAdmin = () => (dispatch) => {
     });
 };
 
-export const fetchInfoEventsAdmin = () => (dispatch) => {
+export const fetchInfoEventsAdmin = (token) => (dispatch) => {
   axios
-    .get('http://localhost:8080/api/event/info')
+    .get('http://localhost:8080/api/event/info', {
+      headers: { Authorization: `Basic ${token}`, 'Content-Type': 'application/json' },
+    })
+
     .then(({ data }) => {
       dispatch(setEventsInfoFromServer(data));
     })
@@ -74,9 +79,12 @@ export const fetchInfoEventsAdmin = () => (dispatch) => {
     });
 };
 
-export const fetchInfoCompAdmin = () => (dispatch) => {
+export const fetchInfoCompAdmin = (token) => (dispatch) => {
   axios
-    .get('http://localhost:8080/api/competition/info')
+    .get('http://localhost:8080/api/competition/info', {
+      headers: { Authorization: `Basic ${token}`, 'Content-Type': 'application/json' },
+    })
+
     .then(({ data }) => {
       dispatch(setCompInfoFromServer(data));
     })
@@ -105,10 +113,10 @@ export const setTokenFromServer = (items) => ({
   payload: items,
 });
 
-export const deleteIdTableItems = (id) => () => {
+export const deleteIdTableItems = (id, token) => () => {
   axios
     .delete('http://localhost:8080/api/table/delete/' + id, {
-      headers: { 'Content-Type': 'application/json' },
+      headers: { Authorization: `Basic ${token}`, 'Content-Type': 'application/json' },
     })
     .then((response) => {
       console.log(response);
@@ -118,10 +126,10 @@ export const deleteIdTableItems = (id) => () => {
     });
 };
 
-export const deleteIdEventItems = (id) => () => {
+export const deleteIdEventItems = (id, token) => () => {
   axios
     .delete('http://localhost:8080/api/event/delete/' + id, {
-      headers: { 'Content-Type': 'application/json' },
+      headers: { Authorization: `Basic ${token}`, 'Content-Type': 'application/json' },
     })
     .then((response) => {
       console.log(response);
@@ -131,10 +139,10 @@ export const deleteIdEventItems = (id) => () => {
     });
 };
 
-export const deleteIdCompItems = (id) => () => {
+export const deleteIdCompItems = (id, token) => () => {
   axios
     .delete('http://localhost:8080/api/competition/delete/' + id, {
-      headers: { 'Content-Type': 'application/json' },
+      headers: { Authorization: `Basic ${token}`, 'Content-Type': 'application/json' },
     })
     .then((response) => {
       console.log(response);
@@ -144,10 +152,10 @@ export const deleteIdCompItems = (id) => () => {
     });
 };
 
-export const editorIdTableItem = (id, item) => () => {
+export const editorIdTableItem = (id, item, token) => () => {
   axios
     .put('http://localhost:8080/api/table/update/' + id, item, {
-      headers: { 'Content-Type': 'application/json' },
+      headers: { Authorization: `Basic ${token}`, 'Content-Type': 'application/json' },
     })
     .then((response) => {
       console.log(response);
@@ -157,10 +165,10 @@ export const editorIdTableItem = (id, item) => () => {
     });
 };
 
-export const editorIdEventItems = (id, item) => () => {
+export const editorIdEventItems = (id, item, token) => () => {
   axios
     .put('http://localhost:8080/api/event/update/' + id, item, {
-      headers: { 'Content-Type': 'application/json' },
+      headers: { Authorization: `Basic ${token}`, 'Content-Type': 'application/json' },
     })
     .then((response) => {
       console.log(response);
@@ -170,10 +178,10 @@ export const editorIdEventItems = (id, item) => () => {
     });
 };
 
-export const editorIdCompItems = (id, item) => () => {
+export const editorIdCompItems = (id, item, token) => () => {
   axios
     .put('http://localhost:8080/api/competition/update/' + id, item, {
-      headers: { 'Content-Type': 'application/json' },
+      headers: { Authorization: `Basic ${token}`, 'Content-Type': 'application/json' },
     })
     .then((response) => {
       console.log(response);

@@ -22,9 +22,17 @@
   letter-spacing: 1px;
   font-size: 23px;
   color: #ffffff;
-  text-align: center;
+}
+.aboutSectionImg {
+  border-radius: 50px;
 }
 
+.pdTextAbout {
+  padding-top: 14%;
+}
+.element {
+  margin-bottom: 30px;
+}
 hr.short {
   width: 3%;
 
@@ -33,19 +41,9 @@ hr.short {
   position: absolute;
   left: 48.8%;
 }
-.textDownAbout {
-  text-align: justify;
-}
 
-.aboutSectionImg {
-  border-radius: 50px;
-}
-
-.itemAboutSection1 {
-  text-align: center;
-}
-.itemAboutSection2 {
-  text-align: center;
+.pdImage3 {
+  padding-top: 200px;
 }
 
 @media screen and (max-width: 575px) {

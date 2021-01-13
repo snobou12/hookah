@@ -91,9 +91,10 @@ function EventRequestSection() {
         description: descriptionUser,
       });
       handleOpenConfirmModal();
-      setInterval(() => {
-        dispatch(postInfoEvent(info));
-      }, 3000);
+      dispatch(postInfoEvent(info));
+      // setInterval(() => {
+      //   dispatch(postInfoEvent(info));
+      // }, 3000);
     } else {
       alert('Введите данные');
     }

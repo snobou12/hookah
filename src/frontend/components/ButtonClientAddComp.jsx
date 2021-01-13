@@ -59,7 +59,8 @@ function ButtonClientAddComp() {
         phone: phoneUserAdd,
         points: pointsUserAdd,
       });
-      dispatch(postInfoComp(info));
+      let token = localStorage.getItem('token');
+      dispatch(postInfoComp(info, token));
       window.location.reload();
     } else {
       alert('Введите хотя-бы имя');
