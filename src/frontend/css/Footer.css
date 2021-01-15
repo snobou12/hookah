@@ -43,6 +43,7 @@
 
 .headlineText {
   font-family: 'Helvetica Neue';
+  color: red;
   font-size: 35px;
 }
 
@@ -54,4 +55,10 @@
   font-family: 'Playfair Display SC', serif;
   font-size: 15px;
   color: rgb(173, 173, 173);
+}
+
+@media screen and (max-width: 568px) {
+  .pdCol {
+    padding-bottom: 30px;
+  }
 }

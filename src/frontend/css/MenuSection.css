@@ -1,5 +1,5 @@
 .menu-section-wrapper {
-  background-color: #180a1a;
+  background-color: #2b0330;
   min-height: 100vh;
 }
 
@@ -59,6 +59,6 @@
 }
 @media screen and (max-width: 336px) {
   .menu-section-wrapper img {
-    width: 50px;
+    width: 200px;
   }
 }

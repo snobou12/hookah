@@ -3,8 +3,9 @@ import { Route } from 'react-router-dom';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { setNowData } from '../../redux/actions/nowData';
+
 import {
-  AboutUsPage,
+  GaleryPage,
   MainPage,
   MenuPageHookan,
   NewsPage,
@@ -21,7 +22,7 @@ function App() {
   const dispatch = useDispatch();
   const activeItemHeader = useSelector(({ headerMenu }) => headerMenu.activeItemHeader);
 
-  const clickActiveItem = () => {
+  const smoothToUp = () => {
     window.scrollTo({
       top: 0,
       left: 0,
@@ -42,38 +43,40 @@ function App() {
   }, []);
 
   return (
-    <div className="main-wrapper">
-      <Header clickSmooth={clickActiveItem} activeItemProp={activeItemHeader} />
+    <div>
+      <div className="main-wrapper">
+        <Header clickSmooth={smoothToUp} activeItemProp={activeItemHeader} />
 
-      <div className="contentPage">
-        <Route path="/" exact>
-          <MainPage />
-        </Route>
-        <Route path="/aboutUs" exact>
-          <AboutUsPage />
-        </Route>
+        <div className="contentPage">
+          <Route path="/" exact>
+            <MainPage clickSmooth={smoothToUp} />
+          </Route>
+          <Route path="/galery" exact>
+            <GaleryPage />
+          </Route>
 
-        <Route path="/menu/hookan" exact>
-          <MenuPageHookan />
-        </Route>
-        <Route path="/menu/drinks" exact>
-          <MenuPageDrinks />
-        </Route>
-        <Route path="/menu/tea" exact>
-          <MenuPageTea />
-        </Route>
+          <Route path="/menu/hookan" exact>
+            <MenuPageHookan />
+          </Route>
+          <Route path="/menu/drinks" exact>
+            <MenuPageDrinks />
+          </Route>
+          <Route path="/menu/tea" exact>
+            <MenuPageTea />
+          </Route>
 
-        <Route path="/news" exact>
-          <NewsPage />
-        </Route>
-        <Route path="/admin" exact>
-          <AdminPage />
-        </Route>
+          <Route path="/news" exact>
+            <NewsPage />
+          </Route>
+          <Route path="/admin" exact>
+            <AdminPage />
+          </Route>
+        </div>
+        <YandexMap />
+
+        <Footer clickSmooth={smoothToUp} />
+        <ScrollToTop />
       </div>
-      <YandexMap />
-
-      <Footer clickSmooth={clickActiveItem} />
-      <ScrollToTop />
     </div>
   );
 }

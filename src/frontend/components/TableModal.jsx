@@ -4,7 +4,7 @@ import closeIconModal from '../../assets/image/closeDoteModal.png';
 import backGImage from '../../assets/image/dark-leather.png';
 import { Link } from 'react-router-dom';
 import { purple } from '@material-ui/core/colors';
-
+import { Container, Row, Col } from 'react-bootstrap';
 import Checkbox from '@material-ui/core/Checkbox';
 import { postInfoTable } from '../redux/actions/serverMethods';
 import Modal from '@material-ui/core/Modal';
@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: theme.shadows[0],
     padding: theme.spacing(0, 0, 0),
     width: '530px',
-    height: '480px',
+    height: '430px',
     ['@media (max-width:767px)']: { width: '375px', height: '500px' },
   },
   imgClose: {
@@ -144,7 +144,7 @@ function TableModal() {
   const [oopsOpen, setOopsOpen] = React.useState(false);
 
   const [name, setName] = React.useState('');
-  const [phone, setPhone] = React.useState('');
+  const [phone, setPhone] = React.useState('+7');
   const [data, setData] = React.useState('');
   const [time, setTime] = React.useState('');
   const [description, setDescription] = React.useState('');
@@ -152,8 +152,6 @@ function TableModal() {
   const [check, setCheck] = React.useState(false);
   const [checkName, setCheckName] = React.useState(false);
   const [labelName, setLabelName] = React.useState('Ваше имя');
-  const [checkPhone, setCheckPhone] = React.useState(false);
-  const [labelPhone, setLabelPhone] = React.useState('Ваш телефон');
 
   const [openConfirmModal, setopenConfirmModal] = React.useState(false);
 
@@ -170,6 +168,14 @@ function TableModal() {
   };
 
   const handleClose = () => {
+    setName('');
+    setPhone('+7');
+    setData('');
+    setTime('');
+    setDescription('');
+    setCount('');
+    setCheck(false);
+
     setOpen(false);
   };
   const handleCloseOops = () => {
@@ -184,7 +190,7 @@ function TableModal() {
     setDescription(event.target.value);
   };
   const handleChangeCount = (event) => {
-    if (!isNaN(event.target.value) && event.target.value < 10) {
+    if (!isNaN(event.target.value) && event.target.value < 100) {
       setCount(event.target.value);
     }
   };
@@ -194,7 +200,7 @@ function TableModal() {
   };
 
   const handleChangePhone = (event) => {
-    if (!isNaN(event.target.value) && event.target.value.length < 11) {
+    if (!isNaN(event.target.value) && event.target.value.length < 13) {
       setPhone(event.target.value);
     }
   };
@@ -222,8 +228,6 @@ function TableModal() {
       count === '' ||
       !check ||
       !checkName
-      //  ||
-      // !checkPhone
     ) {
       alert('Введите все данные');
       event.preventDefault();
@@ -292,132 +296,148 @@ function TableModal() {
         }}>
         <Fade in={open}>
           <div className={classes.paper}>
-            {/* <Button className={classes.btnCloseModal}>
-              {' '}
-              <img id="btnClose" onClick={handleClose} src={closeIconModal} alt="" />{' '}
-            </Button> */}{' '}
-            {/* <img
-              className={classes.imgClose}
-              id="btnClose"
-              onClick={handleClose}
-              src={closeIconModal}
-              alt=""
-            /> */}
             <h2 id="transition-modal-title">Забронировать столик</h2>
             <form className={classes.root} noValidate>
-              <div className="blockAll">
-                <div className="item">
-                  <CssTextField
-                    required
-                    className={classes.margin}
-                    id="1custom-css-standard-input"
-                    label={labelName}
-                    onChange={handleChangeName}
-                    value={name}
-                  />
-                </div>
-                <div className="item">
-                  <CssTextField
-                    required
-                    className={classes.margin}
-                    label={labelPhone}
-                    id="custom-css-standard-input"
-                    value={phone}
-                    onChange={handleChangePhone}
-                  />
-                </div>
-                <div className="item">
-                  <FormControl className={classes.formControl}>
-                    <InputLabel id="demo-simple-select-label">Дата *</InputLabel>
-                    <Select
-                      required
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
-                      value={data}
-                      onChange={handleChangeDate}>
-                      {arrData &&
-                        arrData.map((value, index) => (
-                          <MenuItem key={index} value={value}>
-                            {value}
-                          </MenuItem>
-                        ))}
-                    </Select>
-                  </FormControl>
-                </div>
-                <div className="item">
-                  <FormControl className={classes.formControl}>
-                    <InputLabel id="demo-simple-select-label">Время *</InputLabel>
-                    <Select
-                      required
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
-                      value={time}
-                      onChange={handleChangeTime}>
-                      {arrTime &&
-                        arrTime.map((value, index) => (
-                          <MenuItem key={index} value={value}>
-                            {value}
-                          </MenuItem>
-                        ))}
-                    </Select>
-                  </FormControl>
-                </div>
-                <div className="item">
-                  <CssTextField
-                    required
-                    className={classes.margin}
-                    id="custom-css-standard-input"
-                    label="Человек(1-9)"
-                    onChange={handleChangeCount}
-                    value={count}
-                  />
-                </div>
-                <div className="item">
-                  <CssTextField
-                    required
-                    className={classes.margin}
-                    id="custom-css-standard-input"
-                    label="Пожелания"
-                    onChange={handleChangeDescription}
-                    value={description}
-                  />
-                </div>
-              </div>
-              <div id="checkBox_Confirm">
-                <div id="checkBox">
-                  <GreenCheckbox onClick={checkChanger} checked={check} />
-                  Согласен на обработку персональных данных *
-                </div>
-              </div>
-              <div className="btn_priceInfo">
-                <div>
-                  <button onClick={confirmClick} className="btn2">
-                    Отправить
-                  </button>
-                  <Modal
-                    aria-labelledby="transition-modal-title"
-                    aria-describedby="transition-modal-description"
-                    className={classesConfirmModal.modal}
-                    open={openConfirmModal}
-                    onClose={handleCloseConfirmModal}
-                    closeAfterTransition
-                    BackdropComponent={Backdrop}
-                    BackdropProps={{
-                      timeout: 500,
-                    }}>
-                    <Fade in={openConfirmModal}>
-                      <div className={classesConfirmModal.paper}>
-                        <h2 className="modalConfirmTopText">Ваш столик забронирован!</h2>
-                        <p className="modalConfirmDownText">В скором времени мы с вами свяжемся</p>
-                      </div>
-                    </Fade>
-                  </Modal>
-                </div>
+              <Container fluid>
+                <Row className="pt-3">
+                  <Col className="text-right">
+                    <div className="item">
+                      <CssTextField
+                        required
+                        className={classes.margin}
+                        id="1custom-css-standard-input"
+                        label={labelName}
+                        onChange={handleChangeName}
+                        value={name}
+                      />
+                    </div>
+                  </Col>
+                  <Col className="text-left">
+                    <div className="item">
+                      <CssTextField
+                        required
+                        className={classes.margin}
+                        label="Ваш телефон"
+                        id="custom-css-standard-input"
+                        value={phone}
+                        onChange={handleChangePhone}
+                      />
+                    </div>
+                  </Col>
+                </Row>
+                <Row className="pt-3">
+                  <Col className="text-right">
+                    <div className="item">
+                      <FormControl className={classes.formControl}>
+                        <InputLabel id="demo-simple-select-label">Дата *</InputLabel>
+                        <Select
+                          required
+                          labelId="demo-simple-select-label"
+                          id="demo-simple-select"
+                          value={data}
+                          onChange={handleChangeDate}>
+                          {arrData &&
+                            arrData.map((value, index) => (
+                              <MenuItem key={index} value={value}>
+                                {value}
+                              </MenuItem>
+                            ))}
+                        </Select>
+                      </FormControl>
+                    </div>
+                  </Col>
+                  <Col className="text-left">
+                    {' '}
+                    <div className="item">
+                      <FormControl className={classes.formControl}>
+                        <InputLabel id="demo-simple-select-label">Время *</InputLabel>
+                        <Select
+                          required
+                          labelId="demo-simple-select-label"
+                          id="demo-simple-select"
+                          value={time}
+                          onChange={handleChangeTime}>
+                          {arrTime &&
+                            arrTime.map((value, index) => (
+                              <MenuItem key={index} value={value}>
+                                {value}
+                              </MenuItem>
+                            ))}
+                        </Select>
+                      </FormControl>
+                    </div>
+                  </Col>
+                </Row>
 
-                <Link to="/menu/hookan">
-                  <div className="priceInfo">Все цены в разделе меню *</div>
-                </Link>
-              </div>
+                <Row className="pt-3">
+                  <Col className="text-right">
+                    <div className="item">
+                      <CssTextField
+                        required
+                        className={classes.margin}
+                        id="custom-css-standard-input"
+                        label="Кол-во человек"
+                        onChange={handleChangeCount}
+                        value={count}
+                      />
+                    </div>
+                  </Col>
+                  <Col className="text-left">
+                    <div className="item">
+                      <CssTextField
+                        required
+                        className={classes.margin}
+                        id="custom-css-standard-input"
+                        label="Пожелания"
+                        onChange={handleChangeDescription}
+                        value={description}
+                      />
+                    </div>
+                  </Col>
+                </Row>
+                <Row className="pt-3">
+                  <Col className="text-center">
+                    <div id="checkBox_Confirm">
+                      <div id="checkBox">
+                        <GreenCheckbox onClick={checkChanger} checked={check} />
+                        Согласен на обработку персональных данных *
+                      </div>
+                    </div>
+                  </Col>
+                </Row>
+
+                <div className="btn_priceInfo">
+                  <div>
+                    <button onClick={confirmClick} className="btn2">
+                      Отправить
+                    </button>
+                    <Modal
+                      aria-labelledby="transition-modal-title"
+                      aria-describedby="transition-modal-description"
+                      className={classesConfirmModal.modal}
+                      open={openConfirmModal}
+                      onClose={handleCloseConfirmModal}
+                      closeAfterTransition
+                      BackdropComponent={Backdrop}
+                      BackdropProps={{
+                        timeout: 500,
+                      }}>
+                      <Fade in={openConfirmModal}>
+                        <div className={classesConfirmModal.paper}>
+                          <h2 className="modalConfirmTopText">Ваш столик забронирован!</h2>
+                          <p className="modalConfirmDownText">
+                            В скором времени мы с вами свяжемся
+                          </p>
+                        </div>
+                      </Fade>
+                    </Modal>
+                  </div>
+
+                  <Link to="/menu/hookan">
+                    <div className="priceInfo">Все цены в разделе меню *</div>
+                  </Link>
+                </div>
+              </Container>
             </form>
           </div>
         </Fade>

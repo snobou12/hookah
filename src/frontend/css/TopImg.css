@@ -86,9 +86,13 @@
 }
 
 @media screen and (max-width: 375px) {
-  .btnMy {
-    font-size: 8px;
-    width: 180px;
-    padding: 6px;
+  .tableModal {
+    padding-top: 15px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .tableModal {
+    padding-top: 10px;
   }
 }

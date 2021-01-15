@@ -34,30 +34,6 @@
   }
 }
 
-.blockAll {
-  text-align: center;
-}
-
-.blockAll {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: auto auto;
-  grid-auto-columns: auto;
-
-  background-position: center;
-}
-
-[class^='item'] {
-  min-height: 2.5em;
-  font-size: 33px;
-  line-height: 2.5em;
-  color: #fff;
-  font-family: 'Rubik';
-}
-#checkBox_Confirm {
-  padding-left: 25px;
-}
-
 .btn2 {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   margin-left: 10px;

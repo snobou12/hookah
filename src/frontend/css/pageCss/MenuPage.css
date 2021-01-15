@@ -45,3 +45,9 @@
   background-color: rgb(23, 0, 26);
   border: 20px solid rgb(88, 1, 88);
 }
+
+@media screen and (max-width: 767px) {
+  .list-group-horizontal {
+    flex-direction: column;
+  }
+}

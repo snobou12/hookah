@@ -12,7 +12,7 @@ import {
   TopImg,
 } from '../components';
 
-function MainPage() {
+function MainPage({ clickSmooth }) {
   const dispatch = useDispatch();
   const ref = useSelector(({ refEvent }) => refEvent.ref);
   const smoothToEventSelector = () =>
@@ -31,13 +31,14 @@ function MainPage() {
   return (
     <div className="wrapperMainPage ">
       <TopImg smoothToEventSelectorProp={smoothToEventSelector} />
-      <AboutSection />
+      <AboutSection smoothProp={clickSmooth} />
 
-      <MenuSection />
+      <MenuSection smoothProp={clickSmooth} />
 
       <div ref={myRef}>
-        <EventRequestSection />
         <EventSection smoothToEventSelectorProp={smoothToEventSelector} />
+
+        <EventRequestSection />
       </div>
     </div>
   );

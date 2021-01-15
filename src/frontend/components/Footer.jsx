@@ -10,16 +10,16 @@ import { AiFillInstagram } from 'react-icons/ai';
 import { FaVk } from 'react-icons/fa';
 function Footer({ clickSmooth }) {
   const liItems = [
-    { name: 'О нас', link: 'aboutUs', id: 0 },
     { name: 'Меню', link: 'menu', id: 1 },
     { name: 'Новости', link: 'news', id: 2 },
+    { name: 'Галерея', link: 'galery', id: 0 },
   ];
 
   return (
     <div className="footerClass">
       <Container fluid>
         <Row className="pb-3 text-center">
-          <Col className="text-center" sm="4">
+          <Col className="pdCol text-center" sm="4">
             <h2 className="headlineText text-center ">Основные разделы</h2>
             <div className="menuFooter">
               <li onClick={() => clickSmooth()}>
@@ -34,7 +34,7 @@ function Footer({ clickSmooth }) {
               ))}
             </div>
           </Col>
-          <Col className="text-center" sm="4">
+          <Col className="pdCol text-center" sm="4">
             <h2 className="headlineText text-center ">Контакты</h2>
             <span className="textAdress">
               {' '}

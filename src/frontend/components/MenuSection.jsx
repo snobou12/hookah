@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Image } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 import menuSectionPng1 from '../../assets/image/menuSectionPng1.jpg';
 import menuSectionPng2 from '../../assets/image/menuSectionPng2.jpg';
@@ -8,13 +9,13 @@ import '../css/MenuSection.css';
 
 // import Gallery from 'react-photo-gallery';
 
-function MenuSection() {
+function MenuSection({ smoothProp }) {
   return (
     <div className="menu-section-wrapper">
-      <Container fluid>
+      <Container className="pt-5 pb-5" fluid>
         <Row>
           <Col>
-            <h2 className="textTopAbout text-center mt-5 ">Меню</h2>
+            <h2 className="textTopAbout text-center  ">Меню</h2>
             <hr className="short " />
           </Col>
         </Row>
@@ -47,7 +48,9 @@ function MenuSection() {
         </Row>
         <Row className="pb-5 pt-5">
           <Col className="text-center">
-            <button className="btnMy">Узнать подробнее о меню</button>
+            <Link onClick={smoothProp} to="/menu/hookan">
+              <button className="btnMy">Узнать подробнее о меню</button>
+            </Link>
           </Col>
         </Row>
         <Row className="secondRows pt-5 ">

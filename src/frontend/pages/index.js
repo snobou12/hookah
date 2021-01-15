@@ -1,4 +1,4 @@
-export { default as AboutUsPage } from './AboutUsPage';
+export { default as GaleryPage } from './GaleryPage';
 export { default as MainPage } from './MainPage';
 export { default as MenuPageHookan } from './MenuPageHookan';
 export { default as MenuPageDrinks } from './MenuPageDrinks';

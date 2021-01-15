@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
-import { Navbar, Container, NavbarBrand, Nav } from 'react-bootstrap';
+import { BurgerMenu } from '../components';
+import { Navbar, Container, NavbarBrand, Nav, Row, Col } from 'react-bootstrap';
 import headerLogo from '../../assets/image/logo.png';
 import NavbarToggle from 'react-bootstrap/esm/NavbarToggle';
 import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
@@ -15,9 +15,9 @@ function Header({ activeItemProp, clickSmooth }) {
     setShow(false);
   };
   const liItems = [
-    { name: 'О НАС', link: 'aboutUs', id: 0 },
     { name: 'МЕНЮ', link: 'menu/hookan', id: 1 },
     { name: 'НОВОСТИ', link: 'news', id: 2 },
+    { name: 'ГАЛЕРЕЯ', link: 'galery', id: 0 },
   ];
   const listenScrollEvent = () => {
     if (window.scrollY > 0) {
@@ -54,7 +54,7 @@ function Header({ activeItemProp, clickSmooth }) {
               <img onClick={() => clickSmooth()} src={headerLogo} className="pb-3" alt="logo" />
             </Link>
           </NavbarBrand>
-          <NavbarToggle aria-controls="responsive-navbar-nav " />
+
           <NavbarCollapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
               <div className="ulHeader">
