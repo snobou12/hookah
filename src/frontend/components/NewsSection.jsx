@@ -171,7 +171,7 @@ function NewsSection() {
           </Col>
         </Row>
         <Row className="rowSales pb-5">
-          <Col>
+          <Col className="pt-5">
             <div className="cardItem1">
               <Card
                 className="cardItem1"
@@ -209,7 +209,7 @@ function NewsSection() {
               </Card>
             </div>
           </Col>
-          <Col>
+          <Col className="pt-5">
             <Card
               style={{
                 backgroundColor: '#230329',
@@ -255,7 +255,7 @@ function NewsSection() {
           </Col>
         </Row>
         <Row className="pb-5">
-          <Col>
+          <Col className="pt-5">
             <div className="cardItem1">
               <Card
                 className="cardItem1"

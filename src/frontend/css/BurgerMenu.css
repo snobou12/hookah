@@ -33,7 +33,7 @@
   */
 .bm-menu-wrap {
   position: fixed;
-  height: 40% !important;
+  height: 50% !important;
   width: 100% !important;
 }
 
@@ -41,7 +41,7 @@
 .bm-menu {
   background-color: #27052c;
   background-image: url('../../assets/image/dark-leather.png');
-  background-position: -100px 400px;
+  background-position: top;
   padding: 1.5em 1.5em 0;
   font-size: 1.15em;
 }
@@ -67,11 +67,18 @@
   font-family: 'Playfair Display SC', serif;
   padding-top: 10px;
   padding-bottom: 10px;
-  border: solid 1px white;
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  /* border: solid 1px white; */
 
   /* border-top: solid 3px white;
   border-bottom: solid 3px white; */
 }
+
+/* .menu-item-my > div {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+} */
 
 /* Styling of overlay */
 .bm-overlay {

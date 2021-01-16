@@ -35,9 +35,8 @@ function MainPage({ clickSmooth }) {
 
       <MenuSection smoothProp={clickSmooth} />
 
+      <EventSection smoothToEventSelectorProp={smoothToEventSelector} />
       <div ref={myRef}>
-        <EventSection smoothToEventSelectorProp={smoothToEventSelector} />
-
         <EventRequestSection />
       </div>
     </div>

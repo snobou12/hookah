@@ -2,6 +2,7 @@ import React from 'react';
 import { fallDown as Menu } from 'react-burger-menu';
 import '../css/BurgerMenu.css';
 import { Link } from 'react-router-dom';
+import headerLogo from '../../assets/image/logo.png';
 
 export default class BurgerMenu extends React.Component {
   constructor(props) {
@@ -32,7 +33,10 @@ export default class BurgerMenu extends React.Component {
       <Menu
         isOpen={this.state.menuOpen}
         onStateChange={(state) => this.handleStateChange(state)}
-        right>
+        left>
+        <div className="text-center pb-5">
+          <img src={headerLogo} alt="" />
+        </div>
         <Link onClick={smoothToUp} to="/">
           <div className="menu-item-my">Главная</div>
         </Link>

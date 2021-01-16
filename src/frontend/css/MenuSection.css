@@ -30,6 +30,17 @@
   text-align: left;
 }
 
+@media screen and (max-width: 1250px) {
+  .firstRows {
+    background-image: none;
+  }
+  .menu-section-wrapper {
+    background-image: url(../../assets/image/aboutBackground2.png);
+    background-repeat: no-repeat;
+    background-position: right 200px;
+  }
+}
+
 @media screen and (max-width: 835px) {
   .imgMenuSection1 {
     text-align: center;
