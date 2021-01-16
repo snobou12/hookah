@@ -12,7 +12,7 @@ import {
 
 import TextField from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';
-import { Table } from 'react-bootstrap';
+import { Table, Container, Row, Col } from 'react-bootstrap';
 import {
   TrBlockTables,
   TrBlockEvents,
@@ -246,10 +246,10 @@ function AdminPage() {
             <div className="adminTools">
               <ButtonClientAddComp />
             </div>
-            <Button onClick={logOutClick} variant="dark">
-              Выход из системы
-            </Button>
           </div>{' '}
+          <Button onClick={logOutClick} variant="dark">
+            Выход из системы
+          </Button>
         </div>
       ) : (
         <> </>

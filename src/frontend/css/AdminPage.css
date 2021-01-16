@@ -1,5 +1,5 @@
 .wrapperAdminPage {
-  min-height: 100vh;
+  min-height: 60vh;
   background-color: #290230;
 
   background-image: url(../../assets/image/dark-leather.png);
@@ -13,7 +13,7 @@
   border-radius: 10px;
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 40%;
   transform: translate(-50%, -50%);
 }
 .form-registration h1 {

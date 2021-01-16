@@ -17,6 +17,7 @@ import { Footer, Header, YandexMap } from '../';
 
 import '../../css/App.css';
 import ScrollToTop from '../ScrollToTop';
+import BurgerMenu from '../BurgerMenu';
 
 function App() {
   const dispatch = useDispatch();
@@ -44,6 +45,9 @@ function App() {
 
   return (
     <div>
+      <div className="burgerMenuContent">
+        <BurgerMenu />
+      </div>
       <div className="main-wrapper">
         <Header clickSmooth={smoothToUp} activeItemProp={activeItemHeader} />
 

@@ -111,7 +111,7 @@ function ButtonClientAddEvents() {
                 </Col>
               </Row>
               <Row>
-                <Col className="text-center">Имя</Col>
+                <Col className="text-center pt-1">Имя</Col>
               </Row>
               <Row>
                 <Col className="text-center">
@@ -126,7 +126,7 @@ function ButtonClientAddEvents() {
                 </Col>
               </Row>
               <Row>
-                <Col className="text-center">Телефон</Col>
+                <Col className="text-center pt-1">Телефон</Col>
               </Row>
               <Row>
                 <Col className="text-center">
@@ -141,7 +141,7 @@ function ButtonClientAddEvents() {
                 </Col>
               </Row>
               <Row>
-                <Col className="text-center">Емейл</Col>
+                <Col className="text-center pt-1">Емейл</Col>
               </Row>
               <Row>
                 <Col className="text-center">
@@ -157,7 +157,7 @@ function ButtonClientAddEvents() {
               </Row>
 
               <Row>
-                <Col className="text-center">Комментарий</Col>
+                <Col className="text-center pt-1">Комментарий</Col>
               </Row>
               <Row>
                 <Col className="text-center">
@@ -171,7 +171,7 @@ function ButtonClientAddEvents() {
                   </div>
                 </Col>
               </Row>
-              <Row className="pt-3">
+              <Row className="pt-4">
                 <Col className="text-center">
                   <Button onClick={addItemToComp} variant="dark">
                     Сохранить

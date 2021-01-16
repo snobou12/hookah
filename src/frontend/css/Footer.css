@@ -56,9 +56,15 @@
   font-size: 15px;
   color: rgb(173, 173, 173);
 }
+.mediaAlign {
+  text-align: center;
+}
 
 @media screen and (max-width: 568px) {
   .pdCol {
     padding-bottom: 30px;
+  }
+  .mediaAlign {
+    text-align: left;
   }
 }

@@ -51,7 +51,7 @@ function Header({ activeItemProp, clickSmooth }) {
         <Container>
           <NavbarBrand>
             <Link to="/">
-              <img onClick={() => clickSmooth()} src={headerLogo} className="pb-3" alt="logo" />
+              <img onClick={() => clickSmooth()} src={headerLogo} alt="logo" />
             </Link>
           </NavbarBrand>
 

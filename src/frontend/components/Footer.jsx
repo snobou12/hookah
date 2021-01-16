@@ -18,9 +18,9 @@ function Footer({ clickSmooth }) {
   return (
     <div className="footerClass">
       <Container fluid>
-        <Row className="pb-3 text-center">
-          <Col className="pdCol text-center" sm="4">
-            <h2 className="headlineText text-center ">Основные разделы</h2>
+        <Row className="pb-3 mediaAlign">
+          <Col className=" pdCol mediaAlign" sm="4">
+            <h2 className="headlineText mediaAlign ">Основные разделы</h2>
             <div className="menuFooter">
               <li onClick={() => clickSmooth()}>
                 <Link to="/">Главная</Link>
@@ -34,8 +34,8 @@ function Footer({ clickSmooth }) {
               ))}
             </div>
           </Col>
-          <Col className="pdCol text-center" sm="4">
-            <h2 className="headlineText text-center ">Контакты</h2>
+          <Col className="mediaAlign pdCol " sm="4">
+            <h2 className="mediaAlign headlineText">Контакты</h2>
             <span className="textAdress">
               {' '}
               ул. Промышленная, дом 6, ЦФТ "Нарвский",
@@ -44,13 +44,13 @@ function Footer({ clickSmooth }) {
             +7 (911) 926-60-10
           </Col>
 
-          <Col className="social text-center" sm="4">
-            <h2 className=" headlineText text-center ">Кальянная</h2>
-            <div className="hookanFooterText text-center">
+          <Col className="mediaAlign social " sm="4">
+            <h2 className="mediaAlign headlineText  ">Кальянная</h2>
+            <div className="hookanFooterText text-left">
               Cosa Nostra это антикафе, у нас вы сможете насладиться вкуснейшими ароматами дымного
               кальяна в кругу своих друзей. Мы создали все условия для отличного отдыха.
             </div>
-            <div className="pt-3">
+            <div className="pt-3 text-center">
               <a href="https://vk.com/cosaloungebar" rel="noreferrer" target="_blank">
                 <i>
                   <FaVk className="text-light" style={{ height: '30px', width: '30px' }} />

@@ -24,17 +24,27 @@
   color: #ffffff;
   text-align: center;
 }
+.rowSales a {
+  text-decoration: none;
+  color: white;
+}
 
 .bold {
   font-weight: bold;
   color: red;
 }
+.liNewsItems {
+  position: fixed;
+  z-index: 100;
+}
+.liNewsItems li {
+  list-style-type: none;
+  color: white;
+  font-family: 'Lobster';
+}
 
-@media screen and (max-width: 989px) {
-  .cardItem1 {
-    padding-bottom: 50px;
-  }
-  .cardItem3 {
-    padding-bottom: 50px;
+@media screen and (max-width: 1030px) {
+  .textDownNews {
+    font-size: 20px;
   }
 }

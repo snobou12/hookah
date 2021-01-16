@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(0, 0, 0),
     width: '530px',
     height: '430px',
-    ['@media (max-width:767px)']: { width: '375px', height: '500px' },
+    ['@media (max-width:767px)']: { width: '375px', height: '600px' },
   },
   imgClose: {
     // position: 'fixed',
@@ -299,8 +299,8 @@ function TableModal() {
             <h2 id="transition-modal-title">Забронировать столик</h2>
             <form className={classes.root} noValidate>
               <Container fluid>
-                <Row className="pt-3">
-                  <Col className="text-right">
+                <Row className="rowTableModal pt-3">
+                  <Col className="colRightTable">
                     <div className="item">
                       <CssTextField
                         required
@@ -312,7 +312,7 @@ function TableModal() {
                       />
                     </div>
                   </Col>
-                  <Col className="text-left">
+                  <Col className="colLeftTable">
                     <div className="item">
                       <CssTextField
                         required
@@ -325,13 +325,14 @@ function TableModal() {
                     </div>
                   </Col>
                 </Row>
-                <Row className="pt-3">
-                  <Col className="text-right">
+                <Row className="rowTableModal pt-3 colRightTable">
+                  <Col>
                     <div className="item">
                       <FormControl className={classes.formControl}>
                         <InputLabel id="demo-simple-select-label">Дата *</InputLabel>
                         <Select
                           required
+                          className="text-left"
                           labelId="demo-simple-select-label"
                           id="demo-simple-select"
                           value={data}
@@ -346,7 +347,7 @@ function TableModal() {
                       </FormControl>
                     </div>
                   </Col>
-                  <Col className="text-left">
+                  <Col className="colLeftTable">
                     {' '}
                     <div className="item">
                       <FormControl className={classes.formControl}>
@@ -369,8 +370,8 @@ function TableModal() {
                   </Col>
                 </Row>
 
-                <Row className="pt-3">
-                  <Col className="text-right">
+                <Row className="rowTableModal pt-3">
+                  <Col className="colRightTable">
                     <div className="item">
                       <CssTextField
                         required
@@ -382,7 +383,7 @@ function TableModal() {
                       />
                     </div>
                   </Col>
-                  <Col className="text-left">
+                  <Col className="colLeftTable">
                     <div className="item">
                       <CssTextField
                         required

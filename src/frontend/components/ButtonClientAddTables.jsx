@@ -121,7 +121,7 @@ function ButtonClientAddTables() {
                 </Col>
               </Row>
               <Row>
-                <Col className="text-center">Имя</Col>
+                <Col className="text-center pt-1">Имя</Col>
               </Row>
               <Row>
                 <Col className="text-center">
@@ -136,7 +136,7 @@ function ButtonClientAddTables() {
                 </Col>
               </Row>
               <Row>
-                <Col className="text-center">Телефон</Col>
+                <Col className="text-center pt-1">Телефон</Col>
               </Row>
               <Row>
                 <Col className="text-center">
@@ -151,7 +151,7 @@ function ButtonClientAddTables() {
                 </Col>
               </Row>
               <Row>
-                <Col className="text-center">Дата</Col>
+                <Col className="text-center pt-1">Дата</Col>
               </Row>
               <Row>
                 <Col className="text-center">
@@ -166,7 +166,7 @@ function ButtonClientAddTables() {
                 </Col>
               </Row>
               <Row>
-                <Col className="text-center">Время</Col>
+                <Col className="text-center pt-1">Время</Col>
               </Row>
               <Row>
                 <Col className="text-center">
@@ -181,7 +181,7 @@ function ButtonClientAddTables() {
                 </Col>
               </Row>
               <Row>
-                <Col className="text-center">Кол.человек</Col>
+                <Col className="text-center pt-1">Кол.человек</Col>
               </Row>
               <Row>
                 <Col className="text-center">
@@ -211,7 +211,7 @@ function ButtonClientAddTables() {
                   </div>
                 </Col>
               </Row>
-              <Row className="pt-3">
+              <Row className="pt-4">
                 <Col className="text-center">
                   <Button onClick={addItemToComp} variant="dark">
                     Сохранить

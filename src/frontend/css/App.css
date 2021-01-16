@@ -23,3 +23,13 @@ body {
   border-radius: 10px;
   background: #f02c7b;
 }
+
+.burgerMenuContent {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .burgerMenuContent {
+    display: block;
+  }
+}

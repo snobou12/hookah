@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: theme.shadows[0],
     padding: theme.spacing(0, 0, 0),
     width: '530px',
-    height: '300px',
+    height: '340px',
     ['@media (max-width:767px)']: { height: '480px' },
   },
   imgClose: {
@@ -105,7 +105,7 @@ function ButtonClientAddComp() {
                 </Col>
               </Row>
               <Row>
-                <Col className="text-center">Имя</Col>
+                <Col className="text-center pt-1">Имя</Col>
               </Row>
               <Row>
                 <Col className="text-center">
@@ -120,7 +120,7 @@ function ButtonClientAddComp() {
                 </Col>
               </Row>
               <Row>
-                <Col className="text-center">Телефон</Col>
+                <Col className="text-center pt-1">Телефон</Col>
               </Row>
               <Row>
                 <Col className="text-center">
@@ -135,7 +135,7 @@ function ButtonClientAddComp() {
                 </Col>
               </Row>
               <Row>
-                <Col className="text-center">Очки</Col>
+                <Col className="text-center pt-1">Очки</Col>
               </Row>
               <Row>
                 <Col className="text-center">
@@ -149,7 +149,7 @@ function ButtonClientAddComp() {
                   </div>
                 </Col>
               </Row>
-              <Row className="pt-3">
+              <Row className="pt-4">
                 <Col className="text-center">
                   <Button onClick={addItemToComp} variant="dark">
                     Сохранить
