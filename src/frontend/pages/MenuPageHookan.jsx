@@ -4,12 +4,12 @@ import { setHeaderItem, setMenuItem } from '../redux/actions/headerMenu';
 import { useDispatch, useSelector } from 'react-redux';
 import '../css/pageCss/MenuPage.css';
 import { Container, Row, Col, ListGroup, Image } from 'react-bootstrap';
-import menuItemHookanPng1 from '../../assets/image/menuSectionHookan1.jpg';
+import menuItemHookanPng1 from '../../assets/image/menuSectionHookan1.png';
 import menuItemHookanPng2 from '../../assets/image/menuSectionHookan2.jpg';
 function MenuPage() {
   const activeMenuItem = useSelector(({ headerMenu }) => headerMenu.activeItemMenu);
   const arrMenu = [
-    { name: 'Кальяны', link: 'menu/hookan', id: 0 },
+    { name: 'Табак', link: 'menu/hookan', id: 0 },
     { name: 'Напитки', link: 'menu/drinks', id: 1 },
     { name: 'Чай', link: 'menu/tea', id: 2 },
   ];
@@ -23,7 +23,7 @@ function MenuPage() {
       <Container className="pt-5 ">
         <Row className="pt-5 pb-4">
           <Col className="text-center">
-            <div className="topTextMenu">Кальяны</div>
+            <div className="topTextMenu">Табак</div>
           </Col>
         </Row>
 
@@ -53,11 +53,6 @@ function MenuPage() {
         <Row className="pb-5">
           <Col className="text-center">
             <Image src={menuItemHookanPng1} thumbnail />
-          </Col>
-        </Row>
-        <Row className="pb-5">
-          <Col className="text-center">
-            <Image src={menuItemHookanPng2} thumbnail />
           </Col>
         </Row>
       </Container>

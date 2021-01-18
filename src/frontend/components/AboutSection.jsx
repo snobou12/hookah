@@ -90,7 +90,7 @@ function AboutSection({ smoothProp }) {
         </Row>
         <Row>
           <Col className="text-center">
-            <a data-fancybox="gallery" href={aboutSectionImg2}>
+            <a data-fancybox="gallery2" href={aboutSectionImg2}>
               <img
                 className="aboutSectionImg"
                 alt="aboutImg"
@@ -103,7 +103,7 @@ function AboutSection({ smoothProp }) {
 
         <Row>
           <Col className="text-center">
-            <a data-fancybox="gallery" href={aboutSectionImg3}>
+            <a data-fancybox="gallery2" href={aboutSectionImg3}>
               <img
                 className="aboutSectionImg"
                 alt="aboutImg"
@@ -116,7 +116,7 @@ function AboutSection({ smoothProp }) {
 
         <Row>
           <Col className="text-center">
-            <a data-fancybox="gallery" href={aboutSectionImg1}>
+            <a data-fancybox="gallery2" href={aboutSectionImg1}>
               <img
                 className="aboutSectionImg"
                 alt="aboutImg"

@@ -7,6 +7,7 @@ import news4 from '../../assets/image/news4.jpg';
 
 import sale1 from '../../assets/image/sale1.jpg';
 import sale2 from '../../assets/image/sale2.jpg';
+import xboxEvent from '../../assets/image/xboxEventImg.jpg';
 
 import { Container, CardDeck, Card, Button, Row, Col, ListGroup } from 'react-bootstrap';
 import '../css/NewsSection.css';
@@ -254,8 +255,9 @@ function NewsSection() {
             </div>
           </Col>
         </Row>
-        <Row className="pb-5">
-          <Col className="pt-5">
+        <Row className="rowSales pb-5 ">
+          <Col className="text-center"></Col>
+          <Col sm={5} className="pt-5 ">
             <div className="cardItem1">
               <Card
                 className="cardItem1"
@@ -266,29 +268,34 @@ function NewsSection() {
                   maxWidth: '500px',
                 }}>
                 <Card.Img
-                  style={{ borderRadius: '20px 20px 0 0' }}
+                  style={{ borderRadius: '10px 10px 0 0' }}
                   height="300px"
                   variant="top"
-                  src={news1}
+                  src={xboxEvent}
                 />
                 <Card.Body>
                   <Card.Title>
-                    <div className="textDownNews text-center bold">Новый табак</div>
+                    <div className="textDownNews text-center bold">Выиграй PlayStation 5</div>
                   </Card.Title>
 
                   <Card.Text>
                     <div className="textDownNews text-center">
-                      Приходи к нам,чтобы попробовать один из самых дымных кальянов на Табабке💥💥💥
-                      Куча разных вкусов табака от "Кактуса с ромашкой" до "Секса на даче"
+                      Собери наибольшее количество купонов, получи максимальный ШАНС на выигрыш
+                      главного приза Sony PS5, а также получи много других ценных призов!
                     </div>
                   </Card.Text>
                   <div className="text-center">
-                    <Button variant="dark">Узнать подробнее</Button>
+                    <Button variant="dark">
+                      <a target="_blank" href="https://www.instagram.com/p/CKJ2e7Hrrt4/">
+                        Узнать подробнее
+                      </a>
+                    </Button>
                   </div>
                 </Card.Body>
               </Card>
             </div>
           </Col>
+          <Col className="text-center"></Col>
         </Row>
       </Container>
     </div>

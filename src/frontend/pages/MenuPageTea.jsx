@@ -4,11 +4,12 @@ import { setHeaderItem, setMenuItem } from '../redux/actions/headerMenu';
 import { useDispatch, useSelector } from 'react-redux';
 import '../css/pageCss/MenuPage.css';
 import { Container, Row, Col, ListGroup, Image } from 'react-bootstrap';
-import menuItemTeaPng1 from '../../assets/image/menuSectionTea1.jpg';
+import menuItemTeaPng1 from '../../assets/image/menuSectionTea1.jpg.png';
+
 function MenuPageTea() {
   const activeMenuItem = useSelector(({ headerMenu }) => headerMenu.activeItemMenu);
   const arrMenu = [
-    { name: 'Кальяны', link: 'menu/hookan', id: 0 },
+    { name: 'Табак', link: 'menu/hookan', id: 0 },
     { name: 'Напитки', link: 'menu/drinks', id: 1 },
     { name: 'Чай', link: 'menu/tea', id: 2 },
   ];
@@ -52,7 +53,7 @@ function MenuPageTea() {
         <Row className="pb-5">
           <Col className="text-center">
             {' '}
-            <Image src={menuItemTeaPng1} fluid />{' '}
+            <Image src={menuItemTeaPng1} thumbnail />{' '}
           </Col>
         </Row>
       </Container>

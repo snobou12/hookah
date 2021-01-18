@@ -8,7 +8,7 @@ import menuItemDrinksPng1 from '../../assets/image/menuSectionDrinks1.jpg';
 function MenuPageDrinks() {
   const activeMenuItem = useSelector(({ headerMenu }) => headerMenu.activeItemMenu);
   const arrMenu = [
-    { name: 'Кальяны', link: 'menu/hookan', id: 0 },
+    { name: 'Табак', link: 'menu/hookan', id: 0 },
     { name: 'Напитки', link: 'menu/drinks', id: 1 },
     { name: 'Чай', link: 'menu/tea', id: 2 },
   ];
@@ -51,7 +51,7 @@ function MenuPageDrinks() {
       <Container className="pt-5 pb-5">
         <Row className="pb-5">
           <Col className="text-center">
-            <Image src={menuItemDrinksPng1} fluid />
+            <Image src={menuItemDrinksPng1} thumbnail />
           </Col>
         </Row>
       </Container>

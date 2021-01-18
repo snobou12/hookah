@@ -135,6 +135,12 @@ const CssTextField = withStyles({
 
 function TableModal() {
   const dispatch = useDispatch();
+  const smoothToPrice = () => {
+    window.scrollTo({
+      top: 900,
+      behavior: 'smooth',
+    });
+  };
 
   const arrData = useSelector(({ nowData }) => nowData.data);
   const arrTime = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00', '00:00'];
@@ -434,7 +440,7 @@ function TableModal() {
                     </Modal>
                   </div>
 
-                  <Link to="/menu/hookan">
+                  <Link onClick={smoothToPrice} to="/menu/hookan">
                     <div className="priceInfo">Все цены в разделе меню *</div>
                   </Link>
                 </div>

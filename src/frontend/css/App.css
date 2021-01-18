@@ -24,6 +24,10 @@ body {
   background: #f02c7b;
 }
 
+* {
+  outline: none !important;
+}
+
 .burgerMenuContent {
   display: none;
 }

@@ -126,7 +126,7 @@ function ButtonClientAddEvents() {
                 </Col>
               </Row>
               <Row>
-                <Col className="text-center pt-1">Телефон</Col>
+                <Col className="text-center pt-2">Телефон</Col>
               </Row>
               <Row>
                 <Col className="text-center">
