@@ -76,7 +76,7 @@ function AdminPage() {
     // localStorage.setItem('token', trueToken);
     //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token', 'Access-Control-Allow-Methods': 'HEAD, GET, POST, PUT, PATCH, DELETE', 'Access-Control-Allow-Origin':'*'
     axios
-      .post('http://localhost:8080/api/login', info, {
+      .post('http://45.67.59.183:8080/api/login', info, {
         headers: { Authorization: `Basic ${token}`, 'Content-Type': 'application/json' },
       })
       .then((response) => {
@@ -100,7 +100,7 @@ function AdminPage() {
       });
       let tokenFromLocal = localStorage.getItem('token');
       axios
-        .post('http://localhost:8080/api/login/check', info, {
+        .post('http://45.67.59.183:8080/api/login/check', info, {
           headers: { Authorization: `Basic ${tokenCheck}`, 'Content-Type': 'application/json' },
         })
         .then((response) => {

@@ -15,7 +15,7 @@ import axios from 'axios';
 
 export const postInfoTable = (data) => () => {
   axios
-    .post('http://localhost:8080/api/table/create', data, {
+    .post('http://45.67.59.183:8080/api/table/create', data, {
       headers: { 'Content-Type': 'application/json' },
     })
     .then((response) => {
@@ -28,7 +28,7 @@ export const postInfoTable = (data) => () => {
 
 export const postInfoEvent = (data) => () => {
   axios
-    .post('http://localhost:8080/api/event/create', data, {
+    .post('http://45.67.59.183:8080/api/event/create', data, {
       headers: { 'Content-Type': 'application/json' },
     })
     .then((response) => {
@@ -41,7 +41,7 @@ export const postInfoEvent = (data) => () => {
 
 export const postInfoComp = (data, token) => () => {
   axios
-    .post('http://localhost:8080/api/competition/create', data, {
+    .post('http://45.67.59.183:8080/api/competition/create', data, {
       headers: { Authorization: `Basic ${token}`, 'Content-Type': 'application/json' },
     })
     .then((response) => {
@@ -54,7 +54,7 @@ export const postInfoComp = (data, token) => () => {
 
 export const fetchInfoTablesAdmin = (token) => (dispatch) => {
   axios
-    .get('http://localhost:8080/api/table/info', {
+    .get('http://45.67.59.183:8080/api/table/info', {
       headers: { Authorization: `Basic ${token}`, 'Content-Type': 'application/json' },
     })
     .then(({ data }) => {
@@ -67,7 +67,7 @@ export const fetchInfoTablesAdmin = (token) => (dispatch) => {
 
 export const fetchInfoEventsAdmin = (token) => (dispatch) => {
   axios
-    .get('http://localhost:8080/api/event/info', {
+    .get('http://45.67.59.183:8080/api/event/info', {
       headers: { Authorization: `Basic ${token}`, 'Content-Type': 'application/json' },
     })
 
@@ -81,7 +81,7 @@ export const fetchInfoEventsAdmin = (token) => (dispatch) => {
 
 export const fetchInfoCompAdmin = (token) => (dispatch) => {
   axios
-    .get('http://localhost:8080/api/competition/info', {
+    .get('http://45.67.59.183:8080/api/competition/info', {
       headers: { Authorization: `Basic ${token}`, 'Content-Type': 'application/json' },
     })
 
@@ -115,7 +115,7 @@ export const setTokenFromServer = (items) => ({
 
 export const deleteIdTableItems = (id, token) => () => {
   axios
-    .delete('http://localhost:8080/api/table/delete/' + id, {
+    .delete('http://45.67.59.183:8080/api/table/delete/' + id, {
       headers: { Authorization: `Basic ${token}`, 'Content-Type': 'application/json' },
     })
     .then((response) => {
@@ -128,7 +128,7 @@ export const deleteIdTableItems = (id, token) => () => {
 
 export const deleteIdEventItems = (id, token) => () => {
   axios
-    .delete('http://localhost:8080/api/event/delete/' + id, {
+    .delete('http://45.67.59.183:8080/api/event/delete/' + id, {
       headers: { Authorization: `Basic ${token}`, 'Content-Type': 'application/json' },
     })
     .then((response) => {
@@ -141,7 +141,7 @@ export const deleteIdEventItems = (id, token) => () => {
 
 export const deleteIdCompItems = (id, token) => () => {
   axios
-    .delete('http://localhost:8080/api/competition/delete/' + id, {
+    .delete('http://45.67.59.183:8080/api/competition/delete/' + id, {
       headers: { Authorization: `Basic ${token}`, 'Content-Type': 'application/json' },
     })
     .then((response) => {
@@ -154,7 +154,7 @@ export const deleteIdCompItems = (id, token) => () => {
 
 export const editorIdTableItem = (id, item, token) => () => {
   axios
-    .put('http://localhost:8080/api/table/update/' + id, item, {
+    .put('http://45.67.59.183:8080/api/table/update/' + id, item, {
       headers: { Authorization: `Basic ${token}`, 'Content-Type': 'application/json' },
     })
     .then((response) => {
@@ -167,7 +167,7 @@ export const editorIdTableItem = (id, item, token) => () => {
 
 export const editorIdEventItems = (id, item, token) => () => {
   axios
-    .put('http://localhost:8080/api/event/update/' + id, item, {
+    .put('http://45.67.59.183:8080/api/event/update/' + id, item, {
       headers: { Authorization: `Basic ${token}`, 'Content-Type': 'application/json' },
     })
     .then((response) => {
@@ -180,7 +180,7 @@ export const editorIdEventItems = (id, item, token) => () => {
 
 export const editorIdCompItems = (id, item, token) => () => {
   axios
-    .put('http://localhost:8080/api/competition/update/' + id, item, {
+    .put('http://45.67.59.183:8080/api/competition/update/' + id, item, {
       headers: { Authorization: `Basic ${token}`, 'Content-Type': 'application/json' },
     })
     .then((response) => {
