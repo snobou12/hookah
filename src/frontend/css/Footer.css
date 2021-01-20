@@ -21,11 +21,12 @@
 .menuFooter li {
   list-style-type: none;
   color: white;
-  font-family: 'Playfair Display SC', serif;
+  font-family: 'Yusei Magic', sans-serif;
 }
 .menuFooter li a {
   color: white;
   text-decoration: none;
+  font-size: 20px;
 }
 
 .menuFooter li a:hover {
@@ -37,23 +38,24 @@
   -o-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
-  font-size: 18px;
+  font-size: 23px;
   color: red;
 }
 
 .headlineText {
-  font-family: 'Helvetica Neue';
+  font-family: 'Yusei Magic', sans-serif;
   color: red;
   font-size: 35px;
 }
 
 .textAdress {
-  font-family: 'Playfair Display SC', serif;
+  font-family: 'Yusei Magic', sans-serif;
+  font-size: 20px;
 }
 
 .hookanFooterText {
-  font-family: 'Playfair Display SC', serif;
-  font-size: 15px;
+  font-family: 'Yusei Magic', sans-serif;
+  font-size: 17px;
   color: rgb(173, 173, 173);
 }
 .mediaAlign {

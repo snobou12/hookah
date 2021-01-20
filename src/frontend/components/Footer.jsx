@@ -38,10 +38,10 @@ function Footer({ clickSmooth }) {
             <h2 className="mediaAlign headlineText">Контакты</h2>
             <span className="textAdress">
               {' '}
-              ул. Промышленная, дом 6, ЦФТ "Нарвский",
-            </span> <br /> <span>Санкт-Петербург</span>
-            <br />
-            +7 (911) 926-60-10
+              ул. Промышленная, дом 6, ЦФТ "Нарвский", <br /> Санкт-Петербург
+              <br />
+              +7 (911) 926-60-10
+            </span>
           </Col>
 
           <Col className="mediaAlign social " sm="4">

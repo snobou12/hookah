@@ -119,7 +119,10 @@
 .colRightTable {
   text-align: right;
 }
-
+.imgCloseDot {
+  position: fixed;
+  left: 37%;
+}
 /* next prev dots*/
 
 @media screen and (max-width: 767px) {

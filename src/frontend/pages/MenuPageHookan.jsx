@@ -18,6 +18,7 @@ function MenuPage() {
     dispatch(setHeaderItem(1));
     dispatch(setMenuItem(0));
   }, []);
+
   return (
     <div className="wrapperMenuPage">
       <Container className="pt-5 ">

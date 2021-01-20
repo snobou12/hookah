@@ -49,12 +49,12 @@ function AboutSection({ smoothProp }) {
                 </Col>
                 <Col xs={6} className="text-left pdImage3">
                   <div className="element">
-                    <a data-fancybox="gallery" href={aboutSectionImg2}>
+                    <a data-fancybox="gallery" href={aboutSectionImg3}>
                       <img
                         className="aboutSectionImg"
                         alt="aboutImg"
                         className="aboutSectionImg mt-5"
-                        src={aboutSectionImg2Small}
+                        src={aboutSectionImg3Small}
                       />
                     </a>
                   </div>
@@ -63,15 +63,14 @@ function AboutSection({ smoothProp }) {
             </div>
           </Col>
           <Col className="pdTextAbout text-left" sm={7}>
-            <div className="text-center textDownAbout">
-              Уютное пространство для отличного отдыха — это наша кальянная в Санкт-Петербурге.
-              Приятная и дружелюбная атмосфера поможет отключиться от будничной суеты и провести
-              время за общением и вкусными кальянами И если вы ищете, где покурить кальян, приходите
-              к нам в место с оригинальным интерьером, где можно окунуться в спокойствие или
-              наоборот весело отдохнуть с компанией. Если вы желаете покурить кальян в очень
-              приятной атмосфере, шикарно провести свой вечер за чашкой любого чая или же просто
-              поиграть в приставку с друзьями, тогда ищите нас по адресу: улица Промышленная, дом 6,
-              ЦФТ "Нарвский", 3 этаж
+            <div className="text-justify textDownAbout">
+              Здравствуйте, меня зовут Иван! Я владелец Cosanostra.narvskiy Работа в этом заведении
+              для меня прежде всего любимое дело, в которое я вкладываю все свои силы и душу!
+              Приходите к нам для встречи с друзьями и просто отдохнуть! Буду рад Вас видеть! <br />
+              К Вашим услугам: <br /> - потрясающие паровые коктейли на Premium смесях
+              <br /> - VIP комната с Караоке <br />- 3 игровые зоны Xbox, PS4
+              <br /> - Настольные игры <br />- Вкуснейшие чаи и другие напитки
+              <br />- Нет пробкового сбора
             </div>
             <div className="pt-5 text-center">
               <Link onClick={smoothProp} to="/galery">
@@ -90,12 +89,12 @@ function AboutSection({ smoothProp }) {
         </Row>
         <Row>
           <Col className="text-center">
-            <a data-fancybox="gallery2" href={aboutSectionImg2}>
+            <a data-fancybox="gallery2" href={aboutSectionImg3}>
               <img
                 className="aboutSectionImg"
                 alt="aboutImg"
                 className="aboutSectionImg mt-5"
-                src={aboutSectionImg2Small}
+                src={aboutSectionImg3Small}
               />
             </a>
           </Col>
@@ -130,14 +129,13 @@ function AboutSection({ smoothProp }) {
         <Row>
           <Col>
             <div className="text-center textDownAbout pt-5">
-              Уютное пространство для отличного отдыха — это наша кальянная в Санкт-Петербурге.
-              Приятная и дружелюбная атмосфера поможет отключиться от будничной суеты и провести
-              время за общением и вкусными кальянами И если вы ищете, где покурить кальян, приходите
-              к нам в место с оригинальным интерьером, где можно окунуться в спокойствие или
-              наоборот весело отдохнуть с компанией. Если вы желаете покурить кальян в очень
-              приятной атмосфере, шикарно провести свой вечер за чашкой любого чая или же просто
-              поиграть в приставку с друзьями, тогда ищите нас по адресу: улица Промышленная, дом 6,
-              ЦФТ "Нарвский", 3 этаж
+              Здравствуйте, меня зовут Иван! Я владелец Cosanostra.narvskiy Работа в этом заведении
+              для меня прежде всего любимое дело, в которое я вкладываю все свои силы и душу!
+              Приходите к нам для встречи с друзьями и просто отдохнуть! Буду рад Вас видеть! <br />
+              К Вашим услугам: <br /> - потрясающие паровые коктейли на Premium смесях
+              <br /> - VIP комната с Караоке <br />- 3 игровые зоны Xbox, PS4
+              <br /> - Настольные игры <br />- Вкуснейшие чаи и другие напитки
+              <br />- Нет пробкового сбора
             </div>
             <div className="pt-3 text-center">
               <Link onClick={smoothProp} to="/galery">

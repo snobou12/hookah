@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
 .ulHeader li {
   display: inline;
   font-size: 20px;
@@ -7,7 +11,9 @@
 .ulHeader li a {
   text-decoration: none;
   position: relative;
-  font-family: 'Roboto Slab', serif;
+  /* font-family: 'Yusei Magic', sans-serif; */
+  /* font-family: 'Patua One', cursive; */
+  font-family: 'Rubik', sans-serif;
   color: white;
   transition: all 0.6s;
 }

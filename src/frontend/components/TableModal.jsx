@@ -44,14 +44,9 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(0, 0, 0),
     width: '530px',
     height: '430px',
-    ['@media (max-width:767px)']: { width: '375px', height: '600px' },
+    ['@media (max-width:767px)']: { width: '375px', height: '650px' },
   },
-  imgClose: {
-    // position: 'fixed',
-    // right: '35%',
-    // top: '22%',
-    // bac
-  },
+
   container: {
     display: 'flex',
     flexWrap: 'wrap',
@@ -85,8 +80,9 @@ const useStylesConfirmModal = makeStyles((theme) => ({
     ['@media (max-width:767px)']: { width: '375px', height: '130px' },
   },
   imgClose: {
-    float: 'right',
-    margin: 30,
+    position: 'fixed',
+    top: 0,
+    right: 0,
   },
   container: {
     display: 'flex',
@@ -302,6 +298,13 @@ function TableModal() {
         }}>
         <Fade in={open}>
           <div className={classes.paper}>
+            <img
+              className="imgCloseDot"
+              id="btnClose"
+              onClick={handleClose}
+              src={closeIconModal}
+              alt=""
+            />
             <h2 id="transition-modal-title">Забронировать столик</h2>
             <form className={classes.root} noValidate>
               <Container fluid>

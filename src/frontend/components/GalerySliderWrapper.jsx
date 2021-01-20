@@ -26,10 +26,10 @@ function GalerySliderWrapper() {
             <img className="d-block w-100" src={sliderImg3} alt="" />
             <Carousel.Caption></Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item>
+          {/* <Carousel.Item>
             <img className="d-block w-100" src={sliderImg4} alt="" />
             <Carousel.Caption></Carousel.Caption>
-          </Carousel.Item>
+          </Carousel.Item> */}
           <Carousel.Item>
             <img className="d-block w-100" src={sliderImg5} alt="" />
             <Carousel.Caption></Carousel.Caption>

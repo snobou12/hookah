@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Arimo:400,400italic|Playfair+Display+SC:400,700&subset=latin,cyrillic);
+@import url('https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap');
 
 .about-section-wrapper {
   background-color: #230329;
@@ -17,7 +18,9 @@
 }
 
 .textDownAbout {
-  font-family: 'Playfair Display SC', serif;
+  /* font-family: 'Playfair Display SC', serif; */
+  font-family: 'Yusei Magic', sans-serif;
+
   font-weight: 500;
   letter-spacing: 1px;
   font-size: 23px;
