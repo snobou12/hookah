@@ -4,7 +4,7 @@ import { setHeaderItem, setMenuItem } from '../redux/actions/headerMenu';
 import { useDispatch, useSelector } from 'react-redux';
 import '../css/pageCss/MenuPage.css';
 import { Container, Row, Col, ListGroup, Image } from 'react-bootstrap';
-import menuItemHookanPng1 from '../../assets/image/menuSectionHookan1.png';
+import menuItemHookanPng1 from '../../assets/image/menuSectionHookan1.jpg';
 import menuItemHookanPng2 from '../../assets/image/menuSectionHookan2.jpg';
 function MenuPage() {
   const activeMenuItem = useSelector(({ headerMenu }) => headerMenu.activeItemMenu);
