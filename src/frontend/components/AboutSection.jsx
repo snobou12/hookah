@@ -49,12 +49,12 @@ function AboutSection({ smoothProp }) {
                 </Col>
                 <Col xs={6} className="text-left pdImage3">
                   <div className="element">
-                    <a data-fancybox="gallery" href={aboutSectionImg3}>
+                    <a data-fancybox="gallery" href={aboutSectionImg2}>
                       <img
                         className="aboutSectionImg"
                         alt="aboutImg"
                         className="aboutSectionImg mt-5"
-                        src={aboutSectionImg3Small}
+                        src={aboutSectionImg2Small}
                       />
                     </a>
                   </div>
@@ -102,12 +102,12 @@ function AboutSection({ smoothProp }) {
 
         <Row>
           <Col className="text-center">
-            <a data-fancybox="gallery2" href={aboutSectionImg3}>
+            <a data-fancybox="gallery2" href={aboutSectionImg1}>
               <img
                 className="aboutSectionImg"
                 alt="aboutImg"
                 className="aboutSectionImg mt-5"
-                src={aboutSectionImg3Small}
+                src={aboutSectionImg1Small}
               />
             </a>
           </Col>
@@ -115,12 +115,12 @@ function AboutSection({ smoothProp }) {
 
         <Row>
           <Col className="text-center">
-            <a data-fancybox="gallery2" href={aboutSectionImg1}>
+            <a data-fancybox="gallery2" href={aboutSectionImg2}>
               <img
                 className="aboutSectionImg"
                 alt="aboutImg"
                 className="aboutSectionImg mt-5"
-                src={aboutSectionImg1Small}
+                src={aboutSectionImg2Small}
               />
             </a>
           </Col>
