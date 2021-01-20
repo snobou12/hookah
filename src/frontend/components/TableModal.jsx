@@ -299,16 +299,21 @@ function TableModal() {
         <Fade in={open}>
           <div className={classes.paper}>
             <img
-              className="imgCloseDot"
+              className="imgCloseDot m-2"
               id="btnClose"
               onClick={handleClose}
               src={closeIconModal}
               alt=""
             />
-            <h2 id="transition-modal-title">Забронировать столик</h2>
+
             <form className={classes.root} noValidate>
               <Container fluid>
-                <Row className="rowTableModal pt-3">
+                <Row>
+                  <Col className="text-center">
+                    <div className="reserveTableText pt-5">Забронировать столик</div>
+                  </Col>
+                </Row>
+                <Row className="rowTableModal pt-1">
                   <Col className="colRightTable">
                     <div className="item">
                       <CssTextField

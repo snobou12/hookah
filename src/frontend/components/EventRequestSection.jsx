@@ -62,7 +62,7 @@ function EventRequestSection() {
   const myRef = React.useRef();
 
   const [nameUser, setNameUser] = React.useState('');
-  const [phoneUser, setPhoneUser] = React.useState('');
+  const [phoneUser, setPhoneUser] = React.useState('+7');
   const [emailUser, setEmailUser] = React.useState('');
   const [descriptionUser, setDescriptionUser] = React.useState('');
 
