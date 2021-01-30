@@ -63,7 +63,7 @@ function ButtonClientAddTables() {
         description: descriptionUserAdd,
       });
       dispatch(postInfoTable(info));
-      window.location.reload();
+     
     } else {
       alert('Введите хотя-бы имя');
     }

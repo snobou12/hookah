@@ -61,7 +61,7 @@ function ButtonClientAddComp() {
       });
       let token = localStorage.getItem('token');
       dispatch(postInfoComp(info, token));
-      window.location.reload();
+      
     } else {
       alert('Введите хотя-бы имя');
     }
