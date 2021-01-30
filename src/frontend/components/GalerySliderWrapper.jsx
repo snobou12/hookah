@@ -14,10 +14,7 @@ function GalerySliderWrapper() {
     <div className="topSlider-wrapper  ">
       <div className="">
         <Carousel>
-          <Carousel.Item>
-            <img className="d-block w-100 " src={sliderImg1} alt="" />
-            <Carousel.Caption></Carousel.Caption>
-          </Carousel.Item>
+         
           <Carousel.Item>
             <img className="d-block w-100" src={sliderImg2} alt="" />
             <Carousel.Caption></Carousel.Caption>

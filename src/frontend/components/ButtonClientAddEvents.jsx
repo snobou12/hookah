@@ -62,7 +62,7 @@ function ButtonClientAddEvents() {
         description: descriptionUserAdd,
       });
       dispatch(postInfoEvent(info));
-      window.location.reload();
+     
     } else {
       alert('Введите хотя-бы имя');
     }

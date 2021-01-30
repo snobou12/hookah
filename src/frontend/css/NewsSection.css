@@ -43,9 +43,30 @@
   color: white;
   font-family: 'Lobster';
 }
+.lastNewsMedia {
+  display: none;
+}
+
+@media screen and (max-width: 1320px) {
+  .lastNewsOS {
+    display: none;
+  }
+  .lastNewsMedia {
+    display: unset;
+  }
+}
 
 @media screen and (max-width: 1030px) {
   .textDownNews {
     font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .lastNewsOS {
+    display: unset;
+  }
+  .lastNewsMedia {
+    display: none;
   }
 }

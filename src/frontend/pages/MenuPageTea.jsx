@@ -4,7 +4,7 @@ import { setHeaderItem, setMenuItem } from '../redux/actions/headerMenu';
 import { useDispatch, useSelector } from 'react-redux';
 import '../css/pageCss/MenuPage.css';
 import { Container, Row, Col, ListGroup, Image } from 'react-bootstrap';
-import menuItemTeaPng1 from '../../assets/image/menuSectionTea1.jpg.png';
+import menuItemTeaPng1 from '../../assets/image/menuSectionTea1.jpg';
 
 function MenuPageTea() {
   const activeMenuItem = useSelector(({ headerMenu }) => headerMenu.activeItemMenu);

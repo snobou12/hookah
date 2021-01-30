@@ -95,7 +95,7 @@ function TrBlock({ id, name, phone, data, time, count, description }) {
   const delIdItem = (ids) => {
     let tokenFromLocalStorage = localStorage.getItem('token');
     dispatch(deleteIdTableItems(ids, tokenFromLocalStorage));
-    window.location.reload();
+   
   };
 
   const editIdItem = (ids) => {
@@ -109,7 +109,7 @@ function TrBlock({ id, name, phone, data, time, count, description }) {
     });
     let tokenFromLocalStorage = localStorage.getItem('token');
     dispatch(editorIdTableItem(ids, info, tokenFromLocalStorage));
-    window.location.reload();
+  
   };
   return (
     <>

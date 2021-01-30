@@ -243,13 +243,8 @@ function TableModal() {
         data,
         time,
       });
-      handleOpenConfirmModal();
-      // setInterval(() => {
-      //   dispatch(postInfoTable(info));
-      //   window.location.reload();
-      // }, 3000);
       dispatch(postInfoTable(info));
-      window.location.reload();
+      handleOpenConfirmModal();
     }
   };
 

@@ -16,8 +16,9 @@ function NewsSection() {
   const arrNews = [{ name: 'Новости' }, { name: 'Акции' }, { name: 'Конкурсы' }];
   return (
     <div className="news-section-wrapper">
-      <Container fluid>
-        {/* <Row className="pt-5 pb-5">
+      <div className="lastNewsOS">
+        <Container fluid>
+          {/* <Row className="pt-5 pb-5">
           <Col className="text-center"></Col>
           <Col className="text-center">
             <div className="liNewsItems">
@@ -33,19 +34,49 @@ function NewsSection() {
           <Col className="text-center"></Col>
         </Row> */}
 
-        <Row>
-          <Col>
-            <div className="textTopNews pb-5">
-              <h2 className="textTopNews text-center mt-5">Последние новости</h2>
-              <hr className="short text-center" />
-            </div>
-          </Col>
-        </Row>
-        <Row>
-          <Col className="pt-5">
-            <div className="cardItem1">
+          <Row>
+            <Col>
+              <div className="textTopNews pb-5">
+                <h2 className="textTopNews text-center mt-5">Последние новости</h2>
+                <hr className="short text-center" />
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col className="pt-5">
+              <div className="cardItem1">
+                <Card
+                  className="cardItem1"
+                  style={{
+                    backgroundColor: '#230329',
+                    border: ' solid 5px white',
+                    borderRadius: '20px 20px 20px 20px',
+                    minWidth: '300px',
+                    height: '763px',
+                  }}>
+                  <Card.Img
+                    style={{ borderRadius: '20px 20px 0 0' }}
+                    height="300px"
+                    variant="top"
+                    src={news1}
+                  />
+                  <Card.Body>
+                    <Card.Title>
+                      <div className="textDownNews text-center bold">Табак</div>
+                    </Card.Title>
+                    <Card.Text>
+                      <div className="textDownNews text-center">
+                        Приходи к нам,чтобы попробовать один из самых дымных кальянов на
+                        Табабке💥💥💥 Куча разных вкусов табака от "Кактуса с ромашкой" до "Секса на
+                        даче"
+                      </div>
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </div>
+            </Col>
+            <Col className="pt-5">
               <Card
-                className="cardItem1"
                 style={{
                   backgroundColor: '#230329',
                   border: ' solid 5px white',
@@ -57,53 +88,53 @@ function NewsSection() {
                   style={{ borderRadius: '20px 20px 0 0' }}
                   height="300px"
                   variant="top"
-                  src={news1}
+                  src={news2}
                 />
                 <Card.Body>
                   <Card.Title>
-                    <div className="textDownNews text-center bold">Табак</div>
+                    <div className="textDownNews text-center bold">Интерьер</div>
                   </Card.Title>
                   <Card.Text>
                     <div className="textDownNews text-center">
-                      Приходи к нам,чтобы попробовать один из самых дымных кальянов на Табабке💥💥💥
-                      Куча разных вкусов табака от "Кактуса с ромашкой" до "Секса на даче"
+                      Небольшая обновочка интерьера.Теперь в нашем заведении стало намного
+                      комфортнее и уютнее!
                     </div>
                   </Card.Text>
                 </Card.Body>
               </Card>
-            </div>
-          </Col>
-          <Col className="pt-5">
-            <Card
-              style={{
-                backgroundColor: '#230329',
-                border: ' solid 5px white',
-                borderRadius: '20px 20px 20px 20px',
-                minWidth: '300px',
-                height: '763px',
-              }}>
-              <Card.Img
-                style={{ borderRadius: '20px 20px 0 0' }}
-                height="300px"
-                variant="top"
-                src={news2}
-              />
-              <Card.Body>
-                <Card.Title>
-                  <div className="textDownNews text-center bold">Интерьер</div>
-                </Card.Title>
-                <Card.Text>
-                  <div className="textDownNews text-center">
-                    Небольшая обновочка интерьера.Теперь в нашем заведении стало намного комфортнее
-                    и уютнее!
-                  </div>
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
+            </Col>
 
-          <Col className="pt-5">
-            <div className="cardItem3">
+            <Col className="pt-5">
+              <div className="cardItem3">
+                <Card
+                  style={{
+                    backgroundColor: '#230329',
+                    border: ' solid 5px white',
+                    borderRadius: '20px 20px 20px 20px',
+                    minWidth: '300px',
+                    height: '763px',
+                  }}>
+                  <Card.Img
+                    style={{ borderRadius: '20px 20px 0 0' }}
+                    height="300px"
+                    variant="top"
+                    src={news3}
+                  />
+                  <Card.Body>
+                    <Card.Title>
+                      <div className="textDownNews text-center bold">Мероприятие</div>
+                    </Card.Title>
+                    <Card.Text>
+                      <div className="textDownNews text-center">
+                        Мы предлагаем вам забронировать наше помещение под любые виды мероприятий.
+                        Отметь праздник с лучшими друзьями в хорошей атмосфере с дымными кальянами!
+                      </div>
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </div>
+            </Col>
+            <Col className="pt-5">
               <Card
                 style={{
                   backgroundColor: '#230329',
@@ -116,52 +147,160 @@ function NewsSection() {
                   style={{ borderRadius: '20px 20px 0 0' }}
                   height="300px"
                   variant="top"
-                  src={news3}
+                  src={news4}
                 />
                 <Card.Body>
                   <Card.Title>
-                    <div className="textDownNews text-center bold">Мероприятие</div>
+                    <div className="textDownNews text-center bold">Караоке</div>
                   </Card.Title>
                   <Card.Text>
                     <div className="textDownNews text-center">
-                      Мы предлагаем вам забронировать наше помещение под любые виды мероприятий.
-                      Отметь праздник с лучшими друзьями в хорошей атмосфере с дымными кальянами!
+                      Теперь в нашей VIP - комнате установлена КАРАОКЕ. Бронируйте ВИПку и
+                      наслаждайтесь отличным звуком и своим исполнением!
                     </div>
                   </Card.Text>
                 </Card.Body>
               </Card>
-            </div>
-          </Col>
-          <Col className="pt-5">
-            <Card
-              style={{
-                backgroundColor: '#230329',
-                border: ' solid 5px white',
-                borderRadius: '20px 20px 20px 20px',
-                minWidth: '300px',
-                height: '763px',
-              }}>
-              <Card.Img
-                style={{ borderRadius: '20px 20px 0 0' }}
-                height="300px"
-                variant="top"
-                src={news4}
-              />
-              <Card.Body>
-                <Card.Title>
-                  <div className="textDownNews text-center bold">Караоке</div>
-                </Card.Title>
-                <Card.Text>
-                  <div className="textDownNews text-center">
-                    Теперь в нашей VIP - комнате установлена КАРАОКЕ. Бронируйте ВИПку и
-                    наслаждайтесь отличным звуком и своим исполнением!
-                  </div>
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
-      </Container>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+
+      <div className="lastNewsMedia">
+        <Container fluid>
+          <Row>
+            <Col>
+              <div className="textTopNews pb-5">
+                <h2 className="textTopNews text-center mt-5">Последние новости</h2>
+                <hr className="short text-center" />
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col className="pt-5">
+              <div className="cardItem1">
+                <Card
+                  className="cardItem1"
+                  style={{
+                    backgroundColor: '#230329',
+                    border: ' solid 5px white',
+                    borderRadius: '20px 20px 20px 20px',
+                    minWidth: '300px',
+                    height: '763px',
+                  }}>
+                  <Card.Img
+                    style={{ borderRadius: '20px 20px 0 0' }}
+                    height="300px"
+                    variant="top"
+                    src={news1}
+                  />
+                  <Card.Body>
+                    <Card.Title>
+                      <div className="textDownNews text-center bold">Табак</div>
+                    </Card.Title>
+                    <Card.Text>
+                      <div className="textDownNews text-center">
+                        Приходи к нам,чтобы попробовать один из самых дымных кальянов на
+                        Табабке💥💥💥 Куча разных вкусов табака от "Кактуса с ромашкой" до "Секса на
+                        даче"
+                      </div>
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </div>
+            </Col>
+            <Col className="pt-5">
+              <Card
+                style={{
+                  backgroundColor: '#230329',
+                  border: ' solid 5px white',
+                  borderRadius: '20px 20px 20px 20px',
+                  minWidth: '300px',
+                  height: '763px',
+                }}>
+                <Card.Img
+                  style={{ borderRadius: '20px 20px 0 0' }}
+                  height="300px"
+                  variant="top"
+                  src={news2}
+                />
+                <Card.Body>
+                  <Card.Title>
+                    <div className="textDownNews text-center bold">Интерьер</div>
+                  </Card.Title>
+                  <Card.Text>
+                    <div className="textDownNews text-center">
+                      Небольшая обновочка интерьера.Теперь в нашем заведении стало намного
+                      комфортнее и уютнее!
+                    </div>
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+          <Row>
+            <Col className="pt-5">
+              <div className="cardItem3">
+                <Card
+                  style={{
+                    backgroundColor: '#230329',
+                    border: ' solid 5px white',
+                    borderRadius: '20px 20px 20px 20px',
+                    minWidth: '300px',
+                    height: '763px',
+                  }}>
+                  <Card.Img
+                    style={{ borderRadius: '20px 20px 0 0' }}
+                    height="300px"
+                    variant="top"
+                    src={news3}
+                  />
+                  <Card.Body>
+                    <Card.Title>
+                      <div className="textDownNews text-center bold">Мероприятие</div>
+                    </Card.Title>
+                    <Card.Text>
+                      <div className="textDownNews text-center">
+                        Мы предлагаем вам забронировать наше помещение под любые виды мероприятий.
+                        Отметь праздник с лучшими друзьями в хорошей атмосфере с дымными кальянами!
+                      </div>
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </div>
+            </Col>
+            <Col className="pt-5">
+              <Card
+                style={{
+                  backgroundColor: '#230329',
+                  border: ' solid 5px white',
+                  borderRadius: '20px 20px 20px 20px',
+                  minWidth: '300px',
+                  height: '763px',
+                }}>
+                <Card.Img
+                  style={{ borderRadius: '20px 20px 0 0' }}
+                  height="300px"
+                  variant="top"
+                  src={news4}
+                />
+                <Card.Body>
+                  <Card.Title>
+                    <div className="textDownNews text-center bold">Караоке</div>
+                  </Card.Title>
+                  <Card.Text>
+                    <div className="textDownNews text-center">
+                      Теперь в нашей VIP - комнате установлена КАРАОКЕ. Бронируйте ВИПку и
+                      наслаждайтесь отличным звуком и своим исполнением!
+                    </div>
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+
       <Container>
         <Row>
           <Col>

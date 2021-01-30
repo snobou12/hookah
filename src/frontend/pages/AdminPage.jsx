@@ -64,23 +64,20 @@ function AdminPage() {
     setPassword(event.target.value);
   };
 
-  const sendClick = () => {
+ const sendClick = () => {
     let fullInputs = login + ':' + password;
     let token = btoa(fullInputs);
     let info = JSON.stringify({
       login,
       password,
     });
-    // dispatch(postAuthInfo(info, token));
-
-    // localStorage.setItem('token', trueToken);
-    //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token', 'Access-Control-Allow-Methods': 'HEAD, GET, POST, PUT, PATCH, DELETE', 'Access-Control-Allow-Origin':'*'
     axios
-      .post('http://45.67.59.183:8081/api/login', info, {
+      .post('https://cosanostra-ls.herokuapp.com/api/login', info, {
         headers: { Authorization: `Basic ${token}`, 'Content-Type': 'application/json' },
       })
       .then((response) => {
         localStorage.setItem('token', response.data);
+        window.location.reload();
       })
       .catch((error) => {});
   };
@@ -100,7 +97,7 @@ function AdminPage() {
       });
       let tokenFromLocal = localStorage.getItem('token');
       axios
-        .post('http://45.67.59.183:8080/api/login/check', info, {
+        .post('https://cosanostra-ls.herokuapp.com/api/login/check', info, {
           headers: { Authorization: `Basic ${tokenCheck}`, 'Content-Type': 'application/json' },
         })
         .then((response) => {
@@ -131,6 +128,7 @@ function AdminPage() {
         <div className="btxt text-center">
           <CssTextField
             required
+            type="password"
             label="Password"
             id="r1223s"
             value={password}
@@ -150,28 +148,30 @@ function AdminPage() {
             <div className="text-center">
               <h1 className="topTextInfo">Данные по клиентам</h1>
             </div>
-            <Table striped bordered hover size="sm">
-              <thead>
-                <tr className="tHeader">
-                  <th width="1%">id</th>
-                  <th width="8%">Имя</th>
-                  <th width="5%">Телефон</th>
-                  <th width="5%">Дата</th>
-                  <th width="4%">Время</th>
-                  <th width="3%">Кол.чел</th>
-                  <th width="20%">Комментарий</th>
-                  <th width="27%">Редактировать</th>
-                  <th width="27%">Удалить</th>
-                </tr>
-              </thead>
-              <tbody className="tContent">
-                {itemsTable.length != 0 ? (
-                  itemsTable.map((obj) => <TrBlockTables key={obj.id} {...obj} />)
-                ) : (
-                  <> </>
-                )}
-              </tbody>
-            </Table>
+            <div className="adminTable">
+                <Table striped bordered hover size="sm">
+                  <thead>
+                    <tr className="tHeader">
+                      <th width="1%">id</th>
+                      <th width="8%">Имя</th>
+                      <th width="5%">Телефон</th>
+                      <th width="5%">Дата</th>
+                      <th width="4%">Время</th>
+                      <th width="3%">Кол.чел</th>
+                      <th width="20%">Комментарий</th>
+                      <th width="27%">Редактировать</th>
+                      <th width="27%">Удалить</th>
+                    </tr>
+                  </thead>
+                  <tbody className="tContent">
+                    {itemsTable.length != 0 ? (
+                      itemsTable.map((obj) => <TrBlockTables key={obj.id} {...obj} />)
+                    ) : (
+                      <> </>
+                    )}
+                  </tbody>
+                </Table>
+            </div>    
             {itemsTable.length === 0 ? (
               <div className="text-center bold">Пока никого нет</div>
             ) : (
@@ -185,27 +185,28 @@ function AdminPage() {
             <div className="text-center">
               <h1 className="topTextInfo">Данные по мероприятиям</h1>
             </div>
-
-            <Table striped bordered hover size="sm">
-              <thead>
-                <tr className="tHeader">
-                  <th width="1%">id</th>
-                  <th width="15%">Имя</th>
-                  <th width="15%">Телефон</th>
-                  <th width="21%">Емейл</th>
-                  <th width="28%">Комментарий</th>
-                  <th width="10%">Редактировать</th>
-                  <th width="10%">Удалить</th>
-                </tr>
-              </thead>
-              <tbody className="tContent">
-                {itemsEvents.length != 0 ? (
-                  itemsEvents.map((obj) => <TrBlockEvents key={obj.id} {...obj} />)
-                ) : (
-                  <> </>
-                )}
-              </tbody>
-            </Table>
+            <div className="adminTable">
+                <Table striped bordered hover size="sm">
+                  <thead>
+                    <tr className="tHeader">
+                      <th width="1%">id</th>
+                      <th width="15%">Имя</th>
+                      <th width="15%">Телефон</th>
+                      <th width="21%">Емейл</th>
+                      <th width="28%">Комментарий</th>
+                      <th width="10%">Редактировать</th>
+                      <th width="10%">Удалить</th>
+                    </tr>
+                  </thead>
+                  <tbody className="tContent">
+                    {itemsEvents.length != 0 ? (
+                      itemsEvents.map((obj) => <TrBlockEvents key={obj.id} {...obj} />)
+                    ) : (
+                      <> </>
+                    )}
+                  </tbody>
+                </Table>
+            </div>
             {itemsEvents.length === 0 ? (
               <div className="text-center bold">Пока никого нет</div>
             ) : (
@@ -219,25 +220,27 @@ function AdminPage() {
             <div className="text-center">
               <h1 className="topTextInfo">Данные по конкурсу</h1>
             </div>
-            <Table striped bordered hover size="sm">
-              <thead>
-                <tr className="tHeader">
-                  <th width="4%">id</th>
-                  <th width="20%">Имя</th>
-                  <th width="20%">Телефон</th>
-                  <th width="26%">Очки</th>
-                  <th width="15%">Редактировать</th>
-                  <th width="15%">Удалить</th>
-                </tr>
-              </thead>
-              <tbody className="tContent">
-                {itemsComp.length != 0 ? (
-                  itemsComp.map((obj) => <TrBlockComp key={obj.id} {...obj} />)
-                ) : (
-                  <> </>
-                )}
-              </tbody>
-            </Table>
+            <div className="adminTable">
+                <Table striped bordered hover size="sm">
+                  <thead>
+                    <tr className="tHeader">
+                      <th width="4%">id</th>
+                      <th width="20%">Имя</th>
+                      <th width="20%">Телефон</th>
+                      <th width="26%">Очки</th>
+                      <th width="15%">Редактировать</th>
+                      <th width="15%">Удалить</th>
+                    </tr>
+                  </thead>
+                  <tbody className="tContent">
+                    {itemsComp.length != 0 ? (
+                      itemsComp.map((obj) => <TrBlockComp key={obj.id} {...obj} />)
+                    ) : (
+                      <> </>
+                    )}
+                  </tbody>
+                </Table>
+            </div>
             {itemsComp.length === 0 ? (
               <div className="text-center bold">Пока никого нет</div>
             ) : (

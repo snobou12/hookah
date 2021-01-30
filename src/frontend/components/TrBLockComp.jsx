@@ -77,7 +77,7 @@ function TrBLockComp({ id, name, phone, points }) {
   const delIdItem = (ids) => {
     let tokenFromLocalStorage = localStorage.getItem('token');
     dispatch(deleteIdCompItems(ids, tokenFromLocalStorage));
-    window.location.reload();
+    
   };
 
   const editIdItem = (ids) => {
@@ -88,7 +88,7 @@ function TrBLockComp({ id, name, phone, points }) {
     });
     let tokenFromLocalStorage = localStorage.getItem('token');
     dispatch(editorIdCompItems(ids, info, tokenFromLocalStorage));
-    window.location.reload();
+   
   };
   return (
     <>
