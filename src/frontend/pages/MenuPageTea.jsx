@@ -21,9 +21,10 @@ function MenuPageTea() {
   return (
     <div className="wrapperMenuPage">
       <Container className="pt-5 ">
-        <Row className="pt-5 pb-4">
+        <Row className="pt-5 pb-5">
           <Col className="text-center">
-            <div className="topTextMenu">Чай</div>
+            <h2 className="textTopAbout text-center ">Чай</h2>
+            <hr className="short text-center" />
           </Col>
         </Row>
 

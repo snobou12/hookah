@@ -16,7 +16,7 @@ import {
 import { Footer, Header, YandexMap } from '../';
 
 import '../../css/App.css';
-import ScrollToTop from '../ScrollToTop';
+import CallSubject from '../CallSubject';
 import BurgerMenu from '../BurgerMenu';
 
 function App() {
@@ -79,7 +79,7 @@ function App() {
         <YandexMap />
 
         <Footer clickSmooth={smoothToUp} />
-        <ScrollToTop />
+        <CallSubject />
       </div>
     </div>
   );

@@ -22,9 +22,10 @@ function MenuPage() {
   return (
     <div className="wrapperMenuPage">
       <Container className="pt-5 ">
-        <Row className="pt-5 pb-4">
+        <Row className="pt-5 pb-5">
           <Col className="text-center">
-            <div className="topTextMenu">Табак</div>
+            <h2 className="textTopAbout text-center ">Табак</h2>
+            <hr className="short text-center" />
           </Col>
         </Row>
 

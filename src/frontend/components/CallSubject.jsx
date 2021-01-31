@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { FaArrowAltCircleUp } from 'react-icons/fa';
-import '../css/ScrollToTop.css';
+import { FiPhoneCall } from 'react-icons/fi';
+import '../css/CallSubject.css';
 
-export default class ScrollToTop extends Component {
+export default class CallSubject extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -29,20 +29,16 @@ export default class ScrollToTop extends Component {
     }
   }
 
-  scrollToTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  }
-
   render() {
     const { is_visible } = this.state;
     return (
       <div className="scroll-to-top">
         {is_visible && (
-          <div onClick={() => this.scrollToTop()}>
-            <FaArrowAltCircleUp className="text-light" style={{ height: '60px', width: '60px' }} />
+          <div>
+            <a href="tel:+79119266010">
+              {' '}
+              <FiPhoneCall className="text-light" style={{ height: '50px', width: '50px' }} />{' '}
+            </a>
           </div>
         )}
       </div>
