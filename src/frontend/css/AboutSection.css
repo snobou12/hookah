@@ -7,9 +7,35 @@
   background-image: url(../../assets/image/dark-leather.png);
   background-repeat: no-repeat;
 }
+
+.btnMyAbout {
+  width: 350px;
+  display: inline-block;
+  text-decoration: none;
+  color: #ffffff;
+  background: transparent;
+  font-size: 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 16px 35px;
+
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: all 200ms ease-out;
+  -moz-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
+  transition: all 200ms ease-out;
+  border: 1px solid #ffffff;
+}
+.btnMyAbout:hover {
+  background: #ffffff;
+  color: #090000;
+  border-color: #ffffff;
+}
 .textTopAbout {
   color: white;
-  font-family: 'Lobster';
+  font-family: 'Rubik', sans-serif;
   font-weight: 500;
   letter-spacing: 1px;
   font-size: 50px;
@@ -26,16 +52,7 @@
   font-size: 23px;
   color: #ffffff;
 }
-.aboutSectionImg {
-  border-radius: 50px;
-}
 
-.pdTextAbout {
-  padding-top: 14%;
-}
-.element {
-  margin-bottom: 30px;
-}
 hr.short {
   width: 3%;
 
@@ -45,8 +62,9 @@ hr.short {
   left: 48.8%;
 }
 
-.pdImage3 {
-  padding-top: 200px;
+.mainImgAboutSection {
+  width: 500px;
+  border-radius: 50px;
 }
 
 .fullSecondContainer {
@@ -57,8 +75,8 @@ hr.short {
   .textDownAbout {
     font-size: 18px;
   }
-  .element img {
-    width: 250px;
+  .mainImgAboutSection {
+    width: 400px;
   }
 }
 
@@ -66,8 +84,8 @@ hr.short {
   .textDownAbout {
     font-size: 15px;
   }
-  .element img {
-    width: 200px;
+  .mainImgAboutSection {
+    width: 350px;
   }
 }
 
@@ -75,9 +93,7 @@ hr.short {
   .textDownAbout {
     font-size: 12px;
   }
-  .element img {
-    width: 150px;
-  }
+
   .pdImage3 {
     padding-top: 150px;
   }
@@ -86,14 +102,16 @@ hr.short {
   .textDownAbout {
     font-size: 13px;
   }
-  .element img {
-    width: 130px;
+  .mainImgAboutSection {
+    width: 300px;
   }
-  .pdImage3 {
-    padding-top: 150px;
-  }
+
   .about-section-wrapper {
     min-height: 80vh;
+  }
+  .btnMyAbout {
+    width: 240px;
+    font-size: 12px;
   }
 }
 
@@ -101,23 +119,18 @@ hr.short {
   .textDownAbout {
     font-size: 10px;
   }
-  .element img {
-    width: 130px;
-  }
-  .pdImage3 {
-    padding-top: 150px;
-  }
 }
 
 @media (max-width: 650px) {
   .textDownAbout {
     font-size: 8px;
   }
-  .element img {
-    width: 110px;
+  .mainImgAboutSection {
+    width: 250px;
   }
-  .pdImage3 {
-    padding-top: 150px;
+  .btnMyAbout {
+    width: 200px;
+    font-size: 8px;
   }
 }
 
@@ -125,20 +138,8 @@ hr.short {
   .textDownAbout {
     font-size: 15px;
   }
-  .element img {
-    width: 200px;
-  }
-  .pdImage3 {
-    padding-top: 150px;
-  }
-}
-
-@media (max-width: 444px) {
-  .fullFirstContainer {
-    display: none;
-  }
-  .fullSecondContainer {
-    display: block;
+  .mainImgAboutSection {
+    width: 300px;
   }
 }
 

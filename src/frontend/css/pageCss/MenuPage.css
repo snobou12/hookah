@@ -6,13 +6,13 @@
 .topTextMenu {
   color: white;
   font-size: 40px;
-  font-family: 'Playfair Display SC', serif;
+  font-family: 'Rubik', sans-serif;
 }
 
 .liMenuItems a {
   color: white;
   text-decoration: none;
-  font-family: 'Lobster';
+  font-family: 'Rubik', sans-serif;
 }
 .liMenuItems li {
   list-style-type: none;

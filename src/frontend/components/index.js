@@ -9,7 +9,7 @@ export { default as TableModal } from './TableModal';
 export { default as NewsSection } from './NewsSection';
 export { default as TrBlockTables } from './TrBlockTables';
 export { default as TrBlockEvents } from './TrBlockEvents';
-export { default as ScrollToTop } from './ScrollToTop';
+export { default as CallSubject } from './CallSubject';
 export { default as EventSection } from './EventSection';
 export { default as EventRequestSection } from './EventRequestSection';
 export { default as TopImg } from './TopImg';

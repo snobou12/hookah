@@ -1,0 +1,27 @@
+.scroll-to-top {
+  position: fixed;
+  bottom: 5rem;
+  right: 10%;
+  animation: fadeIn 700ms ease-in-out 1s both;
+  cursor: pointer;
+}
+
+.imgCallSubj {
+  width: 100px;
+  height: 100px;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 700px) {
+  .imgCallSubj {
+    width: 70px;
+    height: 70px;
+  }
+}
