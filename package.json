@@ -15,7 +15,7 @@
     "classnames": "^2.2.6",
     "google-map-react": "^2.1.9",
     "google-maps-react": "^2.0.6",
-    "inputmask": "^5.0.5",
+    "inputmask": "^5.0.6",
     "jquery": "^3.5.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
